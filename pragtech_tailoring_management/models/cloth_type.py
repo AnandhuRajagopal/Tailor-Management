@@ -1,10 +1,11 @@
-from odoo import models, fields, api
+from odoo import models, fields, api , _
 
 
-class clothtype(models.Model):
-    _name = 'tailoring.cloth'
-    _description = 'tailoring_cloth'
+class ClothType(models.Model):
+    _name = 'tailoring.cloth_type'
+    _description = 'tailoring_cloth_type'
 
-    name = fields.Char()
-    # fabric = fields.Many2one()
-    # measurement = fields.One2many()
+    name = fields.Char(string = 'Cloth Name',required=True)
+    # fabric_id = fields.Many2one('',string = 'Fabric')
+    # measurement_ids = fields.One2many('', '',string = 'Measurement')
+

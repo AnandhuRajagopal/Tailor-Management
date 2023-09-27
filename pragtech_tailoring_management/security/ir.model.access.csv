@@ -1,3 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 
 access_tailoring_wizard,tailoring.wizard,model_tailoring_wizard,,1,1,1,1
+access_cloth_type,tailoring.cloth_type,model_tailoring_cloth_type,,1,1,1,1
+

@@ -29,6 +29,8 @@
         'views/templates.xml',
         'views/menu.xml',
         'wizard/assigning_tailor_wizard.xml',
+        'views/view_cloth_type.xml',
+
     ],
     # only loaded in demonstration mode
     'demo': [
