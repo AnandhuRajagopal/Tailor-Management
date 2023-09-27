@@ -3,9 +3,9 @@
 # from odoo import models, fields, api
 
 
-# class tailor_management(models.Model):
-#     _name = 'tailor_management.tailor_management'
-#     _description = 'tailor_management.tailor_management'
+# class pragtech_tailoring_management(models.Model):
+#     _name = 'pragtech_tailoring_management.pragtech_tailoring_management'
+#     _description = 'pragtech_tailoring_management.pragtech_tailoring_management'
 
 #     name = fields.Char()
 #     value = fields.Integer()
