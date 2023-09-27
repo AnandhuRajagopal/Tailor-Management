@@ -25,9 +25,12 @@
     # always loaded
     'data': [
         'security/ir.model.access.csv',
+        'views/views.xml',
+        'views/templates.xml',
+        'views/menu.xml',
+        'wizard/assigning_tailor_wizard.xml',
         'views/view_cloth_type.xml',
         'views/view_measurement.xml',
-        
     ],
     # only loaded in demonstration mode
     'demo': [
