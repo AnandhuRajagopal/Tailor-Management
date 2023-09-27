@@ -24,11 +24,14 @@
 
     # always loaded
     'data': [
+
         # 'security/ir.model.access.csv',
         'views/views.xml',
         'views/templates.xml',
         'views/fabrics.xml',
 
+        'security/ir.model.access.csv',
+        'views/view_cloth_type.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
