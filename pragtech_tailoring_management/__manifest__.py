@@ -26,6 +26,8 @@
     'data': [
         'security/ir.model.access.csv',
         'views/view_cloth_type.xml',
+        'views/view_measurement.xml',
+        
     ],
     # only loaded in demonstration mode
     'demo': [
