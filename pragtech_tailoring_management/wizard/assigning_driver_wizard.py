@@ -24,14 +24,17 @@ class assigningDriverWizard(models.TransientModel):
         sale_order = self.env['sale.order'].browse(self._context.get('active_id'))
         re = self.env['tailoring.driver'].browse([active_id])
         if re or (sale_order and sale_order.state != 'pickup'):
-            res = self.env['tailoring.driver'].create({'name':self.driver_id.name,'customer_name':self.customer_id.name,'date':self.date})
+            res = self.env['tailoring.driver'].create({
+                'name':self.driver_id.name,
+                'customer_name':self.customer_id.name,
+                'product' : sale_order.name,
+                'date':self.date,
+                })
+            
             sale_order.write({
                 'state' : 'pickup'
             })    
-        # active_id = self.env.context.get("active_id")
-        # re = self.env['tailoring.driver'].browse([active_id])
-        # if re:
-        #     res = self.env['tailoring.driver'].create()
+  
     
 
 

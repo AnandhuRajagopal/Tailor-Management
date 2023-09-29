@@ -15,7 +15,7 @@ class SaleOrder(models.Model):
     _inherit = "sale.order"
     _rec_name = 'partner_id'
 
-    state = fields.Selection(selection_add=[('pickup', 'PICKUP'), ('material collected', 'MATERIAL COLLECTED'),('tailor assigned','TAILOR ASSIGNED'),('deliver','DELIVER'),('finished','FINISHED')]) 
+    state = fields.Selection(selection_add=[('pickup', 'PICKUP'), ('material collected', 'MATERIAL COLLECTED'),('tailor assigned','TAILOR ASSIGNED'),('ready to deliver','READY TO DELIVER'),('finished','FINISHED')]) 
 
 
 

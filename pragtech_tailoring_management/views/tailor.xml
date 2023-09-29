@@ -23,11 +23,16 @@
             <field name="model">tailoring.tailor</field>
             <field name="arch" type="xml">
                 <form string="tailor">
+                    <header>
+                        <field name="state" widget="statusbar" statusbar_visible="pending,in progress,finished"/>
+                    </header>
                     <sheet>
                         <group>
                             <group>
-                                <field name="product"/>
+                                <field name="product"/> 
                                 <field name="name"/>
+                                <button name="start" type="object" string="START" class="btn-primary" attrs= "{'invisible' :['|',('state','=','in progress'),('state','=','finished')] }"/> 
+                                <button name="finish" type="object" string="FINISH" class="btn-success" attrs= "{'invisible' :[('state','==','finished')] }"/> 
                             </group>
                         </group>
                     </sheet>
