@@ -10,6 +10,4 @@ class ClothType(models.Model):
     name = fields.Char(string = 'Cloth Name',required=True)
     # fabric_id = fields.Many2one('',string = 'Fabric')
     # measurement_ids = fields.One2many('', '',string = 'Measurement')
-    fabric_id = fields.Char()
-    measurement_ids = fields.Char()
 

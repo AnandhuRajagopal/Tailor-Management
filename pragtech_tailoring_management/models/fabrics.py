@@ -6,3 +6,5 @@ class TailoringFabric (models.Model):
     _description = "tailoring.fabric"
 
     name = fields.Char('Name of Fabric')
+
+    

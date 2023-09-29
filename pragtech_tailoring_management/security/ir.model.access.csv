@@ -2,3 +2,7 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_cloth_type,tailoring.cloth_type,model_tailoring_cloth_type,,1,1,1,1
 access_measurement,tailoring.measurement,model_tailoring_measurement,,1,1,1,1
 access_sale_order_line,tailoring.sale_order_line,model_sale_order_line,,1,1,1,1
+access_tailoring_driver,tailoring.driver,model_tailoring_driver,,1,1,1,1
+access_driver_wizard,driver.wizard,model_driver_wizard,,1,1,1,1
+
+

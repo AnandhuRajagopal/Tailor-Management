@@ -14,7 +14,7 @@
             <field name="arch" type="xml">
                 <xpath expr="//header" position="inside">
                     <button name="measurement" type="object" string="Measurement" />
-                    <button name="assign_driver" type="object" string="Assign Driver" />
+                    <button name="%(action_view_driver_wizard_form)d" type="action" string="Pickup" />
                     <button name="assign_tailor" type="object" string="Assign Tailor" />
                 </xpath>
                 <xpath expr="/form/sheet/notebook/page/field[@name='order_line']/tree/field[@name='product_template_id']" position="after">
@@ -22,8 +22,5 @@
                 </xpath>
             </field>
         </record>
-
-
-
     </data>
 </odoo>

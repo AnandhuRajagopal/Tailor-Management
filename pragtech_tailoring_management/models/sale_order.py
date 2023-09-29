@@ -4,7 +4,7 @@ from odoo import models,fields,api,_
 
 class SaleOrder(models.Model):
     _inherit = 'sale.order.line'
-
+    
     
     cloth_type_id = fields.Many2one('tailoring.cloth_type')
     
@@ -12,6 +12,7 @@ class SaleOrder(models.Model):
 
 class SaleOrder(models.Model):
     _inherit = "sale.order"
+    _rec_name = 'partner_id'
 
     def measurement(self):
         print("measurement")

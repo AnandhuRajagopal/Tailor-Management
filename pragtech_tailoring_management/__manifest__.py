@@ -20,30 +20,24 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-<<<<<<< HEAD
     'depends': ['base','product','sale','website_sale','website'],
-=======
-    'depends': ['base','sale'],
->>>>>>> 83aa44ec8c97c15bc442f3246c5460596f122c65
+
 
     # always loaded
     'data': [
 
         'security/ir.model.access.csv',
+        'wizard/assigning_driver_wizard.xml',
         'views/fabrics.xml',
         'security/ir.model.access.csv',
         'views/view_cloth_type.xml',
         'views/sequence_measurment.xml',
+        'views/driver_view.xml',
         'views/view_measurement.xml',
         'views/sale_order.xml',
         'wizard/assigning_tailor_wizard.xml',
-        'views/menu.xml',
-<<<<<<< HEAD
         'views/product_page_inherit.xml',
-=======
-
-
->>>>>>> 83aa44ec8c97c15bc442f3246c5460596f122c65
+        'views/menu.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
