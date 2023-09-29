@@ -88,7 +88,6 @@
                 </search>
             </field>
         </record>
-        <menuitem id="pragmatic_tailoring_cloth_type_menu_" name="Cloth Type" parent="pragmatic_tailoring_menu_root" sequence="1" />
     </data>
 
 </odoo>
