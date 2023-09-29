@@ -2,7 +2,7 @@
     <data>
 
         <record id="sale.action_orders" model="ir.actions.act_window">
-            <field name="name">Sale Orders</field>
+            <field name="name">Orders</field>
             <field name="res_model">sale.order</field>
             <field name="view_mode">tree,form</field>
         </record>

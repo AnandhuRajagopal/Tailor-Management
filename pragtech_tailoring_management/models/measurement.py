@@ -1,7 +1,6 @@
 from odoo import models, fields, api
 
 
-
 class Measurments(models.Model):
     _name = "tailoring.measurement"
     _description = "tailoring.measurement"

@@ -2,7 +2,7 @@
     <data>
 
         <record id="tailor_action" model="ir.actions.act_window">
-            <field name="name">tailor.action</field>
+            <field name="name">Tailors</field>
             <field name="res_model">tailoring.tailor</field>
             <field name="view_mode">tree,form</field>
         </record>

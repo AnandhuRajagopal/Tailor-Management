@@ -35,7 +35,7 @@
 
         <!-- ************************************* action ******************************************** -->
         <record id='cloth_action' model='ir.actions.act_window'>
-            <field name="name">Cloth</field>
+            <field name="name">Cloths</field>
             <field name="res_model">tailoring.cloth_type</field>
             <field name="view_mode">tree,form,kanban</field>
             <field name="help" type="html">
