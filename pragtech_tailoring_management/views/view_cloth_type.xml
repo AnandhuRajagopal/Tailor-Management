@@ -7,8 +7,8 @@
             <field name='arch' type='xml'>
                 <kanban class="o_rse_partner_kanban">
                     <field name='name'/>
-                    <field name='fabric_id'/>
-                    <field name='measurement_ids'/>
+                    <!-- <field name='fabric_id'/> -->
+                    <!-- <field name='measurement_ids'/> -->
                     <templates>
                         <t t-name="kanban-box">
                             <div t-attf-class="oe_kanban_global_click">
@@ -57,7 +57,6 @@
                 </tree>
             </field>
         </record>
-
         <!-- ************************************* form view ******************************************** -->
         <record id='cloth_form' model='ir.ui.view'>
             <field name='name'>cloth.form</field>
@@ -68,14 +67,15 @@
                         <group>
                             <group>
                                 <field name='name'/>
-                                <field name='fabric_id'/>
-                                <field name='measurement_ids'/>
+                                <!-- <field name='fabric_id'/>
+                                <field name='measurement_ids'/> -->
                             </group>
                         </group>
                     </sheet>
                 </form>
             </field>
         </record>
+
 
         <!-- ************************************* search view ******************************************** -->
         <record id="cloth_search" model="ir.ui.view">
@@ -90,4 +90,5 @@
         </record>
         <menuitem id="pragmatic_tailoring_cloth_type_menu_" name="Cloth Type" parent="pragmatic_tailoring_menu_root" sequence="1" />
     </data>
+
 </odoo>

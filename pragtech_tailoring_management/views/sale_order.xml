@@ -1,0 +1,29 @@
+<odoo>
+    <data>
+
+        <record id="sale.action_orders" model="ir.actions.act_window">
+            <field name="name">Sale Orders</field>
+            <field name="res_model">sale.order</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="view_sale_order_form_inherit" model="ir.ui.view">
+            <field name="name">sale.order.form.inherit</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//header" position="inside">
+                    <button name="measurement" type="object" string="Measurement" />
+                    <button name="assign_driver" type="object" string="Assign Driver" />
+                    <button name="assign_tailor" type="object" string="Assign Tailor" />
+                </xpath>
+                <xpath expr="/form/sheet/notebook/page/field[@name='order_line']/tree/field[@name='product_template_id']" position="after">
+                    <field name="cloth_type_id"/>
+                </xpath>
+            </field>
+        </record>
+
+
+
+    </data>
+</odoo>
