@@ -30,14 +30,16 @@
         'security/ir.model.access.csv',
         'views/menu.xml',
         'views/fabrics.xml',
-        'security/ir.model.access.csv',
         'views/view_cloth_type.xml',
         'views/sequence_measurment.xml',
         'views/view_measurement.xml',
+        'views/fabrics.xml',
         'views/sale_order.xml',
-        'wizard/assigning_tailor_wizard.xml',
+        'views/tailor.xml',
         'views/product_page_inherit.xml',
         'views/view_customer_measurement.xml',
+        'wizard/assigning_tailor_wizard.xml',
+
     ],
     # only loaded in demonstration mode
     'demo': [
