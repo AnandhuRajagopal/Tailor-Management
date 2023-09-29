@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 from odoo import models, fields, api , _
 
 
@@ -10,3 +8,4 @@ class ClothType(models.Model):
     name = fields.Char(string = 'Cloth Name',required=True)
     # fabric_id = fields.Many2one('',string = 'Fabric')
     # measurement_ids = fields.One2many('', '',string = 'Measurement')
+
