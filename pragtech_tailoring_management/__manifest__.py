@@ -26,8 +26,8 @@
     'data': [
 
         # 'security/ir.model.access.csv',
-        'views/views.xml',
-        'views/templates.xml',
+        # 'views/views.xml',
+        # 'views/templates.xml',
         'views/fabrics.xml',
         'security/ir.model.access.csv',
         'wizard/assigning_tailor_wizard.xml',
