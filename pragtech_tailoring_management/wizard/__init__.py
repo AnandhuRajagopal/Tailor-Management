@@ -1,3 +1,3 @@
 # -*- coding: utf-8 -*-
 
-from . import assigning_tailor_wizard
+from . import assigning_tailor_wizard,assigning_driver_wizard

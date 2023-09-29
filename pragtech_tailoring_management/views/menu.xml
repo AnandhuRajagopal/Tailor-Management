@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <menuitem id="pragtech_tailoring_menu_root" name="Tailoring Management" sequence="1" />
+        <menuitem id="pragtech_tailoring_menu_root"
+        name="Tailoring Management"
+        sequence="1" />
 
         <menuitem
         id="sale_order_inherit_menu"
@@ -44,6 +46,7 @@
             parent="pragtech_tailoring_management.configuration_menu_root"
             sequence="2"/>
 
+
         <menuitem
             id="fabrics_menu"
             name="Fabrics"
@@ -51,12 +54,20 @@
             parent="pragtech_tailoring_management.configuration_menu_root"
             sequence="3"/>
 
+        
+        <menuitem
+            id="driver_menu"
+            name="driver"
+            action="pragtech_tailoring_management.tailor_driver_action"
+            parent="pragtech_tailoring_management.configuration_menu_root"
+            sequence="1"/>
+    
+
+
+
 
     
  
             
-
-      
-
     </data>
 </odoo>
