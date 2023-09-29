@@ -36,6 +36,13 @@
             action="pragtech_tailoring_management.fabrics_action"
             parent="pragtech_tailoring_management.configuration_menu_root"
             sequence="3"/>
+
+        <menuitem
+            id="customer_measurement_menu"
+            name="Customer Measurement"
+            action="tailor_customer_measurment_action"
+            parent="pragtech_tailoring_management.pragtech_tailoring_menu_root"
+            sequence="3"/>
             
 
       

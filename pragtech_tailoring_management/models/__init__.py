@@ -6,4 +6,6 @@ from . import cloth_type
 from . import measurement
 from . import product_page_inherit
 from . import sale_order
+from . import customer_measurement
+
 
