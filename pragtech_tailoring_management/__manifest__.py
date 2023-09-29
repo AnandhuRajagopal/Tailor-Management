@@ -28,7 +28,6 @@
     'data': [
 
         'security/ir.model.access.csv',
-        'views/menu.xml',
         'views/fabrics.xml',
         'views/view_cloth_type.xml',
         'views/sequence_measurment.xml',
@@ -36,9 +35,11 @@
         'views/fabrics.xml',
         'views/sale_order.xml',
         'views/tailor.xml',
-        'wizard/assigning_tailor_wizard.xml',
         'views/product_page_inherit.xml',
         'views/view_customer_measurement.xml',
+        'wizard/assigning_tailor_wizard.xml',
+        'views/menu.xml',
+
     ],
     # only loaded in demonstration mode
     'demo': [
