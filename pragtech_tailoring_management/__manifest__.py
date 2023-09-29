@@ -24,8 +24,12 @@
 
     # always loaded
     'data': [
+
+        'security/ir.model.access.csv',
+        'views/fabrics.xml',
         'security/ir.model.access.csv',
         'views/view_cloth_type.xml',
+        'views/sequence_measurment.xml',
         'views/view_measurement.xml',
         'views/sale_order.xml',
         'wizard/assigning_tailor_wizard.xml',

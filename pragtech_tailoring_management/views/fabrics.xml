@@ -1,0 +1,53 @@
+<odoo>
+    <data>
+
+        <record id="fabrics_action" model="ir.actions.act_window">
+            <field name="name">fabrics.action</field>
+            <field name="res_model">tailoring.fabric</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="fabric_tree_view" model="ir.ui.view">
+            <field name="name">Fabric Tree Viem</field>
+            <field name="model">tailoring.fabric</field>
+            <field name="arch" type="xml">
+                <tree string="Fabrics">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="fabric_form_view" model="ir.ui.view">
+            <field name="name">Fabric Form View</field>
+            <field name="model">tailoring.fabric</field>
+            <field name="arch" type="xml">
+                <form string="Fabrics">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="fabric_search_view" model="ir.ui.view">
+            <field name="name">Fabric Search View</field>
+            <field name="model">tailoring.fabric</field>
+            <field name="arch" type="xml">
+                <search string="Fabrics">
+                    <field name="name"/>
+<!--                    <filter string="filter by mail" domain="[('email', '=', 'maiil')]" name="my_email_filter"/>-->
+<!--                    <group expand="0" string="Group By">-->
+<!--                        <filter string="DOB" name="group_by_DOB" domain="[]" context="{'group_by': 'date_of_birth'}"/>-->
+<!--                        <filter string="Age" name="group_by_age" domain="[]" context="{'group_by': 'age'}"/>-->
+<!--                    </group>-->
+                </search>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

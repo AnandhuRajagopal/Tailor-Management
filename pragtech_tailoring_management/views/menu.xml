@@ -29,6 +29,13 @@
             action="pragtech_tailoring_management.tailor_measurment_action"
             parent="pragtech_tailoring_management.configuration_menu_root"
             sequence="2"/>
+
+        <menuitem
+            id="fabrics_menu"
+            name="Fabrics"
+            action="pragtech_tailoring_management.fabrics_action"
+            parent="pragtech_tailoring_management.configuration_menu_root"
+            sequence="3"/>
             
 
       
