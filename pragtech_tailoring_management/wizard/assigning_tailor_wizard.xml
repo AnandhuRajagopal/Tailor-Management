@@ -1,8 +1,8 @@
 <odoo>
     <data>
         <record id="view_tailoring_wizard_form" model="ir.ui.view">
-            <field name="name">tailoring.wizard.form</field>
-            <field name="model">tailoring.wizard</field>
+            <field name="name">tailoring.assign.tailors.form</field>
+            <field name="model">tailoring.assign.tailors</field>
             <field name="arch" type="xml">
                 <form string="Assigning Tailor wizard">
                     <group>
@@ -17,7 +17,7 @@
         <record id="action_view_tailoring_wizard_form" model="ir.actions.act_window">
             <field name="name">Assigning Tailor Wizard</field>
             <field name="type">ir.actions.act_window</field>
-            <field name="res_model">tailoring.wizard</field>
+            <field name="res_model">tailoring.assign.tailors</field>
             <field name="view_mode">form</field>
             <field name="view_id" ref="view_tailoring_wizard_form"/>
             <field name="target">new</field>
