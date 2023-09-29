@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <menuitem id="pragmatic_tailoring_menu_root" name="Tailoring Management" sequence="1" />
+        <menuitem id="pragmatic_tailoring_menu_root" 
+        name="Tailoring Management" 
+        sequence="1" />
+
+        
+        <menuitem  id="pragmatic_tailoring_measurments"
+        name="Measurements"
+        parent="pragmatic_tailoring_menu_root"
+        action="tailor_measurment_action"
+        sequence ="1"/>
+
+
+        
     </data>
 </odoo>
