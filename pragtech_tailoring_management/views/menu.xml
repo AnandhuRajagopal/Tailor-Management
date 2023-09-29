@@ -1,18 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <menuitem id="pragmatic_tailoring_menu_root" 
-        name="Tailoring Management" 
-        sequence="1" />
+        <menuitem id="pragtech_tailoring_menu_root" name="Tailoring Management" sequence="1" />
 
-        
-        <menuitem  id="pragmatic_tailoring_measurments"
-        name="Measurements"
-        parent="pragmatic_tailoring_menu_root"
-        action="tailor_measurment_action"
-        sequence ="1"/>
+        <menuitem
+        id="sale_order_inherit_menu"
+        name="Tailoring Order"
+        action="sale.action_orders"
+        parent="pragtech_tailoring_management.pragtech_tailoring_menu_root"
+        sequence="1"/>
 
+        <menuitem
+            id="configuration_menu_root"
+            name="Configuration"
+            parent="pragtech_tailoring_management.pragtech_tailoring_menu_root"
+            sequence="2"/>
 
-        
+        <menuitem
+            id="cloth_type_menu"
+            name="Cloth Type"
+            action="pragtech_tailoring_management.cloth_action"
+            parent="pragtech_tailoring_management.configuration_menu_root"
+            sequence="1"/>
+
+        <menuitem
+            id="measurement_menu"
+            name="Measurement"
+            action="pragtech_tailoring_management.tailor_measurment_action"
+            parent="pragtech_tailoring_management.configuration_menu_root"
+            sequence="2"/>
+
+        <menuitem
+            id="fabrics_menu"
+            name="Fabrics"
+            action="pragtech_tailoring_management.fabrics_action"
+            parent="pragtech_tailoring_management.configuration_menu_root"
+            sequence="3"/>
+            
+
+      
+
     </data>
 </odoo>

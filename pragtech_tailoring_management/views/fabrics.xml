@@ -1,5 +1,12 @@
 <odoo>
     <data>
+
+        <record id="fabrics_action" model="ir.actions.act_window">
+            <field name="name">fabrics.action</field>
+            <field name="res_model">tailoring.fabric</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
         <record id="fabric_tree_view" model="ir.ui.view">
             <field name="name">Fabric Tree Viem</field>
             <field name="model">tailoring.fabric</field>
