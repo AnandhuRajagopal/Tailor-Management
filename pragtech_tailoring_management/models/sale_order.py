@@ -7,6 +7,7 @@ class SaleOrder(models.Model):
     
     
     cloth_type_id = fields.Many2one('tailoring.cloth_type')
+
     
 
 
@@ -14,12 +15,17 @@ class SaleOrder(models.Model):
     _inherit = "sale.order"
     _rec_name = 'partner_id'
 
+    state = fields.Selection(selection_add=[('pickup', 'PICKUP'), ('material collected', 'MATERIAL COLLECTED'),('tailor assigned','TAILOR ASSIGNED'),('deliver','DELIVER'),('finished','FINISHED')]) 
+
+
+
+
     def measurement(self):
         print("measurement")
 
 
     def assign_driver(self):
-        print("assigning driver")  
+        self.filtered(lambda order: order.state != 'Pickup').write({'state': 'pickup'})
 
-    def assign_tailor(self):
-        print("assigning tailor")    
+
+    

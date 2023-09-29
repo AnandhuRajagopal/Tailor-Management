@@ -13,10 +13,24 @@
         sequence="1"/>
 
         <menuitem
+        id="tailor_menu_root"
+        name="Tailors"
+        action="pragtech_tailoring_management.tailor_action"
+        parent="pragtech_tailoring_management.pragtech_tailoring_menu_root"
+        sequence="2"/>
+
+        <menuitem
+        id="customer_measurement_menu"
+        name="Customer Measurement"
+        action="tailor_customer_measurment_action"
+        parent="pragtech_tailoring_management.pragtech_tailoring_menu_root"
+        sequence="3"/>
+
+        <menuitem
             id="configuration_menu_root"
             name="Configuration"
             parent="pragtech_tailoring_management.pragtech_tailoring_menu_root"
-            sequence="2"/>
+            sequence="4"/>
 
         <menuitem
             id="cloth_type_menu"
@@ -50,9 +64,10 @@
     
 
 
+
+
+    
+ 
             
-
-      
-
     </data>
 </odoo>
