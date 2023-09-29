@@ -26,12 +26,12 @@
     'data': [
 
         'security/ir.model.access.csv',
-        'views/fabrics.xml',
-        'security/ir.model.access.csv',
         'views/view_cloth_type.xml',
         'views/sequence_measurment.xml',
         'views/view_measurement.xml',
+        'views/fabrics.xml',
         'views/sale_order.xml',
+        'views/tailor.xml',
         'wizard/assigning_tailor_wizard.xml',
         'views/menu.xml',
 

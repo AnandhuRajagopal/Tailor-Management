@@ -11,3 +11,4 @@ class ClothType(models.Model):
     fabric_id = fields.Char()
     measurement_ids = fields.Char()
 
+

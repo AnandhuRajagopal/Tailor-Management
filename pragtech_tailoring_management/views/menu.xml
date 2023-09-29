@@ -11,10 +11,17 @@
         sequence="1"/>
 
         <menuitem
+        id="tailor_menu_root"
+        name="Tailors"
+        action="pragtech_tailoring_management.tailor_action"
+        parent="pragtech_tailoring_management.pragtech_tailoring_menu_root"
+        sequence="2"/>
+
+        <menuitem
             id="configuration_menu_root"
             name="Configuration"
             parent="pragtech_tailoring_management.pragtech_tailoring_menu_root"
-            sequence="2"/>
+            sequence="3"/>
 
         <menuitem
             id="cloth_type_menu"
@@ -36,6 +43,9 @@
             action="pragtech_tailoring_management.fabrics_action"
             parent="pragtech_tailoring_management.configuration_menu_root"
             sequence="3"/>
+
+
+    
             
 
       
