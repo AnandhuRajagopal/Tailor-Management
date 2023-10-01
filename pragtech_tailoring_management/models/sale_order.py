@@ -28,4 +28,8 @@ class SaleOrder(models.Model):
         self.filtered(lambda order: order.state != 'Pickup').write({'state': 'pickup'})
 
 
+    def action_print(self):
+        print(".....")
+
+
     
