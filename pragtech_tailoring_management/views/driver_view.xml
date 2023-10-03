@@ -30,11 +30,11 @@
       <field name="model">tailoring.driver</field>
       <field name="arch" type="xml">
         <form>
-          <heeder>
-              <button name="measurment" string="measurment" type="object"
-              class="oe_highlight" attrs="{'invisible': [('state','=', 'measurment')]}" />
-            <field name="state" widget="statusbar" default="pending"/>
-          </heeder>
+          
+        <header>
+            <field name="state" widget="statusbar" statusbar_visible="pending,in progress,material collected"/>
+        </header>
+
           <sheet>
             <group>
               <group>
@@ -42,6 +42,8 @@
                 <field name="customer_name" />
                 <field name="location" />
                 <field name="date" />
+                <button name="start" type="object" string="START" class="btn-primary" attrs= "{'invisible' :['|',('state','=','in progress'),('state','=','material collected')] }"/> 
+                <button name="finish" type="object" string="FINISH" class="btn-success" attrs= "{'invisible' :[('state','=','material collected')] }"/> 
               </group>
     
             </group>
