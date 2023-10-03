@@ -18,14 +18,14 @@ class SaleOrder(models.Model):
     state = fields.Selection(selection_add=[('pickup', 'PICKUP'), ('material collected', 'MATERIAL COLLECTED'),('tailor assigned','TAILOR ASSIGNED'),('deliver','DELIVER'),('finished','FINISHED')]) 
 
 
-
-
     def measurement(self):
         print("measurement")
 
+        
 
-    def assign_driver(self):
-        self.filtered(lambda order: order.state != 'Pickup').write({'state': 'pickup'})
+
+    # def assign_driver(self):
+    #     self.filtered(lambda order: order.state != 'Pickup').write({'state': 'pickup'})
 
 
     

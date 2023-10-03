@@ -12,7 +12,6 @@
             <field name="inherit_id" ref="sale.view_order_form" />
             <field name="arch" type="xml">
                 <xpath expr="//header" position="inside">
-
                     <button name="measurement" type="object" string="Measurement" />
                     <button name="%(action_view_driver_wizard_form)d" type="action" string="Pickup" />
                     <button name="%(action_view_tailoring_wizard_form)d" type="action" string="Assign Tailor" />

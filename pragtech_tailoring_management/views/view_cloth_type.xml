@@ -52,8 +52,8 @@
             <field name='arch' type='xml'>
                 <tree string='cloth_type'>
                     <field name='name'/>
-                    <field name='fabric_id'/>
-                    <field name='measurement_ids'/>
+                    <!-- <field name='fabric_id'/>
+                    <field name='measurement_ids'/> -->
                 </tree>
             </field>
         </record>
@@ -84,7 +84,7 @@
             <field name="arch" type="xml">
                 <search>
                     <field name='name'/>
-                    <field name='fabric_id'/>
+                    <!-- <field name='fabric_id'/> -->
                 </search>
             </field>
         </record>
