@@ -9,12 +9,8 @@ class Driver(models.Model):
     name = fields.Char(string="Name")
     location = fields.Char()
     customer_name = fields.Char()
-    product = fields.Char(string="Product")
     date = fields.Date()
-    # state = fields.Selection([
-    #     ('pending','Pending'),
-    #     ('measurment','Measurment Collected'),
-    # ])
+
 
     def measurment(self,vals):
         self.state = 'measurement'
@@ -31,7 +27,7 @@ class Driver(models.Model):
             'state' : 'material collected'
         })    
 
-        sale_order = self.env['sale.order'].search([('name', '=', self.product)])
+        sale_order = self.env['sale.order'].search([])
 
         if self.state == 'material collected' or sale_order:
 
