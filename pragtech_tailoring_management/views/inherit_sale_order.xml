@@ -12,22 +12,13 @@
             <field name="inherit_id" ref="sale.view_order_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//header" position="inside">
-<<<<<<< HEAD:pragtech_tailoring_management/views/sale_order.xml
                     <button name="%(action_view_measurement_wizard_form)d" type="action" string="Measurement"/>
                     <button name="%(action_view_driver_wizard_form)d" type="action" string="Pickup"
                             attrs="{'invisible': [('state', '=', 'pickup'),]}"/>
                     <button name="%(action_view_tailoring_wizard_form)d" type="action" string="Assign Tailor"
                             attrs="{'invisible': [('state', '!=', 'material collected')],}"/>
-                    <field name="state">
-                        <widget name="statusbar"
-                                statusbar_visible="draft,sent,sale,done,cancel,pickup,material collected,driver assigned,deliver,finished"/>
-=======
-                    <button name="measurement" type="object" string="Measurement" />
-                    <button name="%(action_view_driver_wizard_form)d" type="action" string="Pickup" attrs="{'invisible': ['|','|','|',('state', '=', 'pickup'),('state', '=', 'material collected'),('state', '=', 'tailor assigned'),('state', '=', 'ready to deliver')]}"/>
-                    <button name="%(action_view_tailoring_wizard_form)d" type="action" string="Assign Tailor" attrs="{'invisible': [('state', '!=', 'material collected')],}"/>                    
-                    <field name="state">
+                     <field name="state">
                         <widget name="statusbar" statusbar_visible="draft,sent,sale,done,cancel,pickup,material collected,tailor assigned,ready to deliver,finished"/>
->>>>>>> 74794d101fa5d41d2cd08898bb64bf6172aa1eba:pragtech_tailoring_management/views/inherit_sale_order.xml
                     </field>
                 </xpath>
 
@@ -47,11 +38,6 @@
                         <div class="o_stat_info">
                             <span class="o_stat_text">Assigned</span>
                             <span class="o_stat_text">Tailor</span>
-                        </div>
-                    </button>
-                    <button name="action_print" type="object" class="oe_stat_button" icon="fa-balance-scale">
-                        <div class="o_stat_info">
-                            <span class="o_stat_text">Measurement</span>
                         </div>
                     </button>
                 </xpath>
