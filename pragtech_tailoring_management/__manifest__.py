@@ -29,6 +29,7 @@
         'security/ir.model.access.csv',
         'wizard/assigning_driver_wizard.xml',
         'wizard/assigning_tailor_wizard.xml',
+        'wizard/assigning_measurement_wizard.xml',
         'views/fabrics.xml',
         'views/view_cloth_type.xml',
         'views/sequence_measurment.xml',

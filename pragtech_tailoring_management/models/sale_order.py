@@ -21,8 +21,6 @@ class SaleOrder(models.Model):
     def measurement(self):
         print("measurement")
 
-        
-
 
     # def assign_driver(self):
     #     self.filtered(lambda order: order.state != 'Pickup').write({'state': 'pickup'})
@@ -31,5 +29,12 @@ class SaleOrder(models.Model):
     def action_print(self):
         print(".....")
 
+
+
+    # def action_measurement(self):
+    #     return{
+    #     'name':'Measurement',
+    #     'type':'ir.actions.act_window',
+    #     'vieew_type':''
 
     
