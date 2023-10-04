@@ -7,6 +7,7 @@
                 <form string="Assigning Tailor wizard">
                     <group>
                         <field name="tailor_id" />
+                        <field name="order_id" readonly="1"/>
                     </group>
                     <footer>
                         <button name="assign" type="object" string="Assign" class="oe_highlight" context="{'default_active_id': active_id}"/>
