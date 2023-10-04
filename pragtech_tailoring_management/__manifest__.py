@@ -25,7 +25,7 @@
 
     # always loaded
     'data': [
-        'security/security.xml',
+        # 'security/security.xml',
         'security/ir.model.access.csv',
         'wizard/assigning_driver_wizard.xml',
         'wizard/assigning_tailor_wizard.xml',

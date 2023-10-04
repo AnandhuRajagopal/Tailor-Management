@@ -9,7 +9,7 @@
                         <form string="Assigning Driver wizard">
                             <group>
                                 <field name="driver_id" />
-                                <field name="customer_id" />
+                                <field name="order_id" />
                                 <!-- <field name="location"/> -->
                                 <field name="date"/>
                             </group>

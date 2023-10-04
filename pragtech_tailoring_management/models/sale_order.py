@@ -20,35 +20,29 @@ class SaleOrder(models.Model):
     def measurement(self):
         print("measurement")
 
-        
-
-
-    # def assign_driver(self):
-    #     self.filtered(lambda order: order.state != 'Pickup').write({'state': 'pickup'})
 
 
     def current_driver_record(self):
-        # action = self.env['ir.actions.actions']._for_xml_id('pragtech_tailoring_management.tailor_driver_action')
-        # action['domain'] = [('customer_name', '=', self.id)]
-        # form_view = [(self.env.ref('pragtech_tailoring_management.tailor_driver_form').id, 'form')]
-        # print('1111111111111111111111111111111111',form_view)
-        # action['views'] = form_view
-        # action['res_id'] = self.id
-        # print('1111111111111111111111111111', action)
-
-        # return action
-
+        driver_id = self.env['tailoring.driver'].search([('order_id','=',self.id)])
         return{
                 'type': 'ir.actions.act_window',
                 'name': 'Driver',
+                'res_id': driver_id.id,
                 'res_model': 'tailoring.driver',
-                'domain' : [('customer_name', '=', self.id)],
-                'view_mode' : 'kanban,tree,form',
+                'view_mode' : 'form',
                 'target': 'current',
+                'view_id': self.env.ref('pragtech_tailoring_management.driver_form_view').id
         }
 
-
-# not complete
     def current_tailor_record(self):
-        print('***************')
+        tailor_id = self.env['tailoring.tailor'].search([('order_id','=',self.id)])
+        return{
+                'type': 'ir.actions.act_window',
+                'name': 'Tailor',
+                'res_id': tailor_id.id,
+                'res_model': 'tailoring.tailor',
+                'view_mode' : 'form',
+                'target': 'current',
+                'view_id': self.env.ref('pragtech_tailoring_management.tailor_form_view').id
+        }
     

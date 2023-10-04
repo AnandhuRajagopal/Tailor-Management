@@ -26,13 +26,13 @@
                             <span class="o_stat_text">Measurement</span>
                         </div>
                     </button>
-                    <button name="current_driver_record" type="object" class="oe_stat_button" icon="fa-id-card-o" states="pickup,material collected,tailor assigned,ready to deliver,finished">
+                    <button name="current_driver_record" type="object" class="oe_stat_button" icon="fa-id-card-o" states="pickup">
                         <div class="o_stat_info">
                             <span class="o_stat_text">Assigned</span>
                             <span class="o_stat_text">Driver</span>
                         </div>
                     </button>
-                    <button name="current_tailor_record" type="object" class="oe_stat_button" icon="fa-scissors" states="tailor assigned,ready to deliver,finished">
+                    <button name="current_tailor_record" type="object" class="oe_stat_button" icon="fa-scissors" states="tailor assigned">
                         <div class="o_stat_info">
                             <span class="o_stat_text">Assigned</span>
                             <span class="o_stat_text">Tailor</span>

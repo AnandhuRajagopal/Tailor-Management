@@ -9,9 +9,9 @@ class Driver(models.Model):
 
     name = fields.Many2one('res.users',string="Driver", readonly=1)
     location = fields.Char()
-    customer_name = fields.Many2one('sale.order',string='Order Number', readonly=1)
+    order_id = fields.Many2one('sale.order',string='Order Number', readonly=1)
     product = fields.Char(string="Product")
-    date = fields.Datetime(string="Date",related='customer_name.date_order',readonly=1)
+    date = fields.Datetime(string="Date",related='order_id.date_order',readonly=1)
     state = fields.Selection([('pending','PENDING'),('in progress','IN PROGRESS'),('material collected','MATERIAL COLLECTED')],default="pending")
 
 

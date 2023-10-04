@@ -6,18 +6,19 @@
             <field name='model'>tailoring.tailor</field>
             <field name='arch' type='xml'>
                 <kanban class="o_rse_partner_kanban">
-                    <field name="product"/>
+                    <field name="order_id"/>
                     <field name="name"/>
                     <templates>
                         <t t-name="kanban-box">
-                            <div t-attf-class="oe_kanban_global_click">
+                            <div t-attf-class="oe_kanban_global_click" style="padding:20px">
                                 <div class="oe_kanban_details">
-                                    <strong class="o_kanban_record_title">
-                                        <b><field name="product"/></b>
+                                    <strong class="o_kanban_record_title" style="font-size:30px">
+                                        <b><field name="order_id"/></b>
                                     </strong>
                                     <div t-if="record.name.value">
-                                        <span>Name: <t t-esc="record.name.value"/> </span>
+                                        <span style="font-size:20px">Tailor Name: <t t-esc="record.name.value"/> </span>
                                     </div>
+    
                                 </div>
                             </div>
                         </t>
@@ -39,7 +40,7 @@
             <field name="model">tailoring.tailor</field>
             <field name="arch" type="xml">
                 <tree string="Tailor">
-                    <field name="product"/>
+                    <field name="order_id"/>
                     <field name="name"/>
                 </tree>
             </field>
@@ -57,7 +58,7 @@
                     <sheet>
                         <group>
                             <group>
-                                <field name="product"/> 
+                                <field name="order_id"/> 
                                 <field name="name"/>
                                 <button name="start" type="object" string="START" class="btn-primary" attrs= "{'invisible' :['|',('state','=','in progress'),('state','=','finished')] }"/> 
                                 <button name="finish" type="object" string="FINISH" class="btn-success" attrs= "{'invisible' :[('state','==','finished')] }"/> 
