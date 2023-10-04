@@ -13,16 +13,16 @@
             <field name="arch" type="xml">
                 <xpath expr="//header" position="inside">
                     <!-- Adding a Measurement button -->
-                    <button name="%(action_view_measurement_wizard_form)d" type="action" string="Measurement" />
+                    <button name="%(action_view_measurement_wizard_form)d" type="action" string="Measurement" icon="fa-sort-numeric-asc" class="btn-primary"/>
 
                     <!-- Adding a Send mail button -->
-                    <button name="action_send_mail" type="object" string="Delivery Ready Mail" attrs= "{'invisible' :[('state','!=','ready to deliver')] }"/>
+                    <button name="action_send_mail" type="object" string="Delivery Ready Mail" attrs= "{'invisible' :[('state','!=','ready to deliver')] }" icon="fa-envelope" class="btn-info"/>
                     
                     <!-- Adding a Pickup wizard button -->
-                    <button name="%(action_view_driver_wizard_form)d" type="action" string="Pickup" states="sale"/>
+                    <button name="%(action_view_driver_wizard_form)d" type="action" string="Pickup" states="sale" icon="fa-id-card-o" class="btn-primary"/>
 
                     <!-- Adding a Assign Tailor wizard button -->
-                    <button name="%(action_view_tailoring_wizard_form)d" type="action" string="Assign Tailor" attrs="{'invisible': [('state', '!=', 'material collected')],}"/>
+                    <button name="%(action_view_tailoring_wizard_form)d" type="action" string="Assign Tailor" attrs="{'invisible': [('state', '!=', 'material collected')],}" icon="fa-scissors" class="btn-primary"/>
 
                     <!-- Adding a statusbar -->
                     <field name="state">
@@ -65,6 +65,12 @@
                 <!-- Inherit and visible customer preview smart button only in sale,pickup,material collected,tailor assigned,ready to deliver,finished states -->
                 <xpath expr="//button[@name='action_preview_sale_order']" position="attributes">
                     <attribute name="attrs">{'invisible': [('state', 'not in', ('sale','pickup','material collected','tailor assigned','ready to deliver','finished'))]}</attribute>
+                </xpath>
+
+                <!-- Added ribbon widget -->
+                <xpath expr="//sheet/div" position="after">
+                    <widget name="web_ribbon" title="Tailor Assigned" bg_color="bg-success" attrs="{'invisible':[('state','!=','tailor assigned')]}"/>
+                    <widget name="web_ribbon" title="Driver Assigned" bg_color="bg-success" attrs="{'invisible':[('state','!=','pickup')]}"/>
                 </xpath>
             </field>
         </record>

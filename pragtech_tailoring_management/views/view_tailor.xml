@@ -8,6 +8,9 @@
                 <kanban class="o_rse_partner_kanban">
                     <field name="order_id"/>
                     <field name="name"/>
+                    <field name="assigned_date"/>
+                    <field name="started_date"/>
+                    <field name="finished_date"/>
                     <templates>
                         <t t-name="kanban-box">
                             <div t-attf-class="oe_kanban_global_click" style="padding:20px">
@@ -18,7 +21,15 @@
                                     <div t-if="record.name.value">
                                         <span style="font-size:20px">Tailor Name: <t t-esc="record.name.value"/> </span>
                                     </div>
-    
+                                    <div t-if="record.assigned_date.value">
+                                        <span style="font-size:20px">Assigned Date: <t t-esc="record.assigned_date.value"/> </span>
+                                    </div>
+                                    <div t-if="record.started_date.value">
+                                        <span style="font-size:20px">Started Date: <t t-esc="record.started_date.value"/> </span>
+                                    </div>
+                                    <div t-if="record.finished_date.value">
+                                        <span style="font-size:20px">Finished Date: <t t-esc="record.finished_date.value"/> </span>
+                                    </div>
                                 </div>
                             </div>
                         </t>
@@ -42,6 +53,9 @@
                 <tree string="Tailor">
                     <field name="order_id"/>
                     <field name="name"/>
+                    <field name="assigned_date"/>
+                    <field name="started_date"/>
+                    <field name="finished_date"/>
                 </tree>
             </field>
         </record>
@@ -60,8 +74,13 @@
                             <group>
                                 <field name="order_id"/> 
                                 <field name="name"/>
+                                <field name="assigned_date"/>
                                 <button name="start" type="object" string="START" class="btn-primary" attrs= "{'invisible' :['|',('state','=','in progress'),('state','=','finished')] }"/> 
                                 <button name="finish" type="object" string="FINISH" class="btn-success" attrs= "{'invisible' :[('state','==','finished')] }"/> 
+                            </group>
+                            <group>
+                                <field name="started_date"/>
+                                <field name="finished_date"/>
                             </group>
                         </group>
                     </sheet>

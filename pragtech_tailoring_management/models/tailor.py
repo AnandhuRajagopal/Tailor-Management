@@ -1,4 +1,5 @@
 from odoo import fields,models,api,_
+from datetime import date
 
 
 
@@ -11,21 +12,25 @@ class Tailor(models.Model):
 
     order_id = fields.Many2one('sale.order',string='Order Number', readonly=1)
     product = fields.Char()
-    name = fields.Char(string="Tailor")
+    name = fields.Char(string="Tailor",readonly=1)
+    assigned_date = fields.Datetime(string="Assigned Date",related='order_id.date_order',readonly=1)
+    started_date = fields.Datetime(string="Started Date",readonly=1)
+    finished_date = fields.Datetime(string="Finished Date",readonly=1)
     state = fields.Selection([('pending','PENDING'),('in progress','IN PROGRESS'),('finished','FINISHED')],default="pending")
 
 
     def start(self):
+        self.started_date = fields.Datetime.now()
         self.write({
-            'state' : 'in progress'
+            'state': 'in progress'
         })
 
     def finish(self):
-        
+        self.finished_date = fields.Datetime.now()
         self.write({
             'state' : 'finished'
-        }) 
-           
+        })
+
         sale_order = self.env['sale.order'].search([])
 
         if self.state == 'finished' or sale_order:
@@ -33,6 +38,8 @@ class Tailor(models.Model):
             sale_order.write({
                 'state' : 'ready to deliver'
             })
+
+    
          
 
         
