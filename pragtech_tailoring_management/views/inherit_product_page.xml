@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-
     <data>
-
         <record id="action_product_list" model="ir.actions.act_window">
             <field name="name">Products</field>
             <field name="res_model">product.template</field>
@@ -24,9 +22,5 @@
                 </xpath>
             </field>
         </record>
-
-
     </data>
-
-
 </odoo>

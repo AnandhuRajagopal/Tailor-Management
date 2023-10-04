@@ -1,0 +1,8 @@
+conda activate odoo_16_env
+./odoo-bin -c .odoorc -d tailoring_management_db_6 -u pragtech_tailoring_management
+
+
+
+
+
+

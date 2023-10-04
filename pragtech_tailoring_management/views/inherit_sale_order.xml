@@ -12,27 +12,44 @@
             <field name="inherit_id" ref="sale.view_order_form" />
             <field name="arch" type="xml">
                 <xpath expr="//header" position="inside">
-                    <button name="measurement" type="object" string="Measurement" />
-                    <button name="%(action_view_driver_wizard_form)d" type="action" string="Pickup" attrs="{'invisible': ['|','|','|',('state', '=', 'pickup'),('state', '=', 'material collected'),('state', '=', 'tailor assigned'),('state', '=', 'ready to deliver')]}"/>
-                    <button name="%(action_view_tailoring_wizard_form)d" type="action" string="Assign Tailor" attrs="{'invisible': [('state', '!=', 'material collected')],}"/>                    
+                    <!-- Adding a Measurement button -->
+                    <button name="%(action_view_measurement_wizard_form)d" type="action" string="Measurement" />
+
+                    <!-- Adding a Send mail button -->
+                    <button name="action_send_mail" type="object" string="Delivery Ready Mail" attrs= "{'invisible' :[('state','!=','ready to deliver')] }"/>
+                    
+                    <!-- Adding a Pickup wizard button -->
+                    <button name="%(action_view_driver_wizard_form)d" type="action" string="Pickup" states="sale"/>
+
+                    <!-- Adding a Assign Tailor wizard button -->
+                    <button name="%(action_view_tailoring_wizard_form)d" type="action" string="Assign Tailor" attrs="{'invisible': [('state', '!=', 'material collected')],}"/>
+
+                    <!-- Adding a statusbar -->
                     <field name="state">
                         <widget name="statusbar" statusbar_visible="draft,sent,sale,done,cancel,pickup,material collected,tailor assigned,ready to deliver,finished"/>
                     </field>
                 </xpath>
                 
                 <xpath expr="//sheet/div/button" position="before">
+                    <!-- Adding Measurement smart button -->
                     <button name="current_tailor_record" type="object" class="oe_stat_button" icon="fa-sort-numeric-asc">
                         <div class="o_stat_info">
                             <span class="o_stat_text">Measurement</span>
                         </div>
                     </button>
-                    <button name="current_driver_record" type="object" class="oe_stat_button" icon="fa-id-card-o" states="pickup">
+
+                    <!-- Adding Assigned Driver smart button -->
+                    <!-- visible Assigned Driver smart button only in pickup,material collected,tailor assigned,ready to deliver,finished states -->
+                    <button name="current_driver_record" type="object" class="oe_stat_button" icon="fa-id-card-o" states="pickup,material collected,tailor assigned,ready to deliver,finished">
                         <div class="o_stat_info">
                             <span class="o_stat_text">Assigned</span>
                             <span class="o_stat_text">Driver</span>
                         </div>
                     </button>
-                    <button name="current_tailor_record" type="object" class="oe_stat_button" icon="fa-scissors" states="tailor assigned">
+
+                    <!-- Adding Assigned Tailorr smart button -->
+                    <!-- visible Assigned Tailor smart button only in tailor assigned,ready to deliver,finished states -->
+                    <button name="current_tailor_record" type="object" class="oe_stat_button" icon="fa-scissors" states="tailor assigned,ready to deliver,finished">
                         <div class="o_stat_info">
                             <span class="o_stat_text">Assigned</span>
                             <span class="o_stat_text">Tailor</span>
@@ -40,8 +57,14 @@
                     </button>
                 </xpath>
 
+                <!-- Adding a cloth type field in oredr line's tree field, position after product_template_id field -->
                 <xpath expr="/form/sheet/notebook/page/field[@name='order_line']/tree/field[@name='product_template_id']" position="after">
                     <field name="cloth_type_id"/>
+                </xpath>
+
+                <!-- Inherit and visible customer preview smart button only in sale,pickup,material collected,tailor assigned,ready to deliver,finished states -->
+                <xpath expr="//button[@name='action_preview_sale_order']" position="attributes">
+                    <attribute name="attrs">{'invisible': [('state', 'not in', ('sale','pickup','material collected','tailor assigned','ready to deliver','finished'))]}</attribute>
                 </xpath>
             </field>
         </record>
