@@ -31,13 +31,12 @@
         'wizard/assigning_tailor_wizard.xml',
         'views/fabrics.xml',
         'views/view_cloth_type.xml',
-        'views/sequence_measurment.xml',
-        'views/driver_view.xml',
+        'views/view_driver.xml',
         'views/view_measurement.xml',
-        'views/sale_order.xml',
-        'views/tailor.xml',
+        'views/view_tailor.xml',
         'views/view_customer_measurement.xml',
-        'views/product_page_inherit.xml',
+        'views/inherit_sale_order.xml',
+        'views/inherit_product_page.xml',
         'views/menu.xml',
 
 

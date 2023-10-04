@@ -5,6 +5,9 @@ from odoo import fields,models,api,_
 class Tailor(models.Model):
 
     _name = 'tailoring.tailor'
+    _description = 'tailoring_tailor'
+
+
 
     product = fields.Char(string="Product")
     name = fields.Char(string="Tailor")
