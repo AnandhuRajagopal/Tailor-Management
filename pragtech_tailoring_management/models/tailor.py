@@ -5,7 +5,7 @@ from odoo import fields,models,api,_
 class Tailor(models.Model):
 
     _name = 'tailoring.tailor'
-    _description = 'tailor'
+    _description = 'Tailor'
     _inherit = ['mail.thread','mail.activity.mixin']
 
 
@@ -26,7 +26,7 @@ class Tailor(models.Model):
         self.write({
             'state' : 'finished'
         }) 
-           
+
         sale_order = self.env['sale.order'].search([])
 
         if self.state == 'finished' or sale_order:
