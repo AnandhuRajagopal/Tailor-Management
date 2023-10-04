@@ -6,7 +6,7 @@ from datetime import date
 class Tailor(models.Model):
 
     _name = 'tailoring.tailor'
-    _description = 'tailor'
+    _description = 'Tailor'
     _inherit = ['mail.thread','mail.activity.mixin']
 
     order_id = fields.Many2one('sale.order',string='Order Number', readonly=1, tracking=True)
@@ -29,7 +29,7 @@ class Tailor(models.Model):
         self.write({
             'state' : 'finished'
         })
-
+        
         sale_order = self.env['sale.order'].search([])
 
         if self.state == 'finished' or sale_order:

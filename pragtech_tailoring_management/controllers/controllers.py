@@ -1,21 +1,21 @@
-# -*- coding: utf-8 -*-
-# from odoo import http
+# from odoo import http, _
+# from odoo.http import request
 
 
-# class PragtechTailoringManagement(http.Controller):
-#     @http.route('/pragtech_tailoring_management/pragtech_tailoring_management', auth='public')
-#     def index(self, **kw):
-#         return "Hello, world"
+# class CustomerMeasurementController(http.Controller):
 
-#     @http.route('/pragtech_tailoring_management/pragtech_tailoring_management/objects', auth='public')
-#     def list(self, **kw):
-#         return http.request.render('pragtech_tailoring_management.listing', {
-#             'root': '/pragtech_tailoring_management/pragtech_tailoring_management',
-#             'objects': http.request.env['pragtech_tailoring_management.pragtech_tailoring_management'].search([]),
+#     @http.route('/measurement/page/', type='http', auth='user',website="True")
+#     def measurement_page(self):
+#         return request.render('pragtech_tailoring_management.measurement_details_template')
+
+
+
+# class MeasurementController(http.Controller):
+
+#     @http.route('/measurement/details/<int:measurement_id>', type='http', auth='user', website=True)
+#     def display_measurement_details(self, measurement_id):
+#         measurement = request.env['tailoring.customer.measurement'].browse(measurement_id)
+#         return http.request.render('pragtech_tailoring_management.measurement_details_template', {
+#             'measurement': measurement
 #         })
 
-#     @http.route('/pragtech_tailoring_management/pragtech_tailoring_management/objects/<model("pragtech_tailoring_management.pragtech_tailoring_management"):obj>', auth='public')
-#     def object(self, obj, **kw):
-#         return http.request.render('pragtech_tailoring_management.object', {
-#             'object': obj
-#         })
