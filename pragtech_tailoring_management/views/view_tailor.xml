@@ -85,10 +85,6 @@
                                 <field name="started_date"/>
                                 <field name="finished_date"/>
                             </group>
-                            <group>
-                                <field name="started_date"/>
-                                <field name="finished_date"/>
-                            </group>
                         </group>
                     </sheet>
                     <div class="oe_chatter">
