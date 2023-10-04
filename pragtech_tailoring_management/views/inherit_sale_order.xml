@@ -29,7 +29,7 @@
                 </xpath>
 
                 <field name="state" position="attributes" >
-                    <attribute name= 'statusbar_visible'>draft,sent,sale,pickup,material collected,tailor assigned,ready to deliver,finished</attribute>
+                    <attribute name= 'statusbar_visible'>draft,sale,pickup,material collected,tailor assigned,ready to deliver,finished</attribute>
                 </field>
 
                 <xpath expr="//sheet/div/button" position="before">
