@@ -9,7 +9,7 @@
         <record id="view_sale_order_form_inherit" model="ir.ui.view">
             <field name="name">sale.order.form.inherit</field>
             <field name="model">sale.order</field>
-            <field name="inherit_id" ref="sale.view_order_form" />
+            <field name="inherit_id" ref="sale.view_order_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//header" position="inside">
                     <!-- Adding a Measurement button -->
@@ -29,7 +29,7 @@
                         <widget name="statusbar" statusbar_visible="draft,sent,sale,done,cancel,pickup,material collected,tailor assigned,ready to deliver,finished"/>
                     </field>
                 </xpath>
-                
+
                 <xpath expr="//sheet/div/button" position="before">
                     <!-- Adding Measurement smart button -->
                     <button name="current_tailor_record" type="object" class="oe_stat_button" icon="fa-sort-numeric-asc">
@@ -57,8 +57,13 @@
                     </button>
                 </xpath>
 
+<<<<<<< HEAD
                 <!-- Adding a cloth type field in oredr line's tree field, position after product_template_id field -->
                 <xpath expr="/form/sheet/notebook/page/field[@name='order_line']/tree/field[@name='product_template_id']" position="after">
+=======
+                <xpath expr="/form/sheet/notebook/page/field[@name='order_line']/tree/field[@name='product_template_id']"
+                       position="after">
+>>>>>>> e2610a616e02f1b4192cc14d65e1e63e1f035709
                     <field name="cloth_type_id"/>
                 </xpath>
 

@@ -5,11 +5,13 @@ access_measurement,tailoring.measurement,model_tailoring_measurement,,1,1,1,1
 access_tailoring.measurement_relative,tailoring.tailoring.measurement_relative,model_tailoring_measurement_relative,,1,1,1,1
 access_fabric,tailoring.fabric,model_tailoring_fabric,,1,1,1,1
 access_sale_order_line,tailoring.sale_order_line,model_sale_order_line,,1,1,1,1
+access_sale_order,tailoring.sale_order,model_sale_order,,1,1,1,1
 access_tailoring_driver,tailoring.driver,model_tailoring_driver,,1,1,1,1
 access_driver_wizard,driver.wizard,model_driver_wizard,,1,1,1,1
 access_tailoring_wizard,tailoring.assign.tailors,model_tailoring_assign_tailors,,1,1,1,1
+access_measurement_wizard,measurement.wizard,model_measurement_wizard,,1,1,1,1
 access_tailoring.tailor,tailoring.tailoring.tailor,model_tailoring_tailor,,1,1,1,1
-access_customer_measurment,tailoring.customer.measurement,model_tailoring_customer_measurement,,1,1,1,1
+access_customer_measurement,tailoring.customer.measurement,model_tailoring_customer_measurement,,1,1,1,1
 
 
 access_measurement_wizard,measurement.wizard,model_measurement_wizard,,1,1,1,1
