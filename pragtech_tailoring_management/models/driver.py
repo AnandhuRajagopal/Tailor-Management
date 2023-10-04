@@ -7,11 +7,11 @@ class Driver(models.Model):
     _rec_name = "name"
 
 
-    name = fields.Char(string="Name")
+    name = fields.Many2one('res.users',string="Driver", readonly=1)
     location = fields.Char()
-    customer_name = fields.Char()
+    customer_name = fields.Many2one('sale.order',string='Order Number', readonly=1)
     product = fields.Char(string="Product")
-    date = fields.Date()
+    date = fields.Datetime(string="Date",related='customer_name.date_order',readonly=1)
     state = fields.Selection([('pending','PENDING'),('in progress','IN PROGRESS'),('material collected','MATERIAL COLLECTED')],default="pending")
 
 

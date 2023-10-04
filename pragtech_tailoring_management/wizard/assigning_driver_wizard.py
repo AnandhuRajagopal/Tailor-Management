@@ -6,7 +6,7 @@ class assigningDriverWizard(models.TransientModel):
     _description = 'driver_wizard'
 
     driver_id = fields.Many2one('res.users',string="Driver")
-    customer_id = fields.Many2one('sale.order', String="Customer",default=lambda self: self.get_active_id())
+    customer_id = fields.Many2one('sale.order', string="Customer",default=lambda self: self.get_active_id())
     # location = fields.Char(string ="Location", related='customer_id.')
     date = fields.Datetime(string="Date",related='customer_id.date_order')
     
@@ -24,10 +24,10 @@ class assigningDriverWizard(models.TransientModel):
         sale_order = self.env['sale.order'].browse(self._context.get('active_id'))
         re = self.env['tailoring.driver'].browse([active_id])
         if re or (sale_order and sale_order.state != 'pickup'):
-            res = self.env['tailoring.driver'].create({
-                'name':self.driver_id.name,
-                'customer_name':self.customer_id.name,
-                'product' : sale_order.name,
+            self.env['tailoring.driver'].create({
+                'name':self.driver_id.id,
+                'customer_name':self.customer_id.id,
+                'product' : sale_order,
                 'date':self.date,
                 })
             

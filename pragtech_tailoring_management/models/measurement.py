@@ -16,6 +16,7 @@ class Measurments(models.Model):
     
 class MeasurementRelative(models.Model):
         _name = "tailoring.measurement_relative"
+        _description = "tailoring_measurement_relative"
 
 
         cloth_id = fields.Many2one('tailoring.cloth_type')
