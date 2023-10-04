@@ -13,10 +13,10 @@
             <field name="arch" type="xml">
                 <xpath expr="//header" position="inside">
                     <button name="measurement" type="object" string="Measurement" />
-                    <button name="%(action_view_driver_wizard_form)d" type="action" string="Pickup" attrs="{'invisible': [('state', '=', 'pickup'),]}"/>
+                    <button name="%(action_view_driver_wizard_form)d" type="action" string="Pickup" attrs="{'invisible': ['|','|','|',('state', '=', 'pickup'),('state', '=', 'material collected'),('state', '=', 'tailor assigned'),('state', '=', 'ready to deliver')]}"/>
                     <button name="%(action_view_tailoring_wizard_form)d" type="action" string="Assign Tailor" attrs="{'invisible': [('state', '!=', 'material collected')],}"/>                    
                     <field name="state">
-                        <widget name="statusbar" statusbar_visible="draft,sent,sale,done,cancel,pickup,material collected,driver assigned,deliver,finished"/>
+                        <widget name="statusbar" statusbar_visible="draft,sent,sale,done,cancel,pickup,material collected,tailor assigned,ready to deliver,finished"/>
                     </field>
                 </xpath>
                 
