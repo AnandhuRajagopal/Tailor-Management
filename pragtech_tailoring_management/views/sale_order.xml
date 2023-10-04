@@ -12,17 +12,31 @@
             <field name="inherit_id" ref="sale.view_order_form" />
             <field name="arch" type="xml">
                 <xpath expr="//header" position="inside">
-
                     <button name="measurement" type="object" string="Measurement" />
-                    <button name="%(action_view_driver_wizard_form)d" type="action" string="Pickup" />
-                    <button name="%(action_view_tailoring_wizard_form)d" type="action" string="Assign Tailor" />
-
+                    <button name="%(action_view_driver_wizard_form)d" type="action" string="Pickup" attrs="{'invisible': [('state', '=', 'pickup'),]}"/>
+                    <button name="%(action_view_tailoring_wizard_form)d" type="action" string="Assign Tailor" attrs="{'invisible': [('state', '!=', 'material collected')],}"/>                    
                     <field name="state">
                         <widget name="statusbar" statusbar_visible="draft,sent,sale,done,cancel,pickup,material collected,driver assigned,deliver,finished"/>
                     </field>
-
-
                 </xpath>
+                
+                <xpath expr="//sheet/div/button" position="before">
+                    <button name="action_print" type="object" class="oe_stat_button" icon="fa-id-card-o">
+                        <div class="o_stat_info">
+                            <!-- <field name="employees_count" class="o_stat_value"/> -->
+                            <span class="o_stat_text">Assigned</span>
+                            <span class="o_stat_text">Driver</span>
+                        </div>
+                    </button>
+                    <button name="action_print" type="object" class="oe_stat_button" icon="fa-scissors">
+                        <div class="o_stat_info">
+                            <!-- <field name="employees_count" class="o_stat_value"/> -->
+                            <span class="o_stat_text">Assigned</span>
+                            <span class="o_stat_text">Tailor</span>
+                        </div>
+                    </button>
+                </xpath>
+
                 <xpath expr="/form/sheet/notebook/page/field[@name='order_line']/tree/field[@name='product_template_id']" position="after">
                     <field name="cloth_type_id"/>
                 </xpath>

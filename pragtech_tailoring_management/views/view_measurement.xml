@@ -8,19 +8,21 @@
       <field name="view_mode">tree,form</field>
     </record>
 
-    <!-- ********************************* Tree View ************************************************** -->
+    <!-- ********************************* Tree View
+    ************************************************** -->
     <record id="tailor_measurment_tree" model="ir.ui.view">
       <field name="name">Tailor_Measurments.tree</field>
       <field name="model">tailoring.measurement</field>
       <field name="arch" type="xml">
         <tree>
-          <field name="sequence_no"/>
-          <field name="name"/>
+          <field name="sequence_no" />
+          <field name="name" />
         </tree>
       </field>
     </record>
 
-    <!-- ********************************* Form View ************************************************* -->
+    <!-- ********************************* Form View
+    ************************************************* -->
     <record id="tailor_measurment_form" model="ir.ui.view">
       <field name="name">Tailor_Measurments.form</field>
       <field name="model">tailoring.measurement</field>
@@ -29,16 +31,12 @@
           <sheet>
             <group>
               <h1>
-                <field name="sequence_no"/>
+                <field name="sequence_no" />
               </h1>
             </group>
             <group>
-              <group>
-                <field name="name"/>
-              </group>
-
+              <field name="name" />
             </group>
-
           </sheet>
 
         </form>

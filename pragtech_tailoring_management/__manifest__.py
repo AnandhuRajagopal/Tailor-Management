@@ -25,9 +25,10 @@
 
     # always loaded
     'data': [
-
+        'security/security.xml',
         'security/ir.model.access.csv',
         'wizard/assigning_driver_wizard.xml',
+        'wizard/assigning_tailor_wizard.xml',
         'views/fabrics.xml',
         'views/view_cloth_type.xml',
         'views/sequence_measurment.xml',
@@ -36,7 +37,6 @@
         'views/sale_order.xml',
         'views/tailor.xml',
         'views/view_customer_measurement.xml',
-        'wizard/assigning_tailor_wizard.xml',
         'views/product_page_inherit.xml',
         'views/menu.xml',
 

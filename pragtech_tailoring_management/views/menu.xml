@@ -57,10 +57,10 @@
         
         <menuitem
             id="driver_menu"
-            name="driver"
+            name="Driver"
             action="pragtech_tailoring_management.tailor_driver_action"
             parent="pragtech_tailoring_management.configuration_menu_root"
-            sequence="1"/>
+            sequence="4"/>
     
 
 

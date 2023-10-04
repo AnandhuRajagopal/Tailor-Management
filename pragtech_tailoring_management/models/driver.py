@@ -6,11 +6,37 @@ class Driver(models.Model):
     _description = "tailoring_driver"
     _rec_name = "name"
 
-
     name = fields.Char(string="Name")
     location = fields.Char()
     customer_name = fields.Char()
     date = fields.Date()
 
+
+    def measurment(self,vals):
+        self.state = 'measurement'
+    state = fields.Selection([('pending','PENDING'),('in progress','IN PROGRESS'),('material collected','MATERIAL COLLECTED')],default="pending")
+
+
+    def start(self):
+        self.write({
+            'state' : 'in progress'
+        })
+
+    def finish(self):
+        self.write({
+            'state' : 'material collected'
+        })    
+
+        sale_order = self.env['sale.order'].search([])
+
+        if self.state == 'material collected' or sale_order:
+
+            sale_order.write({
+                'state' : 'material collected'
+            })
+
+
+      
+   
 
 
