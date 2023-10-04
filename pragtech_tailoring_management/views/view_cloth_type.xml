@@ -1,6 +1,7 @@
 <odoo>
     <data>
-        <!-- ************************************* kanban view ******************************************** -->
+        <!-- ************************************* kanban view
+        ******************************************** -->
         <record id='cloth_kanban' model='ir.ui.view'>
             <field name='name'>cloth.kanban</field>
             <field name='model'>tailoring.cloth_type</field>
@@ -33,7 +34,8 @@
             </field>
         </record>
 
-        <!-- ************************************* Action ******************************************** -->
+        <!-- ************************************* Action
+        ******************************************** -->
         <record id='cloth_action' model='ir.actions.act_window'>
             <field name="name">Cloths</field>
             <field name="res_model">tailoring.cloth_type</field>
@@ -45,13 +47,14 @@
             </field>
         </record>
 
-        <!-- ************************************* Tree view ******************************************** -->
+        <!-- ************************************* Tree view
+        ******************************************** -->
         <record id='cloth_tree' model='ir.ui.view'>
             <field name='name'>cloth.tree</field>
             <field name='model'>tailoring.cloth_type</field>
             <field name='arch' type='xml'>
                 <tree string='cloth_type'>
-                    <field name='name'/>
+                    <field name='name' />
                     <!-- <field name='fabric_id'/>
                     <field name='measurement_ids'/> -->
                     <field name='name' />
@@ -60,8 +63,9 @@
                 </tree>
             </field>
         </record>
-        
-        <!-- ************************************* Form view ******************************************** -->
+
+        <!-- ************************************* Form view
+        ******************************************** -->
         <record id='cloth_form' model='ir.ui.view'>
             <field name='name'>cloth.form</field>
             <field name='model'>tailoring.cloth_type</field>
@@ -78,8 +82,8 @@
                             <page string="Measurement">
                                 <field name="measurement_ids">
                                     <tree editable="bottom">
-                                        <field name="measurement_id"/>
-                                        <field name="sequence_no"/>
+                                        <field name="measurement_id" />
+                                        <field name="sequence_no" />
                                     </tree>
                                 </field>
                             </page>
@@ -89,13 +93,14 @@
             </field>
         </record>
 
-        <!-- ************************************* Search view ******************************************** -->
+        <!-- ************************************* Search view
+        ******************************************** -->
         <record id="cloth_search" model="ir.ui.view">
             <field name="name">cloth.search</field>
             <field name="model">tailoring.cloth_type</field>
             <field name="arch" type="xml">
                 <search>
-                    <field name='name'/>
+                    <field name='name' />
                     <!-- <field name='fabric_id'/> -->
                     <field name='name' />
                     <field name='fabric_id' />
