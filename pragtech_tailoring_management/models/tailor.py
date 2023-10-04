@@ -5,14 +5,15 @@ from odoo import fields,models,api,_
 class Tailor(models.Model):
 
     _name = 'tailoring.tailor'
-    _description = 'tailoring_tailor'
+    _description = 'tailor'
+    _inherit = ['mail.thread','mail.activity.mixin']
 
 
 
-    order_id = fields.Many2one('sale.order',string='Order Number', readonly=1)
+    order_id = fields.Many2one('sale.order',string='Order Number', readonly=1, tracking=True)
     product = fields.Char()
-    name = fields.Char(string="Tailor")
-    state = fields.Selection([('pending','PENDING'),('in progress','IN PROGRESS'),('finished','FINISHED')],default="pending")
+    name = fields.Char(string="Tailor", tracking=True)
+    state = fields.Selection([('pending','PENDING'),('in progress','IN PROGRESS'),('finished','FINISHED')],default="pending", tracking=True)
 
 
     def start(self):
