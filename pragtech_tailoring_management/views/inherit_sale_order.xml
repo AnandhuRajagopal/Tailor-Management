@@ -57,13 +57,8 @@
                     </button>
                 </xpath>
 
-<<<<<<< HEAD
                 <!-- Adding a cloth type field in oredr line's tree field, position after product_template_id field -->
                 <xpath expr="/form/sheet/notebook/page/field[@name='order_line']/tree/field[@name='product_template_id']" position="after">
-=======
-                <xpath expr="/form/sheet/notebook/page/field[@name='order_line']/tree/field[@name='product_template_id']"
-                       position="after">
->>>>>>> e2610a616e02f1b4192cc14d65e1e63e1f035709
                     <field name="cloth_type_id"/>
                 </xpath>
 
