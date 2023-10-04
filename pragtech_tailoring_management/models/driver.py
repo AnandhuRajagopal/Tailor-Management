@@ -25,7 +25,7 @@ class Driver(models.Model):
             'state' : 'material collected'
         })    
 
-        sale_order = self.env['sale.order'].search([('name', '=', self.product)])
+        sale_order = self.env['sale.order'].search([])
 
         if self.state == 'material collected' or sale_order:
 
@@ -34,5 +34,7 @@ class Driver(models.Model):
             })
 
 
+      
+   
 
 

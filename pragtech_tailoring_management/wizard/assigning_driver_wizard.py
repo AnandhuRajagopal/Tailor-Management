@@ -29,13 +29,10 @@ class assigningDriverWizard(models.TransientModel):
                 'customer_name':self.customer_id.id,
                 'product' : sale_order,
                 'date':self.date,
-                })
-            
-            sale_order.write({
-                'state' : 'pickup'
-            })    
-  
-    
+            })
 
+
+      
+       
 
     
