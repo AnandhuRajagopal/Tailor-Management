@@ -1,0 +1,53 @@
+<odoo>
+    <data>
+        <record id="sale.action_orders" model="ir.actions.act_window">
+            <field name="name">Orders</field>
+            <field name="res_model">sale.order</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="view_sale_order_form_inherit" model="ir.ui.view">
+            <field name="name">sale.order.form.inherit</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//header" position="inside">
+                    <button name="%(action_view_measurement_wizard_form)d" type="action" string="Measurement"/>
+                    <button name="action_send_mail" type="object" string="Delivery Ready Mail" attrs= "{'invisible' :[('state','!=','ready to deliver')] }" />
+                    <button name="%(action_view_driver_wizard_form)d" type="action" string="Pickup"
+                            attrs="{'invisible': [('state', '=', 'pickup'),]}"/>
+                    <button name="%(action_view_tailoring_wizard_form)d" type="action" string="Assign Tailor"
+                            attrs="{'invisible': [('state', '!=', 'material collected')],}"/>
+                     <field name="state">
+                        <widget name="statusbar" statusbar_visible="draft,sent,sale,done,cancel,pickup,material collected,tailor assigned,ready to deliver,finished"/>
+                    </field>
+                </xpath>
+
+                <xpath expr="//sheet/div/button" position="before">
+                    <button name="current_tailor_record" type="object" class="oe_stat_button" icon="fa-sort-numeric-asc">
+                        <div class="o_stat_info">
+                            <span class="o_stat_text">Measurement</span>
+                        </div>
+                    </button>
+                    <button name="current_driver_record" type="object" class="oe_stat_button" icon="fa-id-card-o" states="pickup">
+                        <div class="o_stat_info">
+                            <span class="o_stat_text">Assigned</span>
+                            <span class="o_stat_text">Driver</span>
+                        </div>
+                    </button>
+                    <button name="current_tailor_record" type="object" class="oe_stat_button" icon="fa-scissors" states="tailor assigned">
+                        <div class="o_stat_info">
+                            <span class="o_stat_text">Assigned</span>
+                            <span class="o_stat_text">Tailor</span>
+                        </div>
+                    </button>
+                </xpath>
+
+                <xpath expr="/form/sheet/notebook/page/field[@name='order_line']/tree/field[@name='product_template_id']"
+                       position="after">
+                    <field name="cloth_type_id"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

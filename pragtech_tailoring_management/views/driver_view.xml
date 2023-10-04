@@ -30,11 +30,12 @@
       <field name="model">tailoring.driver</field>
       <field name="arch" type="xml">
         <form>
+          
         <header>
             <field name="state" widget="statusbar" statusbar_visible="pending,in progress,material collected"/>
         </header>
-          <sheet>
 
+          <sheet>
             <group>
               <group>
                 <field name="name" />
@@ -44,7 +45,7 @@
                 <button name="start" type="object" string="START" class="btn-primary" attrs= "{'invisible' :['|',('state','=','in progress'),('state','=','material collected')] }"/> 
                 <button name="finish" type="object" string="FINISH" class="btn-success" attrs= "{'invisible' :[('state','=','material collected')] }"/> 
               </group>
-
+    
             </group>
 
           </sheet>

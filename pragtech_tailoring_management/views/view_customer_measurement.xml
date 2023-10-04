@@ -3,7 +3,7 @@
 
     <!-- ********************************* Action View ********************************************* -->
     <record id="tailor_customer_measurment_action" model="ir.actions.act_window">
-      <field name="name">Tailor_Customer_Measurments</field>
+      <field name="name">Customer Measurments</field>
       <field name="res_model">tailoring.customer.measurement</field>
       <field name="view_mode">tree,form</field>
     </record>
