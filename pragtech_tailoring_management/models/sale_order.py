@@ -32,4 +32,20 @@ class SaleOrder(models.Model):
         print(".....")
 
 
+
+    def action_send_mail(self):
+        active_id = self.env.context.get('active_id')
+        sale_order = self.env['sale.order'].browse(active_id)
+        print("---------------active model--------------------", active_id)
+        email_values = {
+        'email_from': self.company_id.email,
+        'email_to': self.partner_id.email,
+        'subject': 'Assigned Product Details'
+        }
+        template = self.env.ref('pragtech_tailoring_management.mail_template_ready_to_delivery')
+        template.send_mail(sale_order.id, force_send=True, email_values=email_values)
+
+
+
+
     

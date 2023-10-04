@@ -20,13 +20,14 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','product','sale','website_sale','website'],
+    'depends': ['base','product','sale','website_sale','website','mail','contacts'],
 
 
     # always loaded
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
+        'views/ready_to_delivery_email.xml',
         'wizard/assigning_driver_wizard.xml',
         'wizard/assigning_tailor_wizard.xml',
         'views/fabrics.xml',
