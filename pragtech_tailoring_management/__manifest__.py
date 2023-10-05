@@ -20,7 +20,9 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','product','sale','mail','contacts','website','website_sale','stock'],
+
+    'depends': ['base','product','sale','hr','mail','contacts','website','website_sale','stock'],
+
 
 
     # always loaded
@@ -37,9 +39,13 @@
         'views/view_tailor.xml',
         'views/view_customer_measurement.xml',
         'views/template_delivery_email.xml',
+        'data/job_positions.xml',
         'views/inherit_sale_order.xml',
         'views/inherit_product_page.xml',
+        'webpage/home_webpage.xml',
+        'views/inherit_employee.xml',
         'views/menu.xml',
+
 
 
     ],
@@ -47,4 +53,11 @@
     'demo': [
         'demo/demo.xml',
     ],
+
+        'assets': {
+    'web.assets_frontend': [
+        'pragtech_tailoring_management/static/src/css/home.css'
+
+    ]
+       },
 }

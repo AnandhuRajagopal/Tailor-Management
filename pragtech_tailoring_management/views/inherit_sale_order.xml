@@ -21,11 +21,16 @@
                     <button name="%(action_view_driver_wizard_form)d" type="action" string="Pickup" states="sale" icon="fa-id-card-o" class="btn-primary"/>
 
                     <!-- Adding a Assign Tailor wizard button -->
-                    <button name="%(action_view_tailoring_wizard_form)d" type="action" string="Assign Tailor" attrs="{'invisible': [('state', '!=', 'material collected')]}" icon="fa-scissors" class="btn-primary"/>
-                    
+                    <button name="%(action_view_tailoring_wizard_form)d" type="action" string="Assign Tailor" attrs="{'invisible': [('state', '!=', 'material collected')],}" icon="fa-scissors" class="btn-primary"/>
+
                     <!-- Adding a Delivery Confirm button -->
-                    <button name="delivery_confirm" type="object" string="Delivery Confirm" attrs="{'invisible': [('state', '!=', 'ready to deliver')],}" icon="fa-shipping-fast" class="btn-primary"/>
+                    <button name="%(action_view_driver_wizard_form)d" type="action" string="Delivery" attrs="{'invisible': [('state', '!=', 'ready to deliver')],}" icon="fa-truck" class="btn-primary"/>
+
+
+                    <!-- Adding a statusbar -->
+                    
                 </xpath>
+
 
                 <field name="state" position="attributes" >
                     <attribute name= 'statusbar_visible'>draft,sale,pickup,material collected,tailor assigned,ready to deliver,finished</attribute>

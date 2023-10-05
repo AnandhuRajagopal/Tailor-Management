@@ -12,7 +12,6 @@ class SaleOrder(models.Model):
     _inherit = "sale.order"
 
     state = fields.Selection(selection_add=[ ('pickup','PICKUP'),('material collected', 'MATERIAL COLLECTED'),('tailor assigned','TAILOR ASSIGNED'),('ready to deliver','READY TO DELIVER'),('finished','FINISHED')]) 
-    warehouse_id = fields.Many2one('stock.warehouse', string='Warehouse')
 
     @api.model
 
@@ -30,6 +29,8 @@ class SaleOrder(models.Model):
 
     # def measurement(self):
     #     print("measurement")
+    
+   
 
 
     # def action_print(self):
