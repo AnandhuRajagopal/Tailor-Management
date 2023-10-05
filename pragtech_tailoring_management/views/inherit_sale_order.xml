@@ -74,7 +74,7 @@
                 </xpath>
                 
                 <!-- <xpath expr="//button[@name='action_view_delivery']" position="attributes">
-                    <attribute name="attrs">{'invisible': [('state', '!=', 'ready to deliver')]}</attribute>
+                    <attribute name="attrs">{'invisible': [('state', '!=', 'ready_to_deliver')]}</attribute>
                 </xpath> -->
                 
 
