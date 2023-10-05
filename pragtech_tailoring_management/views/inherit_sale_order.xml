@@ -12,20 +12,16 @@
             <field name="inherit_id" ref="sale.view_order_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//header" position="inside">
-                    <!-- Adding a Measurement button -->
-                    <button name="%(action_view_measurement_wizard_form)d" type="action" string="Measurement" icon="fa-sort-numeric-asc" class="btn-primary"/>
+                    <!-- <button name="%(action_view_measurement_wizard_form)d" type="action" string="Measurement" icon="fa-sort-numeric-asc" class="btn-primary"/> -->
 
                     <!-- Adding a Send mail button -->
-                    <button name="action_send_mail" type="object" string="Delivery Ready Mail" attrs= "{'invisible' :[('state','!=','ready to deliver')] }" icon="fa-envelope" class="btn-info"/>
+                    <button name="action_delivery_mail" type="object" string="Delivery Ready Mail" attrs= "{'invisible' :[('state','!=','ready to deliver')] }" icon="fa-envelope" class="btn-info"/>
                     
                     <!-- Adding a Pickup wizard button -->
                     <button name="%(action_view_driver_wizard_form)d" type="action" string="Pickup" states="sale" icon="fa-id-card-o" class="btn-primary"/>
 
                     <!-- Adding a Assign Tailor wizard button -->
-                    <button name="%(action_view_tailoring_wizard_form)d" type="action" string="Assign Tailor" attrs="{'invisible': [('state', '!=', 'material collected')],}" icon="fa-scissors" class="btn-primary"/>
-
-                    <!-- Adding a statusbar -->
-                    
+                    <button name="%(action_view_tailoring_wizard_form)d" type="action" string="Assign Tailor" attrs="{'invisible': [('state', '!=', 'material collected')]}" icon="fa-scissors" class="btn-primary"/>
                 </xpath>
 
                 <field name="state" position="attributes" >
@@ -65,8 +61,11 @@
                 </xpath>
 
                 <!-- Inherit and visible customer preview smart button only in sale,pickup,material collected,tailor assigned,ready to deliver,finished states -->
-                <xpath expr="//button[@name='action_preview_sale_order']" position="attributes">
-                    <attribute name="attrs">{'invisible': [('state', 'not in', ('sale','pickup','material collected','tailor assigned','ready to deliver','finished'))]}</attribute>
+                cccc
+
+                <!-- Inherit and visible send by email button only in sale -->
+                <xpath expr="//button[@name='action_quotation_send']" position="attributes">
+                    <attribute name="invisible">context.get('state') != 'sale'</attribute>
                 </xpath>
 
                 <!-- Added ribbon widget -->
