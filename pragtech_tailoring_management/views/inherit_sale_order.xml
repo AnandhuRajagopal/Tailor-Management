@@ -22,6 +22,9 @@
 
                     <!-- Adding a Assign Tailor wizard button -->
                     <button name="%(action_view_tailoring_wizard_form)d" type="action" string="Assign Tailor" attrs="{'invisible': [('state', '!=', 'material collected')]}" icon="fa-scissors" class="btn-primary"/>
+                    
+                    <!-- Adding a Delivery Confirm button -->
+                    <button name="delivery_confirm" type="object" string="Delivery Confirm" attrs="{'invisible': [('state', '!=', 'ready to deliver')],}" icon="fa-shipping-fast" class="btn-primary"/>
                 </xpath>
 
                 <field name="state" position="attributes" >
@@ -61,12 +64,19 @@
                 </xpath>
 
                 <!-- Inherit and visible customer preview smart button only in sale,pickup,material collected,tailor assigned,ready to deliver,finished states -->
-                cccc
+                <xpath expr="//button[@name='action_preview_sale_order']" position="attributes">
+                    <attribute name="attrs">{'invisible': [('state', 'not in', ('sale','pickup','material collected','tailor assigned','ready to deliver','finished'))]}</attribute>
+                </xpath>
 
                 <!-- Inherit and visible send by email button only in sale -->
                 <xpath expr="//button[@name='action_quotation_send']" position="attributes">
                     <attribute name="invisible">context.get('state') != 'sale'</attribute>
                 </xpath>
+                
+                <!-- <xpath expr="//button[@name='action_view_delivery']" position="attributes">
+                    <attribute name="attrs">{'invisible': [('state', '!=', 'ready to deliver')]}</attribute>
+                </xpath> -->
+                
 
                 <!-- Added ribbon widget -->
                 <xpath expr="//sheet/div" position="after">
