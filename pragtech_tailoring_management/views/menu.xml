@@ -13,31 +13,38 @@
             sequence="1" />
 
         <menuitem
+            id="hr_employee_inherit_menu"
+            name="Employee"
+            action="employee_action_orders"
+            parent="pragtech_tailoring_management.pragtech_tailoring_menu_root"
+            sequence="2" />
+
+        <menuitem
             id="product_inherit_menu"
             name="Products"
             action="action_product_list"
             parent="pragtech_tailoring_management.pragtech_tailoring_menu_root"
-            sequence="1" />
+            sequence="3" />
 
         <menuitem
             id="tailor_menu_root"
             name="Tailors"
             action="pragtech_tailoring_management.tailor_action"
             parent="pragtech_tailoring_management.pragtech_tailoring_menu_root"
-            sequence="2" />
+            sequence="4" />
 
         <menuitem
             id="customer_measurement_menu"
             name="Customer Measurement"
             action="tailor_customer_measurment_action"
             parent="pragtech_tailoring_management.pragtech_tailoring_menu_root"
-            sequence="3" />
+            sequence="5" />
 
         <menuitem
             id="configuration_menu_root"
             name="Configuration"
             parent="pragtech_tailoring_management.pragtech_tailoring_menu_root"
-            sequence="4" />
+            sequence="6" />
 
         <menuitem
             id="cloth_type_menu"
