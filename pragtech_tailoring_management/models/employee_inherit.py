@@ -1,6 +1,6 @@
-from odoo import models,fields,api,_
+from odoo import models, fields
 
-class Employee(models.Model):
-    _inherit = "hr.employee"
+class MyEmployee(models.Model):
+    _inherit = 'hr.employee'
 
-    
+    jobdata = fields.Many2one('tailoring.job',string='Job Positions')
