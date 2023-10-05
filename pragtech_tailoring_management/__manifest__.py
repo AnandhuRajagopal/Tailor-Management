@@ -39,6 +39,7 @@
         'views/template_delivery_email.xml',
         'views/inherit_sale_order.xml',
         'views/inherit_product_page.xml',
+        'webpage/home_webpage.xml',
         'views/menu.xml',
 
 
@@ -47,4 +48,11 @@
     'demo': [
         'demo/demo.xml',
     ],
+
+        'assets': {
+    'web.assets_frontend': [
+        'pragtech_tailoring_management/static/src/css/home.css'
+
+    ]
+       },
 }
