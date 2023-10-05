@@ -6,7 +6,7 @@ class assigningDriverWizard(models.TransientModel):
     _description = 'driver_wizard'
 
     driver_id = fields.Many2one('res.users',string="Driver")
-    order_id = fields.Many2one('sale.order', string="Customer",default=lambda self: self.get_active_id())
+    order_id = fields.Many2one('sale.order', string="Order Number",default=lambda self: self.get_active_id())
     # location = fields.Char(string ="Location", related='order_id.')
     date = fields.Datetime(string="Date",related='order_id.date_order')
     
