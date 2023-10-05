@@ -23,13 +23,12 @@
                     <!-- Adding a Assign Tailor wizard button -->
                     <button name="%(action_view_tailoring_wizard_form)d" type="action" string="Assign Tailor" attrs="{'invisible': [('state', '!=', 'material collected')],}" icon="fa-scissors" class="btn-primary"/>
 
+                    <!-- Adding a Delivery Confirm button -->
                     <button name="%(action_view_driver_wizard_form)d" type="action" string="Delivery" attrs="{'invisible': [('state', '!=', 'ready to deliver')],}" icon="fa-truck" class="btn-primary"/>
 
 
                     <!-- Adding a statusbar -->
                     
-                    <!-- Adding a Delivery Confirm button -->
-                    <button name="delivery_confirm" type="object" string="Delivery Confirm" attrs="{'invisible': [('state', '!=', 'ready to deliver')],}" icon="fa-shipping-fast" class="btn-primary"/>
                 </xpath>
 
 
