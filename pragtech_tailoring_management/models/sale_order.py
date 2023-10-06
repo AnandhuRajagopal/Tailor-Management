@@ -1,17 +1,35 @@
 from odoo import models,fields,api,_
 
 
-
-class SaleOrder(models.Model):
+class SaleOrderLine(models.Model):
     _inherit = 'sale.order.line'
-    
-    
-    cloth_type_id = fields.Many2one('tailoring.cloth_type')
+
+    cloth_type_id = fields.Many2one(related='product_template_id.cloth_type', string="Cloth Type")
+
+    def wizard_value_pass(self):
+        # ctx = self.env.context.copy()
+        # ctx.update({"cloth_category_id": self.cloth_type_id.id})
+
+        print("111111111111111111111111112222222211111111111",self.product_template_id.cloth_type.measurement_ids.measurement_id)
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Measurement',
+            'res_model': 'measurement.wizard',
+            'view_mode': 'form',
+            'target': 'new',
+            'view_id': self.env.ref('pragtech_tailoring_management.view_measurement_wizard_form').id,
+            'context': {
+                'default_cloth_category_id': self.cloth_type_id.id,
+
+            },
+        }
+
+
 
 class SaleOrder(models.Model):
     _inherit = "sale.order"
 
-    state = fields.Selection(selection_add=[ ('pickup','PICKUP'),('material collected', 'MATERIAL COLLECTED'),('tailor assigned','TAILOR ASSIGNED'),('ready to deliver','READY TO DELIVER'),('finished','FINISHED')]) 
+    state = fields.Selection(selection_add=[ ('pickup','PICKUP'),('material collected', 'MATERIAL COLLECTED'),('tailor assigned','TAILOR ASSIGNED'),('ready to deliver','READY TO DELIVER'),('finished','FINISHED')])
 
 
     def measurement(self):
@@ -62,7 +80,7 @@ class SaleOrder(models.Model):
                 'target': 'current',
                 'view_id': self.env.ref('pragtech_tailoring_management.tailor_form_view').id
         }
-    
+
 
     # ...........................................Action send mail..........................................
     def action_send_mail(self):

@@ -1,5 +1,6 @@
 <odoo>
     <data>
+
         <record id="sale.action_orders" model="ir.actions.act_window">
             <field name="name">Orders</field>
             <field name="res_model">sale.order</field>
@@ -17,7 +18,7 @@
 
                     <!-- Adding a Send mail button -->
                     <button name="action_send_mail" type="object" string="Delivery Ready Mail" attrs= "{'invisible' :[('state','!=','ready to deliver')] }"/>
-                    
+
                     <!-- Adding a Pickup wizard button -->
                     <button name="%(action_view_driver_wizard_form)d" type="action" string="Pickup" states="sale"/>
 
@@ -57,9 +58,12 @@
                     </button>
                 </xpath>
 
-                <!-- Adding a cloth type field in oredr line's tree field, position after product_template_id field -->
                 <xpath expr="/form/sheet/notebook/page/field[@name='order_line']/tree/field[@name='product_template_id']" position="after">
                     <field name="cloth_type_id"/>
+                </xpath>
+                <xpath expr="/form/sheet/notebook/page/field[@name='order_line']/tree/field[@name='price_subtotal']"
+                       position="after">
+                    <button name="wizard_value_pass" string="Add Measurement" type="object" class="oe_highlight"/>
                 </xpath>
 
                 <!-- Inherit and visible customer preview smart button only in sale,pickup,material collected,tailor assigned,ready to deliver,finished states -->
