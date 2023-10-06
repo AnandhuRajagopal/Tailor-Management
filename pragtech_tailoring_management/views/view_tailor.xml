@@ -48,6 +48,9 @@
                 <tree string="Tailor">
                     <field name="order_id" />
                     <field name="name" />
+                    <field name="assigned_date"/>
+                    <field name="started_date"/>
+                    <field name="finished_date"/>
                     <field name="state" widget="badge" decoration-danger="state == 'pending'" decoration-warning="state == 'in_progress'" decoration-success="state == 'finished'" />
                 </tree>
             </field>
