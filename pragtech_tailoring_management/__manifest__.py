@@ -21,9 +21,7 @@
 
     # any module necessary for this one to work correctly
 
-    'depends': ['base','product','sale','hr','mail','contacts','website','website_sale','stock'],
-
-
+    'depends': ['base', 'product', 'sale', 'hr', 'mail', 'contacts', 'website', 'website_sale', 'stock'],
 
     # always loaded
     'data': [
@@ -46,18 +44,16 @@
         'views/inherit_employee.xml',
         'views/menu.xml',
 
-
-
     ],
     # only loaded in demonstration mode
     'demo': [
         'demo/demo.xml',
     ],
 
-        'assets': {
-    'web.assets_frontend': [
-        'pragtech_tailoring_management/static/src/css/home.css'
+    'assets': {
+        'web.assets_frontend': [
+            'pragtech_tailoring_management/static/src/css/home.css'
 
-    ]
-       },
+        ]
+    },
 }

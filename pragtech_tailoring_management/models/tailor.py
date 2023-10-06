@@ -15,14 +15,15 @@ class Tailor(models.Model):
     assigned_date = fields.Datetime(string="Assigned Date",related='order_id.date_order',readonly=1)
     started_date = fields.Datetime(string="Started Date",readonly=1)
     finished_date = fields.Datetime(string="Finished Date",readonly=1)
-    state = fields.Selection([('pending','PENDING'),('in progress','IN PROGRESS'),('finished','FINISHED')],default="pending", tracking=True)
+    state = fields.Selection([('pending','Pending'),('in_progress','In Progress'),('finished','Finished')],default="pending", tracking=True)
 
 
     def start(self):
         self.started_date = fields.Datetime.now()
         self.write({
-            'state': 'in progress'
+            'state' : 'in_progress'
         })
+
 
     def finish(self):
         self.finished_date = fields.Datetime.now()
@@ -42,3 +43,4 @@ class Tailor(models.Model):
          
 
         
+

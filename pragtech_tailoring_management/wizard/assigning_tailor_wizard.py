@@ -21,6 +21,7 @@ class assigningTailorWizard(models.TransientModel):
         active_id = self.env.context.get("active_id")
         sale_order = self.env['sale.order'].browse(self._context.get('active_id'))
         re = self.env['tailoring.tailor'].browse([active_id])
+    
         if re or (sale_order and sale_order.state != 'tailor assigned'):
             self.env['tailoring.tailor'].create({
                 'name':self.tailor_id.name,
@@ -33,3 +34,7 @@ class assigningTailorWizard(models.TransientModel):
                 'state' : 'tailor assigned'
             })
 
+       
+    
+
+       

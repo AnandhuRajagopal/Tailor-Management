@@ -53,11 +53,12 @@
             <field name="model">tailoring.tailor</field>
             <field name="arch" type="xml">
                 <tree string="Tailor">
-                    <field name="order_id"/>
-                    <field name="name"/>
+                    <field name="order_id" />
+                    <field name="name" />
                     <field name="assigned_date"/>
                     <field name="started_date"/>
                     <field name="finished_date"/>
+                    <field name="state" widget="badge" decoration-danger="state == 'pending'" decoration-warning="state == 'in_progress'" decoration-success="state == 'finished'" />
                 </tree>
             </field>
         </record>
@@ -69,8 +70,7 @@
             <field name="arch" type="xml">
                 <form string="tailor">
                     <header>
-                        <field name="state" widget="statusbar"
-                            statusbar_visible="pending,in progress,finished" />
+                        <field name="state" widget="statusbar" statusbar_visible="pending,in_progress,finished"/>
                     </header>
                     <sheet>
                         <group>
@@ -78,13 +78,14 @@
                                 <field name="order_id"/> 
                                 <field name="name"/>
                                 <field name="assigned_date"/>
-                                <button name="start" type="object" string="START" class="btn-primary" attrs="{'invisible' :['|',('state','=','in progress'),('state','=','finished')] }"/> 
-                                <button name="finish" type="object" string="FINISH" class="btn-success" attrs="{'invisible' :[('state','!=','in progress')]}"/>
+                                <button name="start" type="object" string="START" class="btn-primary" attrs="{'invisible' :['|',('state','=','in_progress'),('state','=','finished')] }"/> 
+                                <button name="finish" type="object" string="FINISH" class="btn-success" attrs="{'invisible' :[('state','!=','in_progress')]}"/>
                             </group>
                             <group>
                                 <field name="started_date"/>
                                 <field name="finished_date"/>
                             </group>
+
                         </group>
                     </sheet>
                     <div class="oe_chatter">
@@ -95,5 +96,18 @@
                 </form>
             </field>
         </record>
+
+        <!-- ********************************* Search View ************************************************* -->
+        <record id="tailor_search_view" model="ir.ui.view">
+            <field name="name">tailor.search</field>
+            <field name="model">tailoring.tailor</field>
+            <field name="arch" type="xml">
+            <search string="tailor">
+                <field name="name" />
+               <field name="order_id" />
+               
+            </search>
+            </field>
+            </record>
     </data>
 </odoo>
