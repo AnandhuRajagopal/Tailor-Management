@@ -20,14 +20,8 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-<<<<<<< HEAD
-    'depends': ['base','product','sale','mail','contacts','website_event_track_quiz'],
-=======
 
-    'depends': ['base','product','sale','hr','mail','contacts','website','website_sale','stock'],
-
->>>>>>> 1d848c4fada7d4107456c491de386e22a86492f2
-
+    'depends': ['base', 'product', 'sale', 'hr', 'mail', 'contacts', 'website', 'website_sale', 'stock'],
 
     # always loaded
     'data': [
@@ -50,18 +44,16 @@
         'views/inherit_employee.xml',
         'views/menu.xml',
 
-
-
     ],
     # only loaded in demonstration mode
     'demo': [
         'demo/demo.xml',
     ],
 
-        'assets': {
-    'web.assets_frontend': [
-        'pragtech_tailoring_management/static/src/css/home.css'
+    'assets': {
+        'web.assets_frontend': [
+            'pragtech_tailoring_management/static/src/css/home.css'
 
-    ]
-       },
+        ]
+    },
 }

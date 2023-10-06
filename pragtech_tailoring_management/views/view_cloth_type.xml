@@ -81,11 +81,7 @@
                             <page string="Measurement">
                                 <field name="measurement_ids">
                                     <tree editable="bottom">
-
                                         <field name="measurement_id"/>
-
-                                        <field name="measurement_id"/>
-                                        <field name="sequence_no"/>
                                     </tree>
                                 </field>
                             </page>
