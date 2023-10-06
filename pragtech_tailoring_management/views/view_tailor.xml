@@ -48,6 +48,7 @@
                 <tree string="Tailor">
                     <field name="order_id" />
                     <field name="name" />
+                    <field name="state" widget="badge" decoration-danger="state == 'pending'" decoration-warning="state == 'in_progress'" decoration-success="state == 'finished'" />
                 </tree>
             </field>
         </record>
@@ -61,7 +62,7 @@
                 <form string="tailor">
                     <header>
                         <field name="state" widget="statusbar"
-                            statusbar_visible="pending,in progress,finished" />
+                            statusbar_visible="pending,in_progress,finished" />
                     </header>
                     <sheet>
                         <group>
@@ -70,15 +71,29 @@
                                 <field name="name" />
                                 <button name="start" type="object" string="START"
                                     class="btn-primary"
-                                    attrs="{'invisible' :['|',('state','=','in progress'),('state','=','finished')] }" />
+                                    attrs="{'invisible' :['|',('state','=','in_progress'),('state','=','finished')] }" />
                                 <button name="finish" type="object" string="FINISH"
                                     class="btn-success"
-                                    attrs="{'invisible' :['|',('state','!=','in progress'),('state','==','finished')] }" />
+                                    attrs="{'invisible' :['|',('state','!=','in_progress'),('state','==','finished')] }" />
                             </group>
+
                         </group>
                     </sheet>
                 </form>
             </field>
         </record>
+
+
+        <record id="tailor_search_view" model="ir.ui.view">
+            <field name="name">tailor.search</field>
+            <field name="model">tailoring.tailor</field>
+            <field name="arch" type="xml">
+            <search string="tailor">
+                <field name="name" />
+               <field name="order_id" />
+               
+            </search>
+            </field>
+            </record>
     </data>
 </odoo>

@@ -7,6 +7,7 @@ class Measurments(models.Model):
 
     sequence_no = fields.Char(string="Sequence_no", readonly=True, default="New")
     name = fields.Char(string="Name",required=True)
+    
 
     @api.model
     def create(self, vals):

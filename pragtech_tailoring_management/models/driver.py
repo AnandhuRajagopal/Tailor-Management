@@ -12,12 +12,12 @@ class Driver(models.Model):
     order_id = fields.Many2one('sale.order',string='Order Number', readonly=1)
     product = fields.Char(string="Product")
     date = fields.Datetime(string="Date",related='order_id.date_order',readonly=1)
-    state = fields.Selection([('pending','PENDING'),('in progress','IN PROGRESS'),('material collected','MATERIAL COLLECTED')],default="pending")
+    state = fields.Selection([('pending','PENDING'),('in_progress','IN PROGRESS'),('material collected','MATERIAL COLLECTED')],default="pending")
 
 
     def start(self):
         self.write({
-            'state' : 'in progress'
+            'state' : 'in_progress'
         })
 
     def finish(self):
