@@ -11,6 +11,7 @@
                     <field name="order_id" />
                     <field name="location" />
                     <field name="date" />
+                    <field name="type" />
                     <templates>
                         <t t-name="kanban-box">
                             <div t-attf-class="oe_kanban_global_click" style="padding:20px">
@@ -33,6 +34,11 @@
                                     <div t-if="record.date.value">
                                         <span style="font-size:20px">Date: <t
                                                 t-esc="record.date.value" />
+                                        </span>
+                                    </div>
+                                    <div t-if="record.date.value">
+                                        <span style="font-size:20px">Type: <t
+                                                t-esc="record.type.value" />
                                         </span>
                                     </div>
                                 </div>
@@ -61,6 +67,7 @@
                     <field name="order_id" />
                     <field name="location" />
                     <field name="date" />
+                    <field name="type" />
                 </tree>
             </field>
         </record>
@@ -74,7 +81,7 @@
                 <form>
                     <header>
                         <field name="state" widget="statusbar"
-                            statusbar_visible="pending,in progress,material collected" />
+                            statusbar_visible="pending,in progress,material collected,delivered" />
                     </header>
                     <sheet>
 
@@ -84,12 +91,13 @@
                                 <field name="order_id" />
                                 <field name="location" />
                                 <field name="date" />
+                                <field name="type" />
                                 <button name="start" type="object" string="START"
                                     class="btn-primary"
-                                    attrs="{'invisible' :['|',('state','=','in progress'),('state','=','material collected')] }" />
+                                    attrs="{'invisible' :['|','|',('state','=','in progress'),('state','=','material collected'),('state','==','delivered')] }" />
                                 <button name="finish" type="object" string="FINISH"
                                     class="btn-success"
-                                    attrs="{'invisible' :['|',('state','!=','in progress'),('state','==','material collected')] }" />
+                                    attrs="{'invisible' :['|','|',('state','!=','in progress'),('state','==','material collected'),('state','==','delivered')] }" />
                             </group>
 
                         </group>

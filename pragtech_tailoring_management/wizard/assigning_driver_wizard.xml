@@ -12,9 +12,11 @@
                                 <field name="order_id" />
                                 <!-- <field name="location"/> -->
                                 <field name="date"/>
+                                <field name="state"/>
                             </group>
                             <footer>
-                                    <button name="driver_wizard_action" type="object" string="Submit" class="btn-primary"/>
+                                    <button name="driver_wizard_pickup_action" type="object" string="PICKUP" class="btn-primary" attrs="{'invisible': [('state', '==', 'ready to deliver')]}" />
+                                    <button name="driver_wizard_delivery_action" type="object" string="DELIVERY" class="btn-primary" attrs="{'invisible': [('state', '==', 'sale')]}"/>
                                     <button string="Cancel" class="btn-secondary" special="cancel" />
                             </footer>
                         </form>

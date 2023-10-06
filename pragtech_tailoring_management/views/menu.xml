@@ -20,11 +20,25 @@
             sequence="2" />
 
         <menuitem
+            id="products_menu_root"
+            name="Products"
+            parent="pragtech_tailoring_management.pragtech_tailoring_menu_root"
+            sequence="3"
+            /> 
+            
+        <menuitem
             id="product_inherit_menu"
             name="Products"
             action="action_product_list"
-            parent="pragtech_tailoring_management.pragtech_tailoring_menu_root"
-            sequence="3" />
+            parent="pragtech_tailoring_management.products_menu_root"
+            sequence="1" />
+            
+        <menuitem
+            id="product_variants_inherit_menu"
+            name="Product Variants"
+            action="action_product_variants"
+            parent="pragtech_tailoring_management.products_menu_root"
+            sequence="2" />
 
         <menuitem
             id="tailor_menu_root"

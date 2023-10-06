@@ -7,6 +7,12 @@
             <field name="view_mode">tree,form</field>
         </record>
 
+        <record id="action_product_variants" model="ir.actions.act_window">
+            <field name="name">Product Variants</field>
+            <field name="res_model">product.product</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
         <record id="product_inherit" model="ir.ui.view">
             <field name="name">product</field>
             <field name="model">product.template</field>
