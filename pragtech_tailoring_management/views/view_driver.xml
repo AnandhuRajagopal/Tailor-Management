@@ -71,7 +71,7 @@
                 <form>
                     <header>
                         <field name="state" widget="statusbar"
-                            statusbar_visible="pending,in_progress,material collected" />
+                            statusbar_visible="pending,in_progress,material_collected" />
                     </header>
                     <sheet>
 
@@ -83,10 +83,10 @@
                                 <field name="date" />
                                 <button name="start" type="object" string="START"
                                     class="btn-primary"
-                                    attrs="{'invisible' :['|',('state','=','in_progress'),('state','=','material collected')] }" />
+                                    attrs="{'invisible' :['|',('state','=','in_progress'),('state','=','material_collected')] }" />
                                 <button name="finish" type="object" string="FINISH"
                                     class="btn-success"
-                                    attrs="{'invisible' :['|',('state','!=','in_progress'),('state','==','material collected')] }" />
+                                    attrs="{'invisible' :['|',('state','!=','in_progress'),('state','==','material_collected')] }" />
                             </group>
 
                         </group>

@@ -13,7 +13,7 @@ class Driver(models.Model):
     order_id = fields.Many2one('sale.order',string='Order Number', readonly=1,tracking=True)
     product = fields.Char(string="Product")
     date = fields.Datetime(string="Date",related='order_id.date_order',readonly=1,tracking=True)
-    state = fields.Selection([('pending','PENDING'),('in_progress','IN PROGRESS'),('material collected','MATERIAL COLLECTED')],default="pending",tracking=True)
+    state = fields.Selection([('pending','PENDING'),('in_progress','IN PROGRESS'),('material_collected','Material Collected')],default="pending",tracking=True)
 
 
     def start(self):
@@ -23,15 +23,15 @@ class Driver(models.Model):
 
     def finish(self):
         self.write({
-            'state' : 'material collected'
+            'state' : 'material_collected'
         })    
 
         sale_order = self.env['sale.order'].search([])
 
-        if self.state == 'material collected' or sale_order:
+        if self.state == 'material_collected' or sale_order:
 
             sale_order.write({
-                'state' : 'material collected'
+                'state' : 'material_collected'
             })
 
 

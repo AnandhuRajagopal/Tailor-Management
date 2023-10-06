@@ -1,37 +1,29 @@
 <odoo>
     <data>
-        <!-- ************************************* kanban view ******************************************** -->
+        <!-- ************************************* kanban view
+        ******************************************** -->
         <record id='tailor_kanban' model='ir.ui.view'>
             <field name='name'>tailor.kanban</field>
             <field name='model'>tailoring.tailor</field>
             <field name='arch' type='xml'>
                 <kanban class="o_rse_partner_kanban">
-                    <field name="order_id"/>
-                    <field name="name"/>
-                    <field name="assigned_date"/>
-                    <field name="started_date"/>
-                    <field name="finished_date"/>
+                    <field name="order_id" />
+                    <field name="name" />
                     <templates>
                         <t t-name="kanban-box">
                             <div t-attf-class="oe_kanban_global_click" style="padding:20px">
                                 <div class="oe_kanban_details">
                                     <strong class="o_kanban_record_title" style="font-size:30px">
-                                        <b> <field name="order_id"/></b>
+                                        <b>
+                                            <field name="order_id" />
+                                        </b>
                                     </strong>
                                     <div t-if="record.name.value">
                                         <span style="font-size:20px">Tailor Name: <t
                                                 t-esc="record.name.value" />
                                         </span>
                                     </div>
-                                    <div t-if="record.assigned_date.value">
-                                        <span style="font-size:20px">Assigned Date: <t t-esc="record.assigned_date.value"/> </span>
-                                    </div>
-                                    <div t-if="record.started_date.value">
-                                        <span style="font-size:20px">Started Date: <t t-esc="record.started_date.value"/> </span>
-                                    </div>
-                                    <div t-if="record.finished_date.value">
-                                        <span style="font-size:20px">Finished Date: <t t-esc="record.finished_date.value"/> </span>
-                                    </div>
+
                                 </div>
                             </div>
                         </t>
@@ -47,7 +39,8 @@
             <field name="view_mode">tree,form,kanban</field>
         </record>
 
-        <!-- ********************************* Tree View ************************************************** -->
+        <!-- ********************************* Tree View
+        ************************************************** -->
         <record id="tailor_tree_view" model="ir.ui.view">
             <field name="name">Tailor Tree Viem</field>
             <field name="model">tailoring.tailor</field>
@@ -56,48 +49,41 @@
                     <field name="order_id" />
                     <field name="name" />
                     <field name="state" widget="badge" decoration-danger="state == 'pending'" decoration-warning="state == 'in_progress'" decoration-success="state == 'finished'" />
-                    <field name="assigned_date"/>
-                    <field name="started_date"/>
-                    <field name="finished_date"/>
                 </tree>
             </field>
         </record>
 
-        <!-- ********************************* Form View ************************************************* -->
+        <!-- ********************************* Form View
+        ************************************************* -->
         <record id="tailor_form_view" model="ir.ui.view">
             <field name="name">Tailor Form View</field>
             <field name="model">tailoring.tailor</field>
             <field name="arch" type="xml">
                 <form string="tailor">
                     <header>
-                        <field name="state" widget="statusbar" statusbar_visible="pending,in_progress,finished"/>
+                        <field name="state" widget="statusbar"
+                            statusbar_visible="pending,in_progress,finished" />
                     </header>
                     <sheet>
                         <group>
                             <group>
-                                <field name="order_id"/> 
-                                <field name="name"/>
-                                <field name="assigned_date"/>
-                                <button name="start" type="object" string="START" class="btn-primary" attrs="{'invisible' :['|',('state','=','in_progress'),('state','=','finished')] }"/> 
-                                <button name="finish" type="object" string="FINISH" class="btn-success" attrs="{'invisible' :[('state','!=','in_progress')]}"/>
-                            </group>
-                            <group>
-                                <field name="started_date"/>
-                                <field name="finished_date"/>
+                                <field name="order_id" />
+                                <field name="name" />
+                                <button name="start" type="object" string="START"
+                                    class="btn-primary"
+                                    attrs="{'invisible' :['|',('state','=','in_progress'),('state','=','finished')] }" />
+                                <button name="finish" type="object" string="FINISH"
+                                    class="btn-success"
+                                    attrs="{'invisible' :['|',('state','!=','in_progress'),('state','==','finished')] }" />
                             </group>
 
                         </group>
                     </sheet>
-                    <div class="oe_chatter">
-                        <field name="message_follower_ids"></field>
-                        <field name="activity_ids"></field>
-                        <field name="message_ids"></field>
-                    </div>
                 </form>
             </field>
         </record>
 
-        <!-- ********************************* Search View ************************************************* -->
+
         <record id="tailor_search_view" model="ir.ui.view">
             <field name="name">tailor.search</field>
             <field name="model">tailoring.tailor</field>
