@@ -1,0 +1,317 @@
+<odoo>
+    <data>
+
+        <template id="home_page_template" name="home Page">
+            <t t-call="website.layout">
+                <link rel="stylesheet" href="pragtech_tailoring_management/static/src/css/home.css" />
+                <link rel="stylesheet"
+                    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+                <link rel="stylesheet"
+                    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" />
+                <script
+                    src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" />
+                <div id="wrap" class="custom_structure custom_empty">
+                    <section id="background_img"
+                        class="custom_cover bg-black-50 pt96 custom_colored_level custom_parallax_no_overflow_hidden pb40 custom_img_bg vh-60"
+                        data-scroll-background-ratio="0" data-snippet="custom_cover"
+                        data-name="Cover" style=" margin-top: 100px;">
+                        <div class="custom_allow_columns container" id="background_img_text">
+                            <h1 style="text-align: center;">
+                                <font style="font-size: 62px; font-weight: bold;">"Experience the
+                                    convenience of personalized tailoring brought to your location"</font>
+                            </h1>
+                            <p class="lead" style="text-align: center;">
+                                <br />
+                            </p>
+                            <p style="text-align: center;">
+                                <a href="/shop" class="btn btn-primary btn-lg mb-2"
+                                    data-original-title="" title="" aria-describedby="tooltip926630">
+                                    <font style="font-size: 24px;" data-original-title="" title=""
+                                        aria-describedby="tooltip744592">BOOK NOW</font>
+                                </a>
+                            </p>
+                        </div>
+                    </section>
+                    <!-- Mens Tailoring Section -->
+                    <section class="custom_text_image pt-5 pb-5 custom_colored_level"
+                        data-snippet="custom_image_text" data-name="Image - Text"
+                        style="margin-top: 200px;">
+                        <div class="container">
+                            <div class="row align-items-center">
+                                <div class="col-lg-6 pt-4 pb-4 custom_colored_level">
+                                    <img
+                                        src="https://i.pinimg.com/originals/c3/93/e0/c393e0dc8adae746d01ac4bd6676c3a6.jpg"
+                                        class="img img-fluid mx-auto" alt="Mens Tailoring"
+                                        loading="lazy" />
+                                </div>
+                                <div class="col-lg-6 pt-4 pb-4 custom_colored_level">
+                                    <h2 class="text-dark">
+                                        <b>MENS TAILORING</b>
+                                    </h2>
+                                    <p class="custom_default_snippet_text text-dark">Discover
+                                        impeccable tailoring for men. Our expert tailors create
+                                        custom-made outfits that exude style and comfort.</p>
+                                    <p class="custom_default_snippet_text text-dark">Explore a wide
+                                        range of fabrics and designs tailored to your preferences.
+                                        Elevate your wardrobe with precision and craftsmanship.</p>
+                                    <a href="#" class="btn btn-primary">Explore Mens Tailoring</a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Womens Tailoring Section -->
+                    <section class="custom_text_image pt-5 pb-5 custom_colored_level"
+                        data-snippet="custom_text_image" data-name="Text - Image">
+                        <div class="container">
+                            <div class="row align-items-center">
+                                <div class="col-lg-6 pt-4 pb-4 custom_colored_level">
+                                    <h2 class="text-dark">
+                                        <b>WOMENS TAILORING</b>
+                                    </h2>
+                                    <p class="custom_default_snippet_text text-dark">Experience the
+                                        art of tailoring for women. Our skilled tailors create
+                                        custom clothing that combines elegance and comfort.</p>
+                                    <p class="custom_default_snippet_text text-dark">Choose from a
+                                        variety of fabrics and designs tailored to your preferences.
+                                        Redefine your style with our attention to detail.</p>
+                                    <a href="#" class="btn btn-primary">Explore Womens Tailoring</a>
+                                </div>
+                                <div class="col-lg-6 pt-4 pb-4 custom_colored_level">
+                                    <img
+                                        src="https://i.pinimg.com/736x/81/e5/03/81e503a41aa54ae5cef301af3e1a30c3.jpg"
+                                        class="img img-fluid mx-auto" alt="Womens Tailoring"
+                                        loading="lazy" />
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="custom_text_image pt-5 pb-5 custom_colored_level"
+                        data-snippet="custom_image_text" data-name="Image - Text">
+                        <div class="container">
+                            <div class="row align-items-center">
+                                <div class="col-lg-6 pt-4 pb-4 custom_colored_level">
+                                    <img
+                                        src="https://i.pinimg.com/550x/69/bf/ec/69bfecf1dd0c5cea70d3416c039046ad.jpg"
+                                        class="img img-fluid mx-auto" alt="Kids Tailoring"
+                                        loading="lazy" />
+                                </div>
+                                <div class="col-lg-6 pt-4 pb-4 custom_colored_level">
+                                    <h2 class="text-dark">
+                                        <b>KIDS TAILORING</b>
+                                    </h2>
+                                    <p class="custom_default_snippet_text text-dark">
+                                        Our Kids Tailoring service ensures your little ones look
+                                        their best. Our expert tailors create outfits that are both
+                                        comfortable and stylish.
+                                    </p>
+                                    <p class="custom_default_snippet_text text-dark">
+                                        Discover a range of designs and fabrics for your kids'
+                                        clothing needs. Quality craftsmanship and a perfect fit,
+                                        every time.
+                                    </p>
+                                    <a href="#" class="btn btn-primary">Explore Kids Tailoring</a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section
+                        class="custom_banner pt-5 pb-5 custom_colored_level custom_parallax_no_overflow_hidden custom_img_bg"
+                        data-scroll-background-ratio="0" data-snippet="custom_banner"
+                        data-name="Banner"
+                        style="background-image: url('https://t4.ftcdn.net/jpg/04/93/20/95/360_F_493209531_9q6bABedf43gsIE1GtzXQs2I9rKuUNsk.jpg'); position: relative;margin-top:200px;margin-bottom:200px;">
+                        <div class="container">
+                            <div class="row justify-content-center align-items-center">
+                                <div class="col-lg-6">
+                                    <div
+                                        class="custom_jumbotron rounded p-4 custom_colored_level text-center d-flex flex-column justify-content-center"
+                                        data-name="Box">
+                                        <h1
+                                            style="font-size: 48px; font-weight: bold; color: white; text-shadow: 0 0 10px black; text-align: center; margin: 0 auto;">
+                                            GARMENT OF YOUR STYLE ... !!!
+                                        </h1>
+
+                                        <a href="#" class="btn btn-primary btn-lg btn-block mt-4">GET
+                                            CUSTOM STYLE</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="how_it_works"
+                        class="custom_process_steps pt-5 pb-5 custom_colored_level undefined custom_cc custom_cc1"
+                        data-snippet="custom_process_steps" data-name="Steps"
+                        style="position: relative; margin-top: 200px;margin-bottom: 200px;">
+                        <div class="container">
+                            <div class="row no-gutters">
+                                <div
+                                    class="col-lg-3 custom_process_step pt-4 pb-4 custom_colored_level">
+                                    <div class="custom_process_step_icon">
+                                        <span class="icon-wrapper">
+                                            <i
+                                                class="fa fa-shopping-basket fa-2x mx-auto rounded-circle bg-primary animated-icon"></i>
+                                        </span>
+                                    </div>
+                                    <div class="custom_process_step_content text-center">
+                                        <h3>CHOOSE STYLE</h3>
+                                        <p>Choose your style</p>
+                                    </div>
+                                </div>
+                                <div
+                                    class="col-lg-3 custom_process_step pt-4 pb-4 custom_colored_level">
+                                    <div class="custom_process_step_icon">
+                                        <span class="icon-wrapper">
+                                            <i
+                                                class="fa fa-unlock-alt fa-2x mx-auto rounded-circle bg-o-color-5 animated-icon"></i>
+                                        </span>
+                                    </div>
+                                    <div class="custom_process_step_content text-center">
+                                        <h3>GET MEASURED</h3>
+                                        <p>Give the measurement</p>
+                                    </div>
+                                </div>
+                                <div
+                                    class="col-lg-3 custom_process_step pt-4 pb-4 custom_colored_level">
+                                    <div class="custom_process_step_icon">
+                                        <span class="icon-wrapper">
+                                            <i
+                                                class="fa fa-paypal fa-2x mx-auto rounded-circle bg-secondary animated-icon"></i>
+                                        </span>
+                                    </div>
+                                    <div class="custom_process_step_content text-center">
+                                        <h3>Pay</h3>
+                                        <p>Do the Payment</p>
+                                    </div>
+                                </div>
+                                <div
+                                    class="col-lg-3 custom_process_step pt-4 pb-4 custom_colored_level">
+                                    <div class="custom_process_step_icon">
+                                        <span class="icon-wrapper">
+                                            <i
+                                                class="fa fa-plane fa-2x mx-auto rounded-circle bg-o-color-3 animated-icon"></i>
+                                        </span>
+                                    </div>
+                                    <div class="custom_process_step_content text-center">
+                                        <h3>Get Delivered</h3>
+                                        <p>Delivered within 10-12 days</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+
+                    <section class="custom_text_block pt-5 pb-5 custom_colored_level"
+                        data-snippet="custom_text_block" data-name="Text">
+                        <div class="custom_allow_columns container">
+                            <div class="owl-carousel">
+                                <blockquote
+                                    class="custom_blockquote custom_blockquote_classic custom_animable blockquote"
+                                    data-snippet="custom_blockquote" data-name="Blockquote">
+                                    <i
+                                        class="custom_blockquote_icon fa fa-1x fa-quote-left bg-o-color-2 rounded"></i>
+                                    <div class="custom_blockquote_content bg-100">
+                                        <div class="custom_testimonial_header">
+                                            <img
+                                                src="https://cdn.pixabay.com/photo/2023/02/24/00/41/ai-generated-7809879_1280.jpg"
+                                                data-mimetype="image/jpeg"
+                                                style="width:150px;height:150px;border-radius:50%" />
+                                            <p>
+                                                <b>Asmar Rahman</b>
+                                            </p>
+                                        </div>
+                                        <div class="custom_testimonial_content">
+                                            <p>The stitching was so perfect, and the time of
+                                                delivery was so fast.</p>
+                                        </div>
+                                        <div class="custom_testimonial_rating">
+                                            <div class="custom_rating_icons custom_not_editable">
+                                                <span class="custom_rating_active_icons">
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                </span>
+                                                <span class="custom_rating_inactive_icons">
+                                                    <i class="fa fa-star-o"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </blockquote>
+                                <blockquote
+                                    class="custom_blockquote custom_blockquote_classic custom_animable blockquote"
+                                    data-snippet="custom_blockquote" data-name="Blockquote">
+                                    <i
+                                        class="custom_blockquote_icon fa fa-1x fa-quote-left bg-o-color-2 rounded"></i>
+                                    <div class="custom_blockquote_content bg-100">
+                                        <div class="custom_testimonial_header">
+                                            <img
+                                                src="https://cdn.pixabay.com/photo/2023/02/24/00/41/ai-generated-7809879_1280.jpg"
+                                                data-mimetype="image/jpeg"
+                                                style="width:150px;height:150px;border-radius:50%" />
+                                            <p>
+                                                <b>Abdurahman</b>
+                                            </p>
+                                        </div>
+                                        <div class="custom_testimonial_content">
+                                            <p>Amazing service.</p>
+                                        </div>
+                                        <div class="custom_testimonial_rating">
+                                            <div class="custom_rating_icons custom_not_editable">
+                                                <span class="custom_rating_active_icons">
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                </span>
+                                                <span class="custom_rating_inactive_icons">
+                                                    <i class="fa fa-star-o"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </blockquote>
+                            </div>
+                        </div>
+                    </section>
+
+
+                </div>
+                <script>
+                    $(document).ready(function () {
+                    $(".owl-carousel").owlCarousel({
+                    items: 1,
+                    loop: true,
+                    autoplay: true,
+                    autoplayTimeout: 4000,
+                    margin: 20,
+                    dots: true,
+                    nav: false
+                    });
+                    });
+
+                    $("a").on('click', function(event) {
+                        if (this.hash !== "") {
+                            event.preventDefault();
+                            const hash = this.hash;
+                            $('html, body').animate({
+                                scrollTop: $(hash).offset().top
+                            }, 800, function(){
+                                window.location.hash = hash;
+                            });
+                        }
+                    });
+                </script>
+            </t>
+
+        </template>
+       
+    
+
+    </data>
+</odoo>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="pragmatic_tailoring_tailor" model="tailoring.job">
+            <field name="job_name">Tailor</field>
+        </record>
+        <record id="pragmatic_tailoring_driver" model="tailoring.job">
+            <field name="job_name">Driver</field>
+        </record>
+        <record id="pragmatic_tailoring_supervisor" model="tailoring.job">
+            <field name="job_name">Supervisor</field>
+        </record>
+        <record id="pragmatic_tailoring_manager" model="tailoring.job">
+            <field name="job_name">Manager</field>
+        </record>
+    </data>
+</odoo>

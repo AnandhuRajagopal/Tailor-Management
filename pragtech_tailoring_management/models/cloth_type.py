@@ -1,6 +1,5 @@
 from odoo import models, fields, api , _
 
-
 class ClothType(models.Model):
     _name = 'tailoring.cloth_type'
     _description = 'tailoring_cloth_type'
