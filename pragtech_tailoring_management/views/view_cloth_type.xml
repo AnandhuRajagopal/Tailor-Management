@@ -1,7 +1,6 @@
 <odoo>
     <data>
-        <!-- ************************************* kanban view
-        ******************************************** -->
+        <!-- ************************************* kanban view ******************************************** -->
         <record id='cloth_kanban' model='ir.ui.view'>
             <field name='name'>cloth.kanban</field>
             <field name='model'>tailoring.cloth_type</field>
@@ -34,8 +33,7 @@
             </field>
         </record>
 
-        <!-- ************************************* Action
-        ******************************************** -->
+        <!-- ************************************* Action ******************************************** -->
         <record id='cloth_action' model='ir.actions.act_window'>
             <field name="name">Cloths</field>
             <field name="res_model">tailoring.cloth_type</field>
@@ -47,8 +45,7 @@
             </field>
         </record>
 
-        <!-- ************************************* Tree view
-        ******************************************** -->
+        <!-- ************************************* Tree view ******************************************** -->
         <record id='cloth_tree' model='ir.ui.view'>
             <field name='name'>cloth.tree</field>
             <field name='model'>tailoring.cloth_type</field>
@@ -64,8 +61,7 @@
             </field>
         </record>
 
-        <!-- ************************************* Form view
-        ******************************************** -->
+        <!-- ************************************* Form view ******************************************** -->
         <record id='cloth_form' model='ir.ui.view'>
             <field name='name'>cloth.form</field>
             <field name='model'>tailoring.cloth_type</field>
@@ -93,8 +89,7 @@
             </field>
         </record>
 
-        <!-- ************************************* Search view
-        ******************************************** -->
+        <!-- ************************************* Search view ******************************************** -->
         <record id="cloth_search" model="ir.ui.view">
             <field name="name">cloth.search</field>
             <field name="model">tailoring.cloth_type</field>
