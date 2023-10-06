@@ -3,16 +3,17 @@ from odoo import fields,models,api
 
 class Driver(models.Model):
     _name = "tailoring.driver"
-    _description = "tailoring_driver"
+    _description = "Driver"
     _rec_name = "name"
+    _inherit = ['mail.thread','mail.activity.mixin']
 
 
-    name = fields.Many2one('res.users',string="Driver", readonly=1)
+    name = fields.Many2one('res.users',string="Driver", readonly=1 )
     location = fields.Char()
-    order_id = fields.Many2one('sale.order',string='Order Number', readonly=1)
+    order_id = fields.Many2one('sale.order',string='Order Number', readonly=1,tracking=True)
     product = fields.Char(string="Product")
-    date = fields.Datetime(string="Date",related='order_id.date_order',readonly=1)
-    state = fields.Selection([('pending','PENDING'),('in_progress','IN PROGRESS'),('material collected','MATERIAL COLLECTED')],default="pending")
+    date = fields.Datetime(string="Date",related='order_id.date_order',readonly=1,tracking=True)
+    state = fields.Selection([('pending','PENDING'),('in_progress','IN PROGRESS'),('material collected','MATERIAL COLLECTED')],default="pending",tracking=True)
 
 
     def start(self):

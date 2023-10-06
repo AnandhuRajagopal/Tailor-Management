@@ -6,7 +6,8 @@ class assigningTailorWizard(models.TransientModel):
 
     tailor_id = fields.Many2one('res.users', string='Select Tailor')
     order_id = fields.Many2one('sale.order', string="Order Number",default=lambda self: self.get_active_id())
-    
+    assigned_date = fields.Datetime(string="Assigned Date",related='order_id.date_order')
+
 
 
     @api.model
@@ -26,6 +27,7 @@ class assigningTailorWizard(models.TransientModel):
                 'name':self.tailor_id.name,
                 'order_id':self.order_id.id,
                 'product' : sale_order,
+                'assigned_date' : self.assigned_date,
             })
 
             sale_order.write({

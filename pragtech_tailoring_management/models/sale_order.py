@@ -2,24 +2,29 @@ from odoo import models,fields,api,_
 
 
 
-class SaleOrder(models.Model):
+class SaleOrderLine(models.Model):
     _inherit = 'sale.order.line'
     
     
-    cloth_type_id = fields.Many2one('tailoring.cloth_type')
+    cloth_type_id = fields.Many2one('tailoring.cloth_type',string="Cloth Type")
 
 class SaleOrder(models.Model):
     _inherit = "sale.order"
 
     state = fields.Selection(selection_add=[ ('pickup','PICKUP'),('material collected', 'MATERIAL COLLECTED'),('tailor assigned','TAILOR ASSIGNED'),('ready to deliver','READY TO DELIVER'),('finished','FINISHED')]) 
-    tailor_id = fields.Many2one('tailoring.tailor', string='Tailor')
+    
 
-    def measurement(self):
-        print("measurement")
+    @api.model
 
+    def delivery_confirm(self):
+        super(SaleOrder, self)._action_confirm()
+        for order in self:
+            order.picking_ids.action_assign()
 
-    def action_print(self):
-        print(".....")
+    def _action_cancel(self):
+        super(SaleOrder, self)._action_cancel()
+        for order in self:
+            order.picking_ids.action_cancel()
 
 
 
@@ -49,7 +54,7 @@ class SaleOrder(models.Model):
     
 
     # ...........................................Action send mail..........................................
-    def action_send_mail(self):
+    def action_delivery_mail(self):
         active_id = self.env.context.get('active_id')
         sale_order = self.env['sale.order'].browse(self.id)
         email_values = {
@@ -59,3 +64,6 @@ class SaleOrder(models.Model):
         }
         template = self.env.ref('pragtech_tailoring_management.mail_template_ready_to_delivery')
         template.send_mail(sale_order.id, force_send=True, email_values=email_values)
+
+
+

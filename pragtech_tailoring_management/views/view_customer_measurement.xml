@@ -1,48 +1,46 @@
 <odoo>
-  <data>
+    <data>
 
-    <!-- ********************************* Action View ********************************************* -->
-    <record id="tailor_customer_measurment_action" model="ir.actions.act_window">
-      <field name="name">Customer Measurments</field>
-      <field name="res_model">tailoring.customer.measurement</field>
-      <field name="view_mode">tree,form</field>
-    </record>
+        <!-- ********************************* Action View ********************************************* -->
+        <record id="tailor_customer_measurment_action" model="ir.actions.act_window">
+            <field name="name">Customer Measurments</field>
+            <field name="res_model">tailoring.customer.measurement</field>
+            <field name="view_mode">tree,form</field>
+        </record>
 
-    <!-- ********************************* Tree View
-    ************************************************** -->
-    <record id="tailor_measurment_tree" model="ir.ui.view">
-      <field name="name">Tailor_Customer_Measurments.tree</field>
-      <field name="model">tailoring.customer.measurement</field>
-      <field name="arch" type="xml">
-        <tree>
-          <field name="order_id" />
-          <field name="name" />
-          <field name="measurement" />
-        </tree>
-      </field>
-    </record>
+        <!-- ********************************* Tree View ************************************************** -->
+        <record id="tailor_measurment_tree" model="ir.ui.view">
+            <field name="name">Tailor_Customer_Measurments.tree</field>
+            <field name="model">tailoring.customer.measurement</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="order_id" />
+                    <field name="name" />
+                    <field name="measurement" />
+                </tree>
+            </field>
+        </record>
 
-    <!-- ********************************* Form View
-    ************************************************* -->
-    <record id="tailor_measurment_form" model="ir.ui.view">
-      <field name="name">Tailor_Customer_Measurments.form</field>
-      <field name="model">tailoring.customer.measurement</field>
-      <field name="arch" type="xml">
-        <form>
-          <sheet>
-            <group>
-              <field name="order_id" />
-            </group>
-            <group>
-              <group>
-                <field name="name" />
-                <field name="measurement" />
-              </group>
-            </group>
-          </sheet>
-        </form>
-      </field>
-    </record>
+        <!-- ********************************* Form View ************************************************* -->
+        <record id="tailor_measurment_form" model="ir.ui.view">
+            <field name="name">Tailor_Customer_Measurments.form</field>
+            <field name="model">tailoring.customer.measurement</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="order_id" />
+                        </group>
+                        <group>
+                            <group>
+                                <field name="name" />
+                                <field name="measurement" />
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
 
-  </data>
+    </data>
 </odoo>
