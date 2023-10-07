@@ -17,6 +17,12 @@ access_measurement_inverse_wizard,measurement.wizard.line,model_measurement_wiza
 
 
 
+access_sale_order,tailoring.sale_order,model_sale_order,,1,1,1,1
+access_sale_order_line,tailoring.sale_order_line,model_sale_order_line,,1,1,1,1
+access_hr_employee,tailoring.hr_employee,model_hr_employee,,1,1,1,1
+access_tailoring_job,tailoring.job,model_tailoring_job,,1,1,1,1
+
+
 access_measurement_wizard,measurement.wizard,model_measurement_wizard,,1,1,1,1
 access_tailoring_wizard,tailoring.assign.tailors,model_tailoring_assign_tailors,,1,1,1,1
 

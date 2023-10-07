@@ -31,7 +31,7 @@ class SaleOrder(models.Model):
     _inherit = "sale.order"
     state = fields.Selection(selection_add=[ 
                                             ('tailor assigned', 'TAILOR ASSIGNED'),
-                                            ('ready to deliver', 'READY TO DELIVER'),('delivery','Delivery'), ('finished', 'FINISHED')])
+                                            ('ready to deliver', 'READY TO DELIVER'),('shipped','SHIPPED'), ('delivered', 'DELIVERED')])
 
 
 

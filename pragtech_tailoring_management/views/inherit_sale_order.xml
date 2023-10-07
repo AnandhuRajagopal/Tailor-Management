@@ -50,9 +50,6 @@
                             attrs="{'invisible': [('state', '!=', 'sale')]}" icon="fa-scissors"
                             class="btn-primary"/>
 
-                    <!-- Adding a Delivery Confirm button -->
-                    <button name="%(action_view_driver_wizard_form)d" type="action" string="Delivery" attrs="{'invisible': [('state', '!=', 'ready to deliver')]}" icon="fa-truck" class="btn-primary"/>
-
 
                     <!-- Adding a statusbar -->
 
@@ -60,7 +57,7 @@
 
 
                 <field name="state" position="attributes" >
-                    <attribute name= 'statusbar_visible'>draft,sale,tailor assigned,ready to deliver,delivery,finished</attribute>
+                    <attribute name= 'statusbar_visible'>draft,sale,tailor assigned,ready to deliver,shipped,delivered</attribute>
                 </field>
 
                 <xpath expr="//sheet/div/button" position="before">
