@@ -5,11 +5,16 @@ class SaleOrderLine(models.Model):
     _inherit = 'sale.order.line'
 
     cloth_type_id = fields.Many2one(related='product_template_id.cloth_type', string="Cloth Type")
+    description = fields.Char(string="Description", compute='_compute_description', store=True)
+
+    @api.depends('product_template_id.description')
+    def _compute_description(self):
+        for line in self:
+            if line.product_template_id.description:
+                line.description = line.product_template_id.description
+
 
     def wizard_value_pass(self):
-        # ctx = self.env.context.copy()
-        # ctx.update({"cloth_category_id": self.cloth_type_id.id})
-
         print("111111111111111111111111112222222211111111111",
               self.product_template_id.cloth_type.measurement_ids.measurement_id)
         return {

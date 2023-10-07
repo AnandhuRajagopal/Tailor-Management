@@ -17,13 +17,13 @@
             <field name="arch" type="xml">
 
                 <xpath expr="//field[@name='activity_ids']" position="attributes">
-                    <attribute name="invisible">True</attribute>                    
+                    <attribute name="invisible">True</attribute>
                 </xpath>
                 <xpath expr="//field[@name='company_id']" position="attributes">
-                    <attribute name="invisible">True</attribute>                    
+                    <attribute name="invisible">True</attribute>
                 </xpath>
                 <xpath expr="//field[@name='website_id']" position="attributes">
-                    <attribute name="invisible">True</attribute>                    
+                    <attribute name="invisible">True</attribute>
                 </xpath>
                 <xpath expr="//field[@name='invoice_status']" position="after">
                     <field name="state" widget="badge"></field>
@@ -83,7 +83,7 @@
                         </div>
                     </button>
 
-    
+
 
                     <!-- Adding Assigned Tailorr smart button -->
                     <!-- visible Assigned Tailor smart button only in tailor assigned,ready to deliver,finished states -->
@@ -97,7 +97,12 @@
 
                 <xpath expr="/form/sheet/notebook/page/field[@name='order_line']/tree/field[@name='product_template_id']" position="after">
                     <field name="cloth_type_id"/>
+                    <field name="description"/>
                 </xpath>
+                <xpath expr="/form/sheet/notebook/page/field[@name='order_line']/tree/field[@name='name']" position="attributes">
+            <attribute name="invisible">1</attribute>
+        </xpath>
+
 
                 <!-- Inherit and visible customer preview smart button only in sale,pickup,material_collected,tailor assigned,ready to deliver,finished states -->
                 <xpath expr="//button[@name='action_preview_sale_order']" position="attributes">
