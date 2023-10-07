@@ -27,12 +27,11 @@
     'data': [
         # 'security/security.xml',
         'security/ir.model.access.csv',
-        'wizard/assigning_driver_wizard.xml',
         'wizard/assigning_tailor_wizard.xml',
         'wizard/assigning_measurement_wizard.xml',
         'views/view_fabrics.xml',
         'views/view_cloth_type.xml',
-        'views/view_driver.xml',
+        'views/stock_pickup.xml',
         'views/view_measurement.xml',
         'views/view_tailor.xml',
         'views/view_customer_measurement.xml',
