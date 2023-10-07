@@ -6,7 +6,7 @@
             <field name="arch" type="xml">
                 <form string="Assigning Tailor wizard">
                     <group>
-                        <field name="tailor_id" />
+                        <field name="tailor_id" domain="[('job_title', '=', 'Tailor')]"/>
                         <field name="order_id" readonly="1"/>
                     </group>
                     <footer>

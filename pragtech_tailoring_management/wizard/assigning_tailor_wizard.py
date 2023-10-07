@@ -4,7 +4,7 @@ class assigningTailorWizard(models.TransientModel):
     _name = 'tailoring.assign.tailors'
     _description = 'tailoring_assign_tailors'
 
-    tailor_id = fields.Many2one('hr.employee', string='Select Tailor')
+    tailor_id = fields.Many2one('hr.employee', string='Select Tailor', required=True)
     order_id = fields.Many2one('sale.order', string="Order Number",default=lambda self: self.get_active_id())
     assigned_date = fields.Datetime(string="Assigned Date",related='order_id.date_order')
 

@@ -10,7 +10,7 @@
                 </xpath>
 
                 <xpath expr="//field[@name='origin']" position="after">
-                    <field name="driver_id" domain="[('job_title', '=', 'Tailor')]" />
+                    <field name="driver_id" domain="[('job_title', '=', 'Driver')]" />
                     <field name="product_image" states="done,delivered"/>
                 </xpath>
                 <field name="state" position="attributes" >
