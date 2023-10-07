@@ -44,13 +44,10 @@
                             attrs="{'invisible' :[('state','!=','ready to deliver')] }" icon="fa-envelope"
                             class="btn-info"/>
 
-                    <!-- Adding a Pickup wizard button -->
-                    <button name="%(action_view_driver_wizard_form)d" type="action" string="Pickup" states="sale"
-                            icon="fa-id-card-o" class="btn-primary"/>
 
                     <!-- Adding an Assign Tailor wizard button -->
                     <button name="%(action_view_tailoring_wizard_form)d" type="action" string="Assign Tailor"
-                            attrs="{'invisible': [('state', '!=', 'material collected')]}" icon="fa-scissors"
+                            attrs="{'invisible': [('state', '!=', 'sale')]}" icon="fa-scissors"
                             class="btn-primary"/>
 
                     <!-- Adding a Delivery Confirm button -->
@@ -63,7 +60,7 @@
 
 
                 <field name="state" position="attributes" >
-                    <attribute name= 'statusbar_visible'>draft,sale,pickup,material collected,tailor assigned,ready to deliver,delivery,finished</attribute>
+                    <attribute name= 'statusbar_visible'>draft,sale,tailor assigned,ready to deliver,delivery,finished</attribute>
                 </field>
 
                 <xpath expr="//sheet/div/button" position="before">
@@ -71,15 +68,6 @@
                     <button name="current_tailor_record" type="object" class="oe_stat_button" icon="fa-sort-numeric-asc">
                         <div class="o_stat_info">
                             <span class="o_stat_text">Measurement</span>
-                        </div>
-                    </button>
-
-                    <!-- Adding Assigned Driver smart button -->
-                    <!-- visible Assigned Driver smart button only in pickup,material collected,tailor assigned,ready to deliver,finished states -->
-                    <button name="current_driver_record" type="object" class="oe_stat_button" icon="fa-id-card-o" states="pickup,material collected,tailor assigned,ready to deliver,delivery,finished">
-                        <div class="o_stat_info">
-                            <span class="o_stat_text">Assigned</span>
-                            <span class="o_stat_text">Driver</span>
                         </div>
                     </button>
 
@@ -117,11 +105,6 @@
                 <xpath expr="//button[@name='action_quotation_send']" position="attributes">
     <attribute name="invisible">context.get('state') != 'sale'</attribute>
 </xpath>
-
-
-                <!-- <xpath expr="//button[@name='action_view_delivery']" position="attributes">
-                    <attribute name="attrs">{'invisible': [('state', '!=', 'ready_to_deliver')]}</attribute>
-                </xpath> -->
 
 
                 <!-- Added ribbon widget -->

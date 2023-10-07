@@ -29,59 +29,11 @@ class SaleOrderLine(models.Model):
 
 class SaleOrder(models.Model):
     _inherit = "sale.order"
-    state = fields.Selection(selection_add=[('pickup', 'PICKUP'), ('material collected', 'MATERIAL COLLECTED'),
+    state = fields.Selection(selection_add=[ 
                                             ('tailor assigned', 'TAILOR ASSIGNED'),
                                             ('ready to deliver', 'READY TO DELIVER'),('delivery','Delivery'), ('finished', 'FINISHED')])
 
-    @api.model
-    def delivery_confirm(self):
-        super(SaleOrder, self)._action_confirm()
-        for order in self:
-            order.picking_ids.action_assign()
 
-    def _action_cancel(self):
-        super(SaleOrder, self)._action_cancel()
-        for order in self:
-            order.picking_ids.action_cancel()
-
-    def current_driver_record(self):
-
-        delivery_driver_id = self.env['tailoring.driver'].search([('order_id', '=', self.id), ('type', '=', 'Delivery')])
-        pickup_driver_id = self.env['tailoring.driver'].search([('order_id', '=', self.id), ('type', '=', 'Pickup')])
-
-        if delivery_driver_id and pickup_driver_id:
-            return {
-                'type': 'ir.actions.act_window',
-                'name': 'Assigned Drivers',
-                'res_id': delivery_driver_id.id,
-                'res_model': 'tailoring.driver',
-                'view_mode': 'form',
-                'target': 'current',
-                'view_id': self.env.ref('pragtech_tailoring_management.driver_form_view').id,
-                'domain': [('id', 'in', [delivery_driver_id.id, pickup_driver_id.id])]
-            }
-        elif delivery_driver_id:
-            return {
-                'type': 'ir.actions.act_window',
-                'name': 'Assigned Driver',
-                'res_id': delivery_driver_id.id,
-                'res_model': 'tailoring.driver',
-                'view_mode': 'form',
-                'target': 'current',
-                'view_id': self.env.ref('pragtech_tailoring_management.driver_form_view').id
-            }
-        elif pickup_driver_id:
-            return {
-                'type': 'ir.actions.act_window',
-                'name': 'Assigned Driver',
-                'res_id': pickup_driver_id.id,
-                'res_model': 'tailoring.driver',
-                'view_mode': 'form',
-                'target': 'current',
-                'view_id': self.env.ref('pragtech_tailoring_management.driver_form_view').id
-            }
-        else:
-            return False
 
     def current_tailor_record(self):
         tailor_id = self.env['tailoring.tailor'].search([('order_id', '=', self.id)])
