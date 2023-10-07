@@ -45,7 +45,7 @@
             <field name="name">Tailor Tree Viem</field>
             <field name="model">tailoring.tailor</field>
             <field name="arch" type="xml">
-                <tree string="Tailor">
+                <tree string="Tailor" >
                     <field name="order_id" />
                     <field name="name" />
                     <field name="assigned_date"/>
