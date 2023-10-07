@@ -8,7 +8,7 @@
             <field name="email_to">{{object.partner_id.email}}</field>
             <field name="auto_delete" eval="False" />
             <field name="body_html" type="html">
-                <h2>Delivery Status:</h2>
+                 <h2>Delivery Status:</h2>
                 <p>Your Product is ready for delivery</p>
                 <ul>
                     <h3>Dear<t t-out="object.partner_id.name" /></h3>

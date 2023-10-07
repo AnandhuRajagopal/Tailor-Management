@@ -24,7 +24,7 @@
                     <attribute name="invisible">True</attribute>                    
                 </xpath>
                 <xpath expr="//field[@name='parent_id']" position="before">
-                    <field name="jobdata"></field>
+                    <field name="jobdata"/>
                 </xpath>
             </field>
         </record>
