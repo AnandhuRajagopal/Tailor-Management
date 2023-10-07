@@ -82,6 +82,13 @@
             parent="pragtech_tailoring_management.configuration_menu_root"
             sequence="3" />
 
+        <menuitem
+            id="feedback_menu"
+            name="Feedback"
+            action="pragtech_tailoring_management.feedback_action"
+            parent="pragtech_tailoring_management.configuration_menu_root"
+            sequence="4" />
+
 
 
     </data>

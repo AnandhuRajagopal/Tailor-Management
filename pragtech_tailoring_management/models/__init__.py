@@ -9,6 +9,7 @@ from . import tailor
 from . import customer_measurement
 from . import employee_inherit
 from . import job_positions
+from . import feedback
 
 
 

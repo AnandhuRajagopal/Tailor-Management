@@ -74,7 +74,7 @@
 
                     <!-- Adding Assigned Tailorr smart button -->
                     <!-- visible Assigned Tailor smart button only in tailor assigned,ready to deliver,finished states -->
-                    <button name="current_tailor_record" type="object" class="oe_stat_button" icon="fa-scissors" states="tailor assigned,ready to deliver,delivery,finished">
+                    <button name="current_tailor_record" type="object" class="oe_stat_button" icon="fa-scissors" states="tailor assigned,ready to deliver,shipped,delivered">
                         <div class="o_stat_info">
                             <span class="o_stat_text">Assigned</span>
                             <span class="o_stat_text">Tailor</span>

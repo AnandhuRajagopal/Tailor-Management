@@ -40,7 +40,9 @@
         'views/inherit_sale_order.xml',
         'views/inherit_product_page.xml',
         'webpage/home_webpage.xml',
+        'webpage/feedback_webpage.xml',
         'views/inherit_employee.xml',
+        'views/feedback.xml',
         'views/menu.xml',
 
     ],
@@ -51,8 +53,10 @@
 
     'assets': {
         'web.assets_frontend': [
-            'pragtech_tailoring_management/static/src/css/home.css'
-
+            'pragtech_tailoring_management/static/src/css/home.css',
+            
+            
+       
         ]
     },
 }
