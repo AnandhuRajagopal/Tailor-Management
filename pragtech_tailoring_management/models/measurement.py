@@ -8,6 +8,7 @@ class Measurments(models.Model):
     sequence_no = fields.Char(string="Sequence_no", readonly=True, default="New")
     name = fields.Char(string="Name", required=True)
 
+    # ...........................................Measurement Sequence..........................................
     @api.model
     def create(self, vals):
         vals['sequence_no'] = self.env['ir.sequence'].next_by_code('measurment.seq') or ('New')
@@ -24,6 +25,7 @@ class MeasurementRelative(models.Model):
     measurement_id = fields.Many2one('tailoring.measurement', string="Name")
     measurement_name = fields.Char(string="Measurement Name", compute="_compute_measurement_name")
 
+    # ...........................................Compute Measurement Name..........................................
     @api.depends('measurement_id')
     def _compute_measurement_name(self):
         for record in self:

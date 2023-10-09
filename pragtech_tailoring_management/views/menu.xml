@@ -19,26 +19,28 @@
                 parent="pragtech_tailoring_management.pragtech_tailoring_menu_root"
                 sequence="2"/>
 
+                <!-- .......products_menu_root start......... -->
         <menuitem
                 id="products_menu_root"
                 name="Products"
                 parent="pragtech_tailoring_management.pragtech_tailoring_menu_root"
-                sequence="3"
-        />
+                sequence="3"/>
 
-        <menuitem
-                id="product_inherit_menu"
-                name="Products"
-                action="action_product_list"
-                parent="pragtech_tailoring_management.products_menu_root"
-                sequence="1"/>
+                <menuitem
+                        id="product_inherit_menu"
+                        name="Products"
+                        action="action_product_list"
+                        parent="pragtech_tailoring_management.products_menu_root"
+                        sequence="1"/>
 
-        <menuitem
-                id="product_variants_inherit_menu"
-                name="Product Variants"
-                action="action_product_variants"
-                parent="pragtech_tailoring_management.products_menu_root"
-                sequence="2"/>
+                <menuitem
+                        id="product_variants_inherit_menu"
+                        name="Product Variants"
+                        action="action_product_variants"
+                        parent="pragtech_tailoring_management.products_menu_root"
+                        sequence="2"/>
+                <!-- .......products_menu_root end......... -->
+
 
         <menuitem
                 id="tailor_menu_root"
@@ -54,62 +56,68 @@
                 parent="pragtech_tailoring_management.pragtech_tailoring_menu_root"
                 sequence="5"/>
 
+
+                <!-- .......invoice_menu_root start......... -->
+        <menuitem
+                id="invoice_menu_root"
+                name="Invoice and Payments"
+                parent="pragtech_tailoring_management.pragtech_tailoring_menu_root"
+                sequence="6"/>
+
+                <menuitem id="menu_tailoring_invoices"
+                        name="Invoices"
+                        action="account.action_move_out_invoice_type"
+                        parent="pragtech_tailoring_management.invoice_menu_root"
+                        sequence="1"/>
+
+                <menuitem 
+                        id="menu_tailoring_payments"
+                        action="account.action_account_payments"
+                        parent="pragtech_tailoring_management.invoice_menu_root"
+                        sequence="2"/>
+                <!-- .......invoice_menu_root end......... -->
+
+
+                <!-- .......configuration_menu_root start......... -->
         <menuitem
                 id="configuration_menu_root"
                 name="Configuration"
                 parent="pragtech_tailoring_management.pragtech_tailoring_menu_root"
-                sequence="10"/>
+                sequence="7"/>
 
-        <menuitem
-                id="cloth_type_menu"
-                name="Cloth Type"
-                action="pragtech_tailoring_management.cloth_action"
-                parent="pragtech_tailoring_management.configuration_menu_root"
-                sequence="1"/>
+                <menuitem
+                        id="cloth_type_menu"
+                        name="Cloth Type"
+                        action="pragtech_tailoring_management.cloth_action"
+                        parent="pragtech_tailoring_management.configuration_menu_root"
+                        sequence="1"/>
 
-        <menuitem
-                id="measurement_menu"
-                name="Measurement"
-                action="pragtech_tailoring_management.tailor_measurment_action"
-                parent="pragtech_tailoring_management.configuration_menu_root"
-                sequence="2"/>
+                <menuitem
+                        id="measurement_menu"
+                        name="Measurement"
+                        action="pragtech_tailoring_management.tailor_measurment_action"
+                        parent="pragtech_tailoring_management.configuration_menu_root"
+                        sequence="2"/>
 
+                <menuitem
+                        id="fabrics_menu"
+                        name="Fabrics"
+                        action="pragtech_tailoring_management.fabrics_action"
+                        parent="pragtech_tailoring_management.configuration_menu_root"
+                        sequence="3"/>
 
-        <menuitem
-                id="fabrics_menu"
-                name="Fabrics"
-                action="pragtech_tailoring_management.fabrics_action"
-                parent="pragtech_tailoring_management.configuration_menu_root"
-                sequence="3"/>
+                <menuitem
+                        id="feedback_menu"
+                        name="Feedback"
+                        action="pragtech_tailoring_management.feedback_action"
+                        parent="pragtech_tailoring_management.configuration_menu_root"
+                        sequence="4" />
 
-
-        <menuitem id="Delivery_trip_menu"
-                  name="Driver"
-                  parent="pragtech_tailoring_management.configuration_menu_root"
-                  sequence="20" action="stock.action_picking_tree_all"/>
-        <menuitem
-                id="Invoice_menu_root"
-                name="Invoice and Payments"
-                parent="pragtech_tailoring_management.pragtech_tailoring_menu_root"
-                sequence="6"/>
-        <menuitem id="menu_tailoring_invoices"
-                  name="Invoices"
-                  action="account.action_move_out_invoice_type"
-                  parent="pragtech_tailoring_management.Invoice_menu_root"
-                  sequence="5"/>
-
-        <menuitem
-            id="feedback_menu"
-            name="Feedback"
-            action="pragtech_tailoring_management.feedback_action"
-            parent="pragtech_tailoring_management.configuration_menu_root"
-            sequence="4" />
-
-        <menuitem id="menu_tailoring_payments"
-                  action="account.action_account_payments"
-                  parent="pragtech_tailoring_management.Invoice_menu_root"
-                  sequence="15"/>
-
-
+                <menuitem 
+                        id="Delivery_trip_menu"
+                        name="Driver"
+                        parent="pragtech_tailoring_management.configuration_menu_root"
+                        sequence="5" action="stock.action_picking_tree_all"/>
+                <!-- .......configuration_menu_root end......... -->
     </data>
 </odoo>
