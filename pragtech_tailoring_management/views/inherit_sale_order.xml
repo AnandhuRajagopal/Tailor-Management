@@ -1,61 +1,59 @@
 <odoo>
     <data>
-        <!-- ========================================= Action view ================================ -->
-
+        <!-- ***************************** Inherit sale.order Action ******************************** -->
         <record id="sale.action_orders" model="ir.actions.act_window">
             <field name="name">Orders</field>
             <field name="res_model">sale.order</field>
             <field name="view_mode">tree,form</field>
         </record>
 
-        <!-- ========================================= Tree view ================================== -->
-
+        <!-- ******************************** sale.order Tree View ********************************** -->
         <record model="ir.ui.view" id="view_sale_tree_inherit">
             <field name="name">order sale</field>
             <field name="model">sale.order</field>
             <field name="inherit_id" ref="sale.view_order_tree" />
             <field name="arch" type="xml">
-
+                <!-- Invisibled activity_ids field in tree view -->
                 <xpath expr="//field[@name='activity_ids']" position="attributes">
                     <attribute name="invisible">True</attribute>
                 </xpath>
+
+                <!-- Invisibled company_id field in tree view -->
                 <xpath expr="//field[@name='company_id']" position="attributes">
                     <attribute name="invisible">True</attribute>
                 </xpath>
+
+                <!-- Invisibled website_id field in tree view -->
                 <xpath expr="//field[@name='website_id']" position="attributes">
                     <attribute name="invisible">True</attribute>
                 </xpath>
+
+                <!-- Added state field in form view after the invoice_status field -->
                 <xpath expr="//field[@name='invoice_status']" position="after">
                     <field name="state" widget="badge"></field>
                 </xpath>
             </field>
         </record>
 
-        <!-- ========================================= Form view ================================ -->
-
+        <!-- ******************************** sale.order Form View ********************************** -->
         <record id="view_sale_order_form_inherit" model="ir.ui.view">
             <field name="name">sale.order.form.inherit</field>
             <field name="model">sale.order</field>
             <field name="inherit_id" ref="sale.view_order_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//header" position="inside">
-                    <!-- Adding a Send mail button -->
+                    <!-- Adding a Delivery mail button -->
                     <button name="action_delivery_mail" type="object" string="Delivery Ready Mail"
                             attrs="{'invisible' :[('state','!=','ready to deliver')] }" icon="fa-envelope"
                             class="btn-info"/>
-
 
                     <!-- Adding an Assign Tailor wizard button -->
                     <button name="%(action_view_tailoring_wizard_form)d" type="action" string="Assign Tailor"
                             attrs="{'invisible': [('state', '!=', 'sale')]}" icon="fa-scissors"
                             class="btn-primary"/>
-
-
-                    <!-- Adding a statusbar -->
-
                 </xpath>
 
-
+                <!-- Adding a statusbar -->
                 <field name="state" position="attributes" >
                     <attribute name= 'statusbar_visible'>draft,sale,tailor assigned,ready to deliver,shipped,delivered</attribute>
                 </field>
@@ -68,10 +66,6 @@
                         </div>
                     </button>
 
-                    <!-- Adding Assigned Driver smart button -->
-                    <!-- visible Assigned Driver smart button only in pickup,material collected,tailor assigned,ready to deliver,finished states -->
-
-
                     <!-- Adding Assigned Tailorr smart button -->
                     <!-- visible Assigned Tailor smart button only in tailor assigned,ready to deliver,finished states -->
                     <button name="current_tailor_record" type="object" class="oe_stat_button" icon="fa-scissors" states="tailor assigned,ready to deliver,shipped,delivered">
@@ -82,41 +76,50 @@
                     </button>
                 </xpath>
 
+                <!-- Delivery Button visible only in ready to deliver state -->
+                <xpath expr="//button[@name='action_view_delivery']" position="attributes">
+                    <attribute name="attrs">{'invisible': [('state', 'not in', ('ready to deliver'))]}</attribute>
+                </xpath>
+
+                <!-- Added cloth_type_id,description fields in form view after the order_line page's product_template_id field -->
+
                 <xpath expr="/form/sheet/notebook/page/field[@name='order_line']/tree/field[@name='product_template_id']" position="after">
                     <field name="cloth_type_id"/>
                     <field name="description"/>
                 </xpath>
                 <xpath expr="/form/sheet/notebook/page/field[@name='order_line']/tree/field[@name='name']" position="attributes">
-            <attribute name="invisible">1</attribute>
-        </xpath>
+                    <attribute name="invisible">1</attribute>
+                </xpath>
 
+                <!-- Invisibled order_line page's name field in form view -->
+                <xpath expr="/form/sheet/notebook/page/field[@name='order_line']/tree/field[@name='name']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
 
                 <!-- Inherit and visible customer preview smart button only in sale,pickup,material_collected,tailor assigned,ready to deliver,finished states -->
                 <xpath expr="//button[@name='action_preview_sale_order']" position="attributes">
                     <attribute name="attrs">{'invisible': [('state', 'not in', ('sale','pickup','material_collected','tailor assigned','ready to deliver','finished'))]}</attribute>
-</xpath>
+                </xpath>
+
+                <!-- Added the 'Add Measurement' button in form view after the order_line page's price_subtotal field -->
                 <xpath expr="/form/sheet/notebook/page/field[@name='order_line']/tree/field[@name='price_subtotal']" position="after">
                     <button name="wizard_value_pass" string="Add Measurement" type="object" class="oe_highlight"/>
                 </xpath>
 
                 <!-- Inherit and visible customer preview smart button only in sale,pickup,material collected,tailor assigned,ready to deliver,finished states -->
-              <xpath expr="//button[@name='action_preview_sale_order']" position="attributes">
-    <attribute name="attrs">{'invisible': [('state', 'not in', ('sale','pickup','material collected','tailor assigned','ready to deliver','finished'))]}</attribute>
-</xpath>
+                <xpath expr="//button[@name='action_preview_sale_order']" position="attributes">
+                    <attribute name="attrs">{'invisible': [('state', 'not in', ('sale','pickup','material collected','tailor assigned','ready to deliver','finished'))]}</attribute>
+                </xpath>
 
-
-                <!-- Inherit and visible send by email button only in sale -->
+                <!-- Inherit and visible send by email button only in sale state -->
                 <xpath expr="//button[@name='action_quotation_send']" position="attributes">
-    <attribute name="invisible">context.get('state') != 'sale'</attribute>
-</xpath>
-
+                    <attribute name="invisible">context.get('state') != 'sale'</attribute>
+                </xpath>
 
                 <!-- Added ribbon widget -->
                 <xpath expr="//sheet/div" position="after">
                     <widget name="web_ribbon" title="Tailor Assigned" bg_color="bg-success"
                             attrs="{'invisible':[('state','!=','tailor assigned')]}"/>
-                    <widget name="web_ribbon" title="Driver Assigned" bg_color="bg-success"
-                            attrs="{'invisible':[('state','!=','pickup')]}"/>
                 </xpath>
             </field>
         </record>

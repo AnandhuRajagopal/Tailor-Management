@@ -1,6 +1,5 @@
 <odoo>
     <data>
-
         <!-- ********************************* Action View ********************************************* -->
         <record id="tailor_customer_measurment_action" model="ir.actions.act_window">
             <field name="name">Customer Measurments</field>
@@ -15,8 +14,7 @@
             <field name="arch" type="xml">
                 <tree>
                     <field name="order_id" />
-                    <field name="name" />
-                    <field name="measurement_value" />
+                    <field name="cloth_type" />
                 </tree>
             </field>
         </record>
@@ -27,20 +25,19 @@
             <field name="model">tailoring.customer.measurement</field>
             <field name="arch" type="xml">
                 <form>
-                    <sheet>
-                        <group>
-                            <field name="order_id" />
-                        </group>
-                        <group>
-                            <group>
-                                <field name="name" />
-                                <field name="measurement_value" />
-                            </group>
-                        </group>
-                    </sheet>
+                      <group>
+                        <field name="order_id" readonly="1"/>
+                        <field name="cloth_type" readonly="1"/>
+                        <field name="measurement_ids">
+                            <tree editable="top">
+                                <field name="name"/>
+                                <field name="measures"/>
+                                <field name="uom_id"/>
+                            </tree>
+                        </field>
+                    </group>
                 </form>
             </field>
         </record>
-
     </data>
 </odoo>

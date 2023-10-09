@@ -10,6 +10,7 @@ class Measurement(models.Model):
     product_id = fields.Many2one('product.template', string="Product")
 
 
+    # ...........................................Measurement Sequence..........................................
     @api.model
     def create(self, vals):
         vals['sequence_no'] = self.env['ir.sequence'].next_by_code('measurment.seq') or ('New')
@@ -24,7 +25,6 @@ class MeasurementRelative(models.Model):
 
     cloth_id = fields.Many2one('tailoring.cloth_type')
     measurement_id = fields.Many2one('tailoring.measurement', string="Name")
-    measurement_name = fields.Char(string="Measurement Name", compute="_compute_measurement_name")
 
 
     def _default_cloth_id(self):
@@ -33,6 +33,7 @@ class MeasurementRelative(models.Model):
             cloth_type = product.cloth_type
             return cloth_type
         
+    # ...........................................Compute Measurement Name..........................................
     @api.depends('measurement_id')
     def _compute_measurement_name(self):
         for record in self:

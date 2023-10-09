@@ -42,11 +42,6 @@
             <field name="arch" type="xml">
                 <search string="Fabrics">
                     <field name="name"/>
-<!--                    <filter string="filter by mail" domain="[('email', '=', 'maiil')]" name="my_email_filter"/>-->
-<!--                    <group expand="0" string="Group By">-->
-<!--                        <filter string="DOB" name="group_by_DOB" domain="[]" context="{'group_by': 'date_of_birth'}"/>-->
-<!--                        <filter string="Age" name="group_by_age" domain="[]" context="{'group_by': 'age'}"/>-->
-<!--                    </group>-->
                 </search>
             </field>
         </record>

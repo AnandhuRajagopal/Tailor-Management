@@ -31,14 +31,6 @@ class TailoringController(http.Controller):
 
         # Redirect back to the form or another page
         return http.request.redirect('/')
-
-
-
-
-
-
-
-
    
     
 
@@ -57,6 +49,7 @@ class FeedbackController(http.Controller):
             'feedback': post.get('feedback')
         })
         return request.render('pragtech_tailoring_management.feedback_page_template')
+    
     
 class TestimonialController(http.Controller):
 

@@ -1,22 +1,26 @@
 <odoo>
     <data>
+        <!-- ******************************** Inherit stock.picking Form View ********************************** -->
         <record id="view_stock_pickup_form_inherit" model="ir.ui.view">
             <field name="name">stock.pickup.form.inherit</field>
             <field name="model">stock.picking</field>
             <field name="inherit_id" ref="stock.view_picking_form" />
             <field name="arch" type="xml">
+                <!-- Added Deliverd button inside the header -->
                 <xpath expr="//header" position="inside">
                     <button name="delivered" type="object" string="DELIVERED" class="btn btn-primary" icon="fa-truck fa-2px" attrs="{'invisible':[('state','!=','done')]}"/>
                 </xpath>
 
+                <!-- Added driver_id,product_image fields after the origin field -->
                 <xpath expr="//field[@name='origin']" position="after">
-                    <field name="driver_id" domain="[('job_title', '=', 'Driver')]" />
+                    <field name="driver_id" domain="[('job_title', '=', 'Driver')]" required="1" options="{'no_create': True,'no_create_edit': True}"/>
                     <field name="product_image" states="done,delivered"/>
                 </xpath>
+
+                <!-- Added Statusbar -->
                 <field name="state" position="attributes" >
                     <attribute name= 'statusbar_visible'>draft,confirmed,assigned,done,delivered</attribute>
                 </field>
-
             </field>
         </record>
     </data>

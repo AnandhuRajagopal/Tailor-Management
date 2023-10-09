@@ -5,29 +5,52 @@ class assigningMeasurementWizard(models.TransientModel):
     _name = 'measurement.wizard'
     _description = 'measurement_wizard'
 
+    order_id = fields.Many2one("sale.order")
     cloth_category_id = fields.Many2one('tailoring.cloth_type')
     measurement_lines_ids = fields.One2many('measurement.wizard.line', 'wizard_id', string="Measurements")
 
-    def default_get(self,vals):
+
+    def default_get(self, vals):
         res = super(assigningMeasurementWizard, self).default_get(vals)
-        list_measurement = []
-        # measurement = self.env['tailoring.measurement_relative'].search([('cloth_id', '=', 'cloth_category_id')])
-        from_cloth_table = self.env['tailoring.cloth_type'].browse(res.get('cloth_category_id'))
-        for rec in from_cloth_table.measurement_ids:
-            vals = {
-                'measurement_id': rec.id
-            }
-            # measurement = self.env['measurement.wizard.line'].create(
-            #     {
-            #         'measurement_id': rec.id,
-            #     })
-            list_measurement.append((0,0,vals))
-        # self.measurement_lines_ids = [(6, 0, lis)]
-        res.update({'measurement_lines_ids':list_measurement})
+        # Check if 'cloth_category_id' is a valid integer value
+        cloth_category_id = res.get('cloth_category_id')
+
+        if isinstance(cloth_category_id, int):
+            list_measurement = []
+            from_cloth_table = self.env['tailoring.cloth_type'].browse(cloth_category_id)
+            for rec in from_cloth_table.measurement_ids:
+                vals = {
+                    'measurement_id': rec.id
+
+                }
+                list_measurement.append((0, 0, vals))
+
+            res.update({'measurement_lines_ids': list_measurement})
+
         return res
 
+
     def measurement_assign_action(self):
-        self.env['tailoring.measurement'].create({
-            'name': self.cloth_category_id,
-        })
+        CustomerMeasurement = self.env['tailoring.customer.measurement']
+        list1 = []
+        measurement_dict = {
+            'order_id': self.order_id.id,
+            'cloth_type': self.cloth_category_id and self.cloth_category_id.id or False
+        }
+        # Iterate through the measurement lines and create CustomerMeasurement records
+        for line in self.measurement_lines_ids:
+
+            measurement_values = {
+                'name':line.measurement_id.name,
+                'measures':line.measure,
+                'uom_id':line.uom_id.id,
+            }
+            list1.append((0,0,measurement_values))
+        measurement_dict.update({'measurement_ids': list1})
+        CustomerMeasurement.create(measurement_dict)
+
+        # You can add additional logic here if needed
+
+        # Close the wizard
         return {'type': 'ir.actions.act_window_close'}
+    

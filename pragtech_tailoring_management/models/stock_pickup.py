@@ -4,10 +4,11 @@ from odoo.exceptions import MissingError
 class StockPickup(models.Model):
     _inherit = 'stock.picking'
 
-    driver_id = fields.Many2one('hr.employee', string="Driver", required=True)
+    driver_id = fields.Many2one('hr.employee', string="Driver")
     product_image = fields.Binary(string="Product Image")
     state = fields.Selection(selection_add=[('delivered', 'DELIVERED')])
 
+    # ...........................................Stock Validate Button..........................................
     def button_validate(self):
         if any(move.quantity_done <= 0 for move in self.move_ids):
             raise MissingError("Done Quantities Cannot be Zero")
@@ -20,6 +21,7 @@ class StockPickup(models.Model):
                 if sale_order.state != 'shipped':
                     sale_order.write({'state': 'shipped'})
 
+    # ...........................................Product Deliverd Button..........................................
     def delivered(self):
         if not self.product_image:
             raise MissingError("Add the Product Image")
