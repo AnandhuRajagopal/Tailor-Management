@@ -11,33 +11,39 @@ class MyEmployee(models.Model):
         for employee in self:
             user = self.env['res.users']
             if employee.job_title == 'Driver':
-                driver_login_group = self.env.ref('pragtech_tailoring_management.group_driver')
+                driver_login_group = [
+                    self.env.ref('base.group_user').id,
+                    self.env.ref('pragtech_tailoring_management.group_driver').id,]
                 user = user.create({
                     'name': employee.name,
                     'login': employee.work_email,
                     'email': employee.work_email,
                     'password': employee.password,
-                    'groups_id': [(4,driver_login_group.id)]
+                    'groups_id': [(6,0,driver_login_group)],
 
                 })
             elif employee.job_title == 'Tailor':
-                tailor_login_group = self.env.ref('pragtech_tailoring_management.group_tailor')
+                tailor_login_group = [
+                    self.env.ref('base.group_user').id,
+                    self.env.ref('pragtech_tailoring_management.group_tailor').id,]
                 user = user.create({
                     'name': employee.name,
                     'login': employee.work_email,
                     'email': employee.work_email,
                     'password': employee.password,
-                    'groups_id': [(4, tailor_login_group.id)]
+                    'groups_id': [(6,0,tailor_login_group)]
 
                 })
             elif employee.job_title == 'Admin':
-                tailor_login_group = self.env.ref('pragtech_tailoring_management.group_admin')
+                tailor_login_group = [
+                    self.env.ref('base.group_user').id,
+                    self.env.ref('pragtech_tailoring_management.group_admin').id,]
                 user = user.create({
                     'name': employee.name,
                     'login': employee.work_email,
                     'email': employee.work_email,
                     'password': employee.password,
-                    'groups_id': [(4, tailor_login_group.id)]
+                    'groups_id': [(6,0,tailor_login_group.id)]
                 })
             return user
 
