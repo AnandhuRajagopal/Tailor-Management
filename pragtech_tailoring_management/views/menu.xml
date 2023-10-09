@@ -15,16 +15,32 @@
         <menuitem
                 id="hr_employee_inherit_menu"
                 name="Employee"
-                action="employee_action_orders"
                 parent="pragtech_tailoring_management.pragtech_tailoring_menu_root"
                 sequence="2"/>
+        <menuitem
+                id="hr_employee_admin_inherit_menu"
+                name="Admin"
+                action="action_employee_admin"
+                parent="pragtech_tailoring_management.hr_employee_inherit_menu"
+                sequence="1"/>
+        <menuitem
+                id="hr_employee_tailor_inherit_menu"
+                name="Tailor"
+                action="action_employee_tailor"
+                parent="pragtech_tailoring_management.hr_employee_inherit_menu"
+                sequence="2"/>
+        <menuitem
+                id="hr_employee_driver_inherit_menu"
+                name="Driver"
+                action="action_employee_driver"
+                parent="pragtech_tailoring_management.hr_employee_inherit_menu"
+                sequence="3"/>
 
         <menuitem
                 id="products_menu_root"
                 name="Products"
                 parent="pragtech_tailoring_management.pragtech_tailoring_menu_root"
-                sequence="3"
-        />
+                sequence="3"/>
 
         <menuitem
                 id="product_inherit_menu"
@@ -99,11 +115,11 @@
                   sequence="5"/>
 
         <menuitem
-            id="feedback_menu"
-            name="Feedback"
-            action="pragtech_tailoring_management.feedback_action"
-            parent="pragtech_tailoring_management.configuration_menu_root"
-            sequence="4" />
+                id="feedback_menu"
+                name="Feedback"
+                action="pragtech_tailoring_management.feedback_action"
+                parent="pragtech_tailoring_management.configuration_menu_root"
+                sequence="4"/>
 
         <menuitem id="menu_tailoring_payments"
                   action="account.action_account_payments"

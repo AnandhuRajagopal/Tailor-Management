@@ -22,9 +22,5 @@ class MeasurementRelative(models.Model):
 
     cloth_id = fields.Many2one('tailoring.cloth_type')
     measurement_id = fields.Many2one('tailoring.measurement', string="Name")
-    measurement_name = fields.Char(string="Measurement Name", compute="_compute_measurement_name")
 
-    @api.depends('measurement_id')
-    def _compute_measurement_name(self):
-        for record in self:
-            record.measurement_name = record.measurement_id.name
+
