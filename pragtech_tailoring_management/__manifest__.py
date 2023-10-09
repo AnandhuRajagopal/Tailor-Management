@@ -45,11 +45,12 @@
         'views/inherit_product_page.xml',
         'views/inherit_employee.xml',
 
-        'views/template_delivery_email.xml',
-
         'webpage/webpage_home.xml',
         'webpage/webpage_feedback.xml',
+        'webpage/measurement_popup.xml',
 
+        'views/template_delivery_email.xml',
+        
         'views/menu.xml',
 
     ],
@@ -60,7 +61,9 @@
 
     'assets': {
         'web.assets_frontend': [
-            'pragtech_tailoring_management/static/src/css/home.css', 
+            'pragtech_tailoring_management/static/src/css/home.css',
+            'pragtech_tailoring_management/static/src/js/measurement.js',
+            'https://code.jquery.com/jquery-3.6.0.min.js'
         ]
     },
 }

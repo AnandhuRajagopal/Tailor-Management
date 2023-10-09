@@ -8,3 +8,4 @@ class productInherit(models.Model):
     cloth_type = fields.Many2one('tailoring.cloth_type','Cloth type')
     description = fields.Text('Description')
     fabric = fields.Char(string="Fabric type",related='cloth_type.fabric_id.name')
+    

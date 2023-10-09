@@ -5,6 +5,7 @@
         <field name="sequence">9</field>
     </record>
 
+    <!-- Tailor Group -->
     <record model="res.groups" id="group_tailor">
         <field name="name">Tailor</field>
         <field name="category_id" ref="module_category_tailoring_management"/>
@@ -16,26 +17,12 @@
         <field name="category_id" ref="module_category_tailoring_management"/>
     </record>
 
-    <record model="ir.rule" id="tailoring_tailor_rule">
-        <field name="name">tailor rule</field>
-        <field name="model_id" ref="model_hr_employee"/>
-        <field name="perm_write" eval="True"/>
-        <field name="perm_write" eval="True"/>
-        <field name="perm_create" eval="True"/>
-        <field name="perm_unlink" eval="True"/>
-        <field name="domain_force">['|',('jobdata.name','=','Tailor')</field>
-    </record>
-
-
-
     <!-- Admin Group -->
     <record model="res.groups" id="group_admin">
         <field name="name">Admin</field>
         <field name="category_id" ref="module_category_tailoring_management"/>
         <field name="users" eval="[(4, ref('base.user_admin')),(4, ref('base.user_root'))]"/>
     </record>
-
-
 
 
     <!-- Record rule for Admin -->
@@ -46,4 +33,11 @@
         <field name="groups" eval="[(4,ref('pragtech_tailoring_management.group_admin'))]"/>
     </record>
 
+    <!-- Record rule for Driver -->
+    <record id="access_rule_driver" model="ir.rule">
+        <field name="name">Driver Record Rule</field>
+        <field name="model_id" ref="model_stock_picking"/>
+        <field name="domain_force">[('create_uid','=', user.id)]</field>
+        <field name="groups" eval="[(4,ref('pragtech_tailoring_management.group_driver'))]"/>
+    </record>
 </odoo>
