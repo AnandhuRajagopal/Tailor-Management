@@ -27,32 +27,23 @@
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
-
         'data/job_positions.xml',
-
         'wizard/assigning_tailor_wizard.xml',
         'wizard/assigning_measurement_wizard.xml',
-
         'views/view_fabrics.xml',
         'views/view_cloth_type.xml',
         'views/view_measurement.xml',
         'views/view_tailor.xml',
         'views/view_customer_measurement.xml',
         'views/view_feedback.xml',
-
         'views/inherit_stock_pickup.xml',
         'views/inherit_sale_order.xml',
         'views/inherit_product_page.xml',
-        'webpage/home_webpage.xml',
-        'webpage/feedback_webpage.xml',
-        'webpage/measurement_popup.xml',
-        'views/inherit_employee.xml',
-
-        'views/template_delivery_email.xml',
-
         'webpage/webpage_home.xml',
         'webpage/webpage_feedback.xml',
-
+        'webpage/measurement_popup.xml',
+        'views/inherit_employee.xml',
+        'views/template_delivery_email.xml',
         'views/menu.xml',
 
     ],
