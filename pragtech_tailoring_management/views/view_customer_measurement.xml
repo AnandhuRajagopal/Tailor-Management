@@ -1,6 +1,5 @@
 <odoo>
     <data>
-
         <!-- ********************************* Action View ********************************************* -->
         <record id="tailor_customer_measurment_action" model="ir.actions.act_window">
             <field name="name">Customer Measurments</field>
@@ -41,6 +40,5 @@
                 </form>
             </field>
         </record>
-
     </data>
 </odoo>
