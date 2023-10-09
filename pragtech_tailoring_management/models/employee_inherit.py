@@ -19,6 +19,8 @@ class MyEmployee(models.Model):
                     'groups_id': [(4,driver_login_group.id)]
 
                 })
+
+                
             elif employee.job_title == 'Tailor':
                 tailor_login_group = self.env.ref('pragtech_tailoring_management.group_tailor')
                 user = user.create({

@@ -5,26 +5,28 @@
         <field name="sequence">9</field>
     </record>
 
-    <record model="res.groups" id="group_tailor">
-        <field name="name">Tailor</field>
-        <field name="category_id" ref="module_category_tailoring_management" />
-    </record>
-
+  
     <!-- Driver Group -->
     <record model="res.groups" id="group_driver">
         <field name="name">Driver</field>
         <field name="category_id" ref="module_category_tailoring_management" />
     </record>
 
-    <record model="ir.rule" id="tailoring_tailor_rule">
-        <field name="name">tailor rule</field>
-        <field name="model_id" ref="model_hr_employee"/>
-        <field name="perm_write" eval="True"/>
-        <field name="perm_write" eval="True"/>
-        <field name="perm_create" eval="True"/>
-        <field name="perm_unlink" eval="True"/>
-        <field name="domain_force">['|',('jobdata.name','=','Tailor')</field>
+
+          <!-- tailor group -->
+    <record model="res.groups" id="group_tailor">
+        <field name="name">Tailor</field>
+        <field name="category_id" ref="module_category_tailoring_management" />
     </record>
+
+<record id="access_rule_tailor" model="ir.rule">
+    <field name="name">tailor rule</field>
+    <field name="model_id" ref="model_hr_employee"/>
+    <field name="domain_force">[('create_uid','=', user.id)]</field>
+    <field name="groups" eval="[(4, ref('pragtech_tailoring_management.group_tailor'))]"/> 
+</record>
+
+    
 
 
 

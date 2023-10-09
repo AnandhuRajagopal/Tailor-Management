@@ -5,7 +5,9 @@ class assigningMeasurementWizard(models.TransientModel):
     _name = 'measurement.wizard'
     _description = 'measurement_wizard'
 
+    
     order_id = fields.Many2one("sale.order")
+    measurment_name_id = fields.Many2one('tailoring.measurement')
     cloth_category_id = fields.Many2one('tailoring.cloth_type')
     measurement_lines_ids = fields.One2many('measurement.wizard.line', 'wizard_id', string="Measurements")
 
@@ -35,12 +37,14 @@ class assigningMeasurementWizard(models.TransientModel):
             for line in wizard.measurement_lines_ids:
                 values = {
                     'name': wizard.cloth_category_id.id,
+                    'measurment_name':wizard.measurment_name_id.name,
                     'measurement': line.measure,
                     # Add other fields from 'measurement_lines_ids' as needed.
                 }
                 print(f"Values to be created/updated: {values}")  # Debugging print statement
                 record = self.env['tailoring.customer.measurement'].search([
-                    ('name', '=',wizard.cloth_category_id.name),
+                    ('name', '=',wizard.cloth_category_id.id),
+                    ('measurment_name','=',wizard.measurment_name_id.name),
                     ('measurement', '=', line.measure),
                 ])
                 if record:
