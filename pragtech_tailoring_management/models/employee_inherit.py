@@ -40,4 +40,3 @@ class MyEmployee(models.Model):
                 })
             return user
 
-

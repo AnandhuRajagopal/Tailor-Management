@@ -1,6 +1,6 @@
 <odoo>
     <data>
-
+        <!-- Home page template in Web page -->
         <template id="home_page_template" name="home Page">
             <t t-call="website.layout">
                 <link rel="stylesheet"
@@ -34,6 +34,7 @@
                             </p>
                         </div>
                     </section>
+
                     <!-- Mens Tailoring Section -->
                     <section class="custom_text_image pt-5 pb-5 custom_colored_level"
                         data-snippet="custom_image_text" data-name="Image - Text"
@@ -42,7 +43,7 @@
                             <div class="row align-items-center">
                                 <div class="col-lg-6 pt-4 pb-4 custom_colored_level">
                                     <img
-                                        src="https://i.pinimg.com/originals/c3/93/e0/c393e0dc8adae746d01ac4bd6676c3a6.jpg"
+                                        src="https://e0.pxfuel.com/wallpapers/424/618/desktop-wallpaper-tovino-thomas.jpg"
                                         class="img img-fluid mx-auto" alt="Mens Tailoring"
                                         loading="lazy" />
                                 </div>
@@ -83,7 +84,7 @@
                                 </div>
                                 <div class="col-lg-6 pt-4 pb-4 custom_colored_level">
                                     <img
-                                        src="https://i.pinimg.com/736x/81/e5/03/81e503a41aa54ae5cef301af3e1a30c3.jpg"
+                                        src="https://photos.telugurajyam.com/wp-content/uploads/2023/01/Aditi-Rao-Hydari-1-845x1024.jpg"
                                         class="img img-fluid mx-auto" alt="Womens Tailoring"
                                         loading="lazy" />
                                 </div>
@@ -91,13 +92,14 @@
                         </div>
                     </section>
 
+                    <!-- Kids Tailoring Section -->
                     <section class="custom_text_image pt-5 pb-5 custom_colored_level"
                         data-snippet="custom_image_text" data-name="Image - Text">
                         <div class="container">
                             <div class="row align-items-center">
                                 <div class="col-lg-6 pt-4 pb-4 custom_colored_level">
                                     <img
-                                        src="https://i.pinimg.com/550x/69/bf/ec/69bfecf1dd0c5cea70d3416c039046ad.jpg"
+                                        src="https://cialislm.com/wp-content/uploads/2022/09/Anahita-Hashemzadeh.jpg"
                                         class="img img-fluid mx-auto" alt="Kids Tailoring"
                                         loading="lazy" />
                                 </div>
@@ -192,14 +194,9 @@
                             <div class="owl-carousel" id="testimonial-carousel">
                             </div>
                         </div>
-
                     </section>
                 </div>
-
             </t>
-
         </template>
-
-
     </data>
 </odoo>

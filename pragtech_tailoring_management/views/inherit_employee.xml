@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-
-        <!-- ========================================= Action view ================================ -->
+        <!-- ***************************** Inherit hr.employee Action ******************************** -->
         <record id="employee_action_orders" model="ir.actions.act_window">
             <field name="name">Employee</field>
             <field name="res_model">hr.employee</field>
@@ -49,27 +48,30 @@
         </record>
 
 
-        <!-- ========================================= Tree view ================================ -->
+        <!-- ***************************** hr.employee Tree view ************************************* -->
         <record model="ir.ui.view" id="view_employee_tree_inherit">
             <field name="name">Employee</field>
             <field name="model">hr.employee</field>
             <field name="inherit_id" ref="hr.view_employee_tree"/>
             <field name="arch" type="xml">
-
+                <!-- Invisibled job_id field in tree view -->
                 <xpath expr="//field[@name='job_id']" position="attributes">
                     <attribute name="invisible">True</attribute>
                 </xpath>
 
+                <!-- Invisibled department_id field in tree view -->
                 <xpath expr="//field[@name='department_id']" position="attributes">
                     <attribute name="invisible">True</attribute>
                 </xpath>
+
+                <!-- Added job_data field in tree view before the parent_id field -->
                 <xpath expr="//field[@name='parent_id']" position="before">
                     <field name="jobdata"/>
                 </xpath>
             </field>
         </record>
 
-        <!-- ========================================= Form view ================================ -->
+        <!-- ***************************** hr.employee Form view ************************************* -->
         <record id="view_hr_tailoring_employee_form" model="ir.ui.view">
             <field name="name">hr.employee.form</field>
             <field name="model">hr.employee</field>
