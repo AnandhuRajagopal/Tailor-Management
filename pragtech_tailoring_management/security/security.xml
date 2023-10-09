@@ -1,5 +1,5 @@
 <odoo>
-    <record model="ir.module.category" id="module_category_tailoring_management">
+    <!-- <record model="ir.module.category" id="module_category_tailoring_management">
         <field name="name">Tailoring Management</field>
         <field name="description">Category For Tailoring Management</field>
         <field name="sequence">9</field>
@@ -18,5 +18,17 @@
         <field name="name">Tailor</field>
         <field name="category_id" ref="module_category_tailoring_management"/>
         <field name="implied_ids" eval="[(4,ref('group_tailoring_management_customer'))]"/>
-    </record>
+    </record> -->
+
+    <!-- <record model="ir.rule" id="tailoring_tailor_rule">
+        <field name="name">tailor rule</field>
+        <field name="model_id" ref="model_hr_employee"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+        <field name="domain_force">['|',('jobdata.name','=','Tailor')</field>
+    </record> -->
+
+
 </odoo>
