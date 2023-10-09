@@ -1,11 +1,13 @@
-from odoo import models, fields, api
+from odoo import models, fields
 
-
-
-class CustomerMeasurments(models.Model):
+class CustomerMeasurements(models.Model):
     _name = "tailoring.customer.measurement"
-    _description = "tailoring_customermeasurement"
+    _description = "Customer Measurements"
 
-    order_id = fields.Many2one( "sale.order", string= "Order Id")
-    name = fields.Char(string="Name",required=True)
-    measurement = fields.Float(string="Measurement",required=True)
+    order_id = fields.Many2one("sale.order", string="Order Id")
+    name = fields.Char(string="Name", required=True)
+    measurement_value = fields.Float(string="Measurement", required=True)
+    measurement_type_id = fields.Many2one(
+        "tailoring.cloth_type.measurement_ids",
+        string="Measurement Type",
+    )

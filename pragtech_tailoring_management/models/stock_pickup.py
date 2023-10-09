@@ -6,8 +6,7 @@ class StockPickup(models.Model):
 
     driver_id = fields.Many2one('hr.employee', string="Driver", required=True)
     product_image = fields.Binary(string="Product Image")
-    state = fields.Selection(selection_add=[('delivered','DELIVERED')])
-
+    state = fields.Selection(selection_add=[('delivered', 'DELIVERED')])
 
     def button_validate(self):
         if any(move.quantity_done <= 0 for move in self.move_ids):

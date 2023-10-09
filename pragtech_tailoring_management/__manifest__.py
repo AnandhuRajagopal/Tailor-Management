@@ -41,6 +41,7 @@
         'views/inherit_product_page.xml',
         'webpage/home_webpage.xml',
         'webpage/feedback_webpage.xml',
+        'webpage/measurement_popup.xml',
         'views/inherit_employee.xml',
         'views/feedback.xml',
         'views/menu.xml',
@@ -54,6 +55,8 @@
     'assets': {
         'web.assets_frontend': [
             'pragtech_tailoring_management/static/src/css/home.css',
+            'pragtech_tailoring_management/static/src/js/measurement.js',
+            'https://code.jquery.com/jquery-3.6.0.min.js'
             
             
        
