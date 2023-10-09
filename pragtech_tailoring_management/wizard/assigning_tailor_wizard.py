@@ -9,14 +9,14 @@ class assigningTailorWizard(models.TransientModel):
     assigned_date = fields.Datetime(string="Assigned Date",related='order_id.date_order')
 
 
-
+    # function getting active id................................................................
     @api.model
     def get_active_id(self):
         active_id = self.env.context.get('active_id')
         if active_id:
             return self.env['sale.order'].browse(active_id)
 
-
+    # function to assign tailor.................................................................
     def assign(self):
         active_id = self.env.context.get("active_id")
         sale_order = self.env['sale.order'].browse(self._context.get('active_id'))

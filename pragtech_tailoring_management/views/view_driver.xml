@@ -1,7 +1,6 @@
 <odoo>
     <data>
-        <!--  ************************************* kanban view
-        ********************************************  -->
+        <!--  ************************************* Kanban view ********************************************  -->
         <record id="driver_kanban" model="ir.ui.view">
             <field name="name">driver.kanban</field>
             <field name="model">tailoring.driver</field>
@@ -48,14 +47,15 @@
                 </kanban>
             </field>
         </record>
+
         <!--  ********************************* Action *********************************************  -->
         <record id="tailor_driver_action" model="ir.actions.act_window">
             <field name="name">Driver</field>
             <field name="res_model">tailoring.driver</field>
             <field name="view_mode">tree,form,kanban</field>
         </record>
-        <!--  ********************************* Tree View
-        **************************************************  -->
+
+        <!--  ********************************* Tree View **************************************************  -->
         <record id="driver_tree_view" model="ir.ui.view">
             <field name="name">driver.tree</field>
             <field name="model">tailoring.driver</field>
@@ -69,8 +69,8 @@
                 </tree>
             </field>
         </record>
-        <!--  ********************************* Form View
-        *************************************************  -->
+
+        <!--  ********************************* Form View *************************************************  -->
         <record id="driver_form_view" model="ir.ui.view">
             <field name="name">driver.form</field>
             <field name="model">tailoring.driver</field>
@@ -88,11 +88,9 @@
                                 <field name="location" />
                                 <field name="date" />
                                 <field name="type" />
-                                <button name="start" type="object" string="START"
-                                    class="btn-primary"
+                                <button name="start" type="object" string="START" class="btn-primary"
                                     attrs="{'invisible' :['|','|',('state','=','in progress'),('state','=','material collected'),('state','==','delivered')] }" />
-                                <button name="finish" type="object" string="FINISH"
-                                    class="btn-success"
+                                <button name="finish" type="object" string="FINISH" class="btn-success"
                                     attrs="{'invisible' :['|','|',('state','!=','in progress'),('state','==','material collected'),('state','==','delivered')] }" />
                             </group>
                         </group>

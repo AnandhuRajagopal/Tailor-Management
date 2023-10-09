@@ -1,11 +1,14 @@
 <odoo>
     <data>
+        <!-- Feedback menu in Web page -->
         <record id="feedback_page" model="website.menu">
             <field name="name">feedback</field>
             <field name="url">/feedback/page/</field>
             <field name="parent_id" ref="website.main_menu" />
             <field name="sequence" type="int">20</field>
         </record>
+
+        <!-- Feedback template in Web page -->
         <template id="feedback_page_template" name="Feedback Page">
             <t t-call="website.layout">
                 <section class="feedback-section">
@@ -30,7 +33,7 @@
                             </form>
                         </div>
                     </div>
-        </section>
+                </section>
             </t>
         </template>
     </data>

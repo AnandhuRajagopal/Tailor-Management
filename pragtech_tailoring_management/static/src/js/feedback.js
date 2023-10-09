@@ -5,7 +5,7 @@ $(document).ready(function () {
         method: 'GET',
         dataType: 'json',
         success: function (data) {
-            // Iterate through the retrieved testimonials and create HTML elements
+            // Iterate through the retrieved testimonials and create HTML elements...........................................
             $.each(data, function (index, testimonial) {
                 var blockquote = $('<blockquote>').addClass('custom_blockquote custom_blockquote_classic custom_animable blockquote');
                 var quoteIcon = $('<i>').addClass('custom_blockquote_icon fa fa-1x fa-quote-left bg-o-color-2 rounded');
@@ -25,7 +25,7 @@ $(document).ready(function () {
             var script = document.createElement('script');
             script.src = 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js';
             document.head.appendChild(script);
-            // Initialize the Owl Carouse
+            // Initialize the Owl Carouse..................................................................
             $(document).ready(function () {
                 $(".owl-carousel").owlCarousel({
                     items: 1,

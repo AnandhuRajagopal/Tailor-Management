@@ -1,5 +1,6 @@
 <odoo>
     <data>
+        <!-- **********************************Measurement wizard form****************************** -->
         <record id="view_measurement_wizard_form" model="ir.ui.view">
             <field name="name">tailoring.assign.measurement.form</field>
             <field name="model">measurement.wizard</field>
@@ -23,6 +24,7 @@
             </field>
         </record>
 
+        <!-- **********************************Measurement wizard action****************************** -->
         <record id="action_view_measurement_wizard_form" model="ir.actions.act_window">
             <field name="name">Assign Measurement</field>
             <field name="type">ir.actions.act_window</field>
