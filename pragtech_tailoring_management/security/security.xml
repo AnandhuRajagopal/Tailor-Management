@@ -16,15 +16,15 @@
         <field name="category_id" ref="module_category_tailoring_management" />
     </record>
 
-    <record model="ir.rule" id="tailoring_tailor_rule">
-        <field name="name">tailor rule</field>
-        <field name="model_id" ref="model_hr_employee"/>
-        <field name="perm_write" eval="True"/>
-        <field name="perm_write" eval="True"/>
-        <field name="perm_create" eval="True"/>
-        <field name="perm_unlink" eval="True"/>
-        <field name="domain_force">['|',('jobdata.name','=','Tailor')</field>
-    </record>
+<!--    <record model="ir.rule" id="tailoring_tailor_rule">-->
+<!--        <field name="name">tailor rule</field>-->
+<!--        <field name="model_id" ref="model_hr_employee"/>-->
+<!--        <field name="perm_write" eval="True"/>-->
+<!--        <field name="perm_write" eval="True"/>-->
+<!--        <field name="perm_create" eval="True"/>-->
+<!--        <field name="perm_unlink" eval="True"/>-->
+<!--        <field name="domain_force">['|',('jobdata.name','=','Tailor')]</field>-->
+<!--    </record>-->
 
 
 

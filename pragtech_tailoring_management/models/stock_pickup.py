@@ -4,7 +4,7 @@ from odoo.exceptions import MissingError
 class StockPickup(models.Model):
     _inherit = 'stock.picking'
 
-    driver_id = fields.Many2one('hr.employee', string="Driver", required=True)
+    driver_id = fields.Many2one('hr.employee', string="Driver")
     product_image = fields.Binary(string="Product Image")
     state = fields.Selection(selection_add=[('delivered','Deliverd')])
 
