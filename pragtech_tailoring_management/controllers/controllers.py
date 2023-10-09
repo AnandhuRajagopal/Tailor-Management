@@ -15,7 +15,7 @@ class TailoringController(http.Controller):
 
         # Get the list of measurement names as a comma-separated string
         measurement_names = post.get('measurement.name')
-        measurement_values = post.get('measurement_values')
+        measurement_values = [name.strip() for name in measurement_names.split(',')]
 
         # Iterate through the measurements and create records
         measurement_model = http.request.env['tailoring.customer.measurement']
