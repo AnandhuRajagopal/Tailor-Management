@@ -1,7 +1,6 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 
 access_cloth_type_admin,tailoring.cloth_type,model_tailoring_cloth_type,group_admin,1,1,1,1
-
 access_cloth_type_driver,tailoring.cloth_type,model_tailoring_cloth_type,group_driver,1,1,1,1
 
 access_measurement_admin,tailoring.measurement,model_tailoring_measurement,group_admin,1,1,1,1
@@ -24,6 +23,9 @@ access_feedback_driver,tailoring.feedback.tailor,model_tailoring_feedback,group_
 access_customer_measurement_admin,tailoring.customer.measurement,model_tailoring_customer_measurement,group_admin,1,1,1,1
 access_customer_measurement_driver,tailoring.customer.measurement,model_tailoring_customer_measurement,group_driver,1,1,1,1
 
+access_customer_measurement_inverse_admin,tailoring.customer.measurement.inverse,model_tailoring_customer_measurement_inverse,group_admin,1,1,1,1
+access_customer_measurement_inverse_driver,tailoring.customer.measurement.inverse,model_tailoring_customer_measurement_inverse,group_driver,1,1,1,1
+
 access_measurement_wizard_admin,measurement.wizard,model_measurement_wizard,group_admin,1,1,1,1
 access_measurement_wizard_driver,measurement.wizard,model_measurement_wizard,group_driver,1,1,1,1
 
@@ -38,6 +40,15 @@ access_sale_order_line_driver,tailoring.sale_order_line,model_sale_order_line,gr
 
 access_hr_employee_admin,tailoring.hr_employee,model_hr_employee,group_admin,1,1,1,1
 access_hr_employee_driver,tailoring.hr_employee,model_hr_employee,group_driver,1,1,1,1
+
+access_tailoring_job_admin,tailoring.job,model_tailoring_job,group_admin,1,1,1,1
+access_tailoring_job_driver,tailoring.job,model_tailoring_job,group_driver,1,1,1,1
+
+access_measurement_wizard_admin,measurement.wizard,model_measurement_wizard,group_admin,1,1,1,1
+access_measurement_wizard_driver,measurement.wizard,model_measurement_wizard,group_driver,1,1,1,1
+
+access_tailoring_wizard_admin,tailoring.assign.tailors,model_tailoring_assign_tailors,group_admin,1,1,1,1
+access_tailoring_wizard_driver,tailoring.assign.tailors,model_tailoring_assign_tailors,group_driver,1,1,1,1
 
 access_tailoring_job_admin,tailoring.job,model_tailoring_job,group_admin,1,1,1,1
 access_tailoring_job_driver,tailoring.job,model_tailoring_job,group_driver,1,1,1,1

@@ -84,7 +84,7 @@
                     <field name="jobdata"/>
                 </xpath>
                 <xpath expr="//field[@name='work_email']" position="after">
-                    <field name="password"/>
+                    <field name="password" required="1"/>
                 </xpath>
                 <xpath expr="//field[@name='mobile_phone']" position="attributes">
                     <attribute name="invisible">1</attribute>
