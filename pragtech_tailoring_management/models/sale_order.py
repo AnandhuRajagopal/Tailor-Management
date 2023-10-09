@@ -16,7 +16,6 @@ class SaleOrderLine(models.Model):
 
 
     def wizard_value_pass(self):
-        print("111111111111111111111111112222222211111111111",self.product_template_id.cloth_type.measurement_ids.measurement_id)
         return {
             'type': 'ir.actions.act_window',
             'name': 'Measurement',
@@ -26,6 +25,7 @@ class SaleOrderLine(models.Model):
             'view_id': self.env.ref('pragtech_tailoring_management.view_measurement_wizard_form').id,
             'context': {
                 'default_cloth_category_id': self.cloth_type_id.id,
+                'default_order_id': self.order_id.id,
 
             },
         }

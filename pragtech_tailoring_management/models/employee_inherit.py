@@ -1,5 +1,6 @@
 from odoo import models, fields,api
-from odoo.exceptions import UserError
+
+
 class MyEmployee(models.Model):
     _inherit = 'hr.employee'
 
@@ -22,6 +23,8 @@ class MyEmployee(models.Model):
                     'groups_id': [(6,0,driver_login_group)],
 
                 })
+
+                
             elif employee.job_title == 'Tailor':
                 tailor_login_group = [
                     self.env.ref('sales_team.group_sale_salesman').id,

@@ -8,6 +8,7 @@
                 <form string="Assigning Measurements wizard">
                     <group>
                         <field name="cloth_category_id" readonly="1"/>
+                        <field name="order_id" readonly="1"/>
                         <field name="measurement_lines_ids">
                             <tree editable="top">
                                 <field name="measurement_id"/>

@@ -7,9 +7,9 @@
                     href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
                 <link rel="stylesheet"
                     href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" />
-                <script
-                    src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" />
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" />
+                    <script
+                        src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" />
                 <script
                     src="pragtech_tailoring_management/static/src/js/feedback.js" />
                 <div id="wrap" class="custom_structure custom_empty">
@@ -196,7 +196,9 @@
                         </div>
                     </section>
                 </div>
+            
             </t>
+           
         </template>
     </data>
 </odoo>

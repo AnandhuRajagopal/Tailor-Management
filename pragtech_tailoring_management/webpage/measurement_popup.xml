@@ -1,0 +1,53 @@
+<odoo>
+    <template id="template_inherit" inherit_id="website_sale.product">
+        <xpath expr="//div[@id='product_details']" position="inside">
+            <div class="product-details">
+                <button type="button" name="open_measurement_popup" class="btn btn-primary"
+                    id="open_measurement_button" data-toggle="modal"
+                    data-target="#measurement_popup" onclick="openMeasurementPopup()">
+                    Add Measurement
+                </button>
+            </div>
+            <div class="modal fade" id="measurement_popup" tabindex="-1" role="dialog"
+                aria-labelledby="measurement_popup_label" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="measurement_popup_label">Enter Measurements</h5>
+                            <button type="button" class="close" data-dismiss="modal"
+                                onclick="closeMeasurementPopup()">
+                                <span aria-hidden="true"></span>
+                            </button>
+                        </div>
+                        <form method="post" action="/submit_measurement">
+                            <div class="modal-body">
+                                <div class="form-group row align-items-center">
+                                    <t t-foreach="product.cloth_type.measurement_ids.measurement_id" t-as="measurement">
+                                        <label class="col-sm-3 col-form-label" style="margin-top:20px">
+                                            <t name="measurement_names" t-esc="measurement.name"></t>
+                                        </label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="measurement_value" style="margin-top:20px" />
+                                        </div>
+                                    </t>
+                                </div>
+                            </div>
+                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+                        
+                        
+
+                        <div class="modal-footer">
+                            <input type="hidden" id="product_id" t-att-value="product.id" />
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                                onclick="closeMeasurementPopup()">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+    </template>
+</odoo>
