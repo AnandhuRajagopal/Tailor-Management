@@ -9,8 +9,6 @@ class TailoringController(http.Controller):
         return request.render('pragtech_tailoring_management.home_page_template')
     
 
-
-
 class FeedbackController(http.Controller):
 
     @http.route('/feedback/page/', type='http', auth="public", website=True)
@@ -26,6 +24,7 @@ class FeedbackController(http.Controller):
             'feedback': post.get('feedback')
         })
         return request.render('pragtech_tailoring_management.feedback_page_template')
+    
     
 class TestimonialController(http.Controller):
 
