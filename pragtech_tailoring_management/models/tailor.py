@@ -32,17 +32,20 @@ class Tailor(models.Model):
         self.write({
             'state' : 'finished'
         })
-        
-        sale_order = self.env['sale.order'].search([])
+        if self.state == 'finished' or self.order_id.state == 'sale':
 
-        if self.state == 'finished' or sale_order:
+            self.order_id.state = 'ready to deliver'
 
-            sale_order.write({
-                'state' : 'ready to deliver'
-            })
-
-    
-         
-
-        
-
+    # ...........................................Specific Measrement Record Form View..........................................
+    def current_measurement_record(self):
+        measurement_id = self.env['tailoring.customer.measurement'].search([('order_id', '=', self.order_id.id)])
+        print('**********8',measurement_id)
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Measurement',
+            'res_id': measurement_id.id,
+            'res_model': 'tailoring.customer.measurement',
+            'view_mode': 'form',
+            'target': 'current',
+            'view_id': self.env.ref('pragtech_tailoring_management.tailor_measurment_form').id
+        }

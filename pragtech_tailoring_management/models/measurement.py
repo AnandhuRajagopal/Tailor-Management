@@ -5,10 +5,7 @@ class Measurments(models.Model):
     _name = "tailoring.measurement"
     _description = "tailoring.measurement"
 
-    sequence_no = fields.Char(string="Sequence No.", readonly=True, default="New")
     name = fields.Char(string="Name", required=True)
-    value = fields.Float(string="Measurement Value")
-    product_id = fields.Many2one('product.template', string="Product")
 
 
 class MeasurementRelative(models.Model):

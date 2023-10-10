@@ -21,14 +21,13 @@
 
     # any module necessary for this one to work correctly
 
-    'depends': ['base', 'product', 'sale', 'hr', 'mail', 'contacts', 'website', 'website_sale', 'stock'],
+    'depends': ['base', 'product', 'sale', 'hr', 'mail', 'contacts', 'website', 'website_sale', 'stock', 'purchase'],
 
     # always loaded
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
 
-        'data/job_positions.xml',
 
         'wizard/assigning_tailor_wizard.xml',
         'wizard/assigning_measurement_wizard.xml',
@@ -44,6 +43,7 @@
         'views/inherit_sale_order.xml',
         'views/inherit_product_page.xml',
         'views/inherit_employee.xml',
+        'views/inherit_res_partner.xml',
 
         'webpage/webpage_home.xml',
         'webpage/webpage_feedback.xml',
@@ -63,7 +63,6 @@
         'web.assets_frontend': [
             'pragtech_tailoring_management/static/src/css/home.css',
             'pragtech_tailoring_management/static/src/js/measurement.js',
-            'https://code.jquery.com/jquery-3.6.0.min.js'
         ]
     },
 }

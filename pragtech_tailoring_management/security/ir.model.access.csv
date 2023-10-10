@@ -19,7 +19,8 @@ access_tailor_tailor,tailoring.tailoring.tailor,model_tailoring_tailor,group_tai
 access_feedback_admin,tailoring.feedback.tailor,model_tailoring_feedback,group_admin,1,1,1,1
 
 access_customer_measurement_admin,tailoring.customer.measurement,model_tailoring_customer_measurement,group_admin,1,1,1,1
-access_customer_measurement_admin,tailoring.customer.measurement,model_tailoring_customer_measurement,group_tailor,1,1,1,1
+access_customer_measurement_tailor,tailoring.customer.measurement,model_tailoring_customer_measurement,group_tailor,1,0,0,0
+access_customer_measurement_driver,tailoring.customer.measurement,model_tailoring_customer_measurement,group_driver,1,1,1,1
 
 
 access_customer_measurement_inverse_admin,tailoring.customer.measurement.inverse,model_tailoring_customer_measurement_inverse,group_admin,1,1,1,1

@@ -22,8 +22,7 @@ class assigningMeasurementWizard(models.TransientModel):
             from_cloth_table = self.env['tailoring.cloth_type'].browse(cloth_category_id)
             for rec in from_cloth_table.measurement_ids:
                 vals = {
-                    'measurement_id': rec.id
-
+                    'measurement_id': rec.measurement_id.id
                 }
                 list_measurement.append((0, 0, vals))
 
@@ -35,6 +34,7 @@ class assigningMeasurementWizard(models.TransientModel):
     def measurement_assign_action(self):
         CustomerMeasurement = self.env['tailoring.customer.measurement']
         SaleOrderLine = self.env['sale.order.line']
+        saleorder = self.env['sale.order']
 
         list1 = []
         measurement_dict = {
@@ -59,8 +59,8 @@ class assigningMeasurementWizard(models.TransientModel):
             ('order_id', '=', self.order_id.id),
             ('cloth_type_id', '=', self.cloth_category_id.id)
         ])
+        sale_order = saleorder.search([('done', '=', False)])
         sale_order_lines.write({'done': True})
-
-        # Close the wizard
+        sale_order.write({'done': True})
         return {'type': 'ir.actions.act_window_close'}
     

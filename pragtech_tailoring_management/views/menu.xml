@@ -103,12 +103,26 @@
                         sequence="2"/>
                 <!-- .......invoice_menu_root end......... -->
 
+        <menuitem
+                id="customers_menu_root"
+                name="Customers"
+                action="action_customer"
+                parent="pragtech_tailoring_management.pragtech_tailoring_menu_root"
+                sequence="7"/>
+
+        <menuitem
+                id="purchase_menu_root"
+                name="Purchase"
+                action="purchase.purchase_rfq"
+                parent="pragtech_tailoring_management.pragtech_tailoring_menu_root"
+                sequence="8"/>
+
                 <!-- .......configuration_menu_root start......... -->
         <menuitem
                 id="configuration_menu_root"
                 name="Configuration"
                 parent="pragtech_tailoring_management.pragtech_tailoring_menu_root"
-                sequence="7"/>
+                sequence="9"/>
 
                 <menuitem
                         id="cloth_type_menu"
