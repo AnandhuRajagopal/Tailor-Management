@@ -1,5 +1,30 @@
 <odoo>
     <data>
+        <!-- ******************************** Inherit stock.picking Tree View ********************************** -->
+
+        <record model="ir.ui.view" id="view_stock_pickup_tree_inherit">
+            <field name="name">stock.pickup.tree.inherit</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.vpicktree" />
+            <field name="arch" type="xml">
+                <!-- Invisibled activity_ids field in tree view -->
+                <xpath expr="//field[@name='company_id']" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+
+                <!-- Invisibled origin field in tree view -->
+                <xpath expr="//field[@name='origin']" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+
+
+                <!-- Added driver_id,product_image fields after the origin field -->
+                <xpath expr="//field[@name='origin']" position="after">
+                    <field name="driver_id"></field>
+                </xpath>
+
+            </field>
+        </record>
         <!-- ******************************** Inherit stock.picking Form View ********************************** -->
         <record id="action_custom_stock_picking" model="ir.actions.act_window">
             <field name="name">Stock Picking</field>
@@ -26,7 +51,7 @@
                 </xpath>
 
                 <!-- Added Statusbar -->
-                <field name="state" position="attributes" >
+                <field name="state" position="attributes">
                     <attribute name= 'statusbar_visible'>draft,confirmed,assigned,done,delivered</attribute>
                 </field>
             </field>
