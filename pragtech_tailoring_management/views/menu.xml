@@ -17,6 +17,7 @@
         <menuitem
                 id="hr_employee_inherit_menu"
                 name="Employee"
+                groups = "pragtech_tailoring_management.group_admin"
                 parent="pragtech_tailoring_management.pragtech_tailoring_menu_root"
                 sequence="2"/>
 
@@ -38,6 +39,7 @@
                         id="hr_employee_driver_inherit_menu"
                         name="Driver"
                         action="action_employee_driver"
+                        groups = "pragtech_tailoring_management.group_admin"
                         parent="pragtech_tailoring_management.hr_employee_inherit_menu"
                         sequence="3"/>
 
@@ -108,6 +110,7 @@
                 name="Customers"
                 action="action_customer"
                 parent="pragtech_tailoring_management.pragtech_tailoring_menu_root"
+                groups="pragtech_tailoring_management.group_admin"
                 sequence="7"/>
 
         <menuitem
@@ -115,6 +118,7 @@
                 name="Purchase"
                 action="purchase.purchase_rfq"
                 parent="pragtech_tailoring_management.pragtech_tailoring_menu_root"
+                groups="pragtech_tailoring_management.group_admin"
                 sequence="8"/>
 
                 <!-- .......configuration_menu_root start......... -->
@@ -149,6 +153,7 @@
                         id="Delivery_trip_menu"
                         name="Delivery"
                         parent="pragtech_tailoring_management.configuration_menu_root"
+                        groups = "pragtech_tailoring_management.group_admin,pragtech_tailoring_management.group_driver"
                         sequence="4"
                         action="pragtech_tailoring_management.action_custom_stock_picking"/>
 
