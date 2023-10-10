@@ -34,7 +34,7 @@
                     <sheet>
                         <group>
                             <group>
-                                <field name='name'/>
+                                <field name='name' required="1"/>
                                 <field name='fabric_id'/>
                             </group>
                         </group>

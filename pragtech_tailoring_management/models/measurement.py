@@ -5,7 +5,6 @@ class Measurments(models.Model):
     _name = "tailoring.measurement"
     _description = "tailoring.measurement"
 
-    sequence_no = fields.Char(string="Sequence_no", readonly=True, default="New")
     name = fields.Char(string="Name", required=True)
 
     # ...........................................Measurement Sequence..........................................
