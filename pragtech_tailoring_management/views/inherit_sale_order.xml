@@ -82,13 +82,9 @@
                 </xpath>
 
                 <!-- Added cloth_type_id,description fields in form view after the order_line page's product_template_id field -->
-
                 <xpath expr="/form/sheet/notebook/page/field[@name='order_line']/tree/field[@name='product_template_id']" position="after">
                     <field name="cloth_type_id"/>
                     <field name="description"/>
-                </xpath>
-                <xpath expr="/form/sheet/notebook/page/field[@name='order_line']/tree/field[@name='name']" position="attributes">
-                    <attribute name="invisible">1</attribute>
                 </xpath>
 
                 <!-- Invisibled order_line page's name field in form view -->
