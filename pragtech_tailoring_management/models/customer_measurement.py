@@ -8,6 +8,7 @@ class CustomerMeasurments(models.Model):
     order_id = fields.Many2one('sale.order',string="Order_id")
     cloth_type = fields.Many2one('tailoring.cloth_type')
     measurement_ids = fields.One2many('tailoring.customer.measurement.inverse','measurement_id',string="Measurement")
+    state = fields.Selection([('draft','DRAFT'),('confirmed','CONFIRMED')])
 
 
 class CustomerMeasurmentsInverse(models.Model):
