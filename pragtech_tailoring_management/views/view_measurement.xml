@@ -13,7 +13,6 @@
             <field name="model">tailoring.measurement</field>
             <field name="arch" type="xml">
                 <tree>
-                    <field name="sequence_no"/>
                     <field name="name"/>
                 </tree>
             </field>
