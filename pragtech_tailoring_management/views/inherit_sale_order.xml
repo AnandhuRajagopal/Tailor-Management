@@ -5,7 +5,7 @@
             <field name="name">Orders</field>
             <field name="res_model">sale.order</field>
             <field name="view_mode">tree,form</field>
-            <field name="domain">[]</field> 
+            <field name="domain">[]</field>
         </record>
 
         <!-- ******************************** sale.order Tree View ********************************** -->
