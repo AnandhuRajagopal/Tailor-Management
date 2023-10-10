@@ -38,7 +38,8 @@ class Tailor(models.Model):
 
     # ...........................................Specific Measrement Record Form View..........................................
     def current_measurement_record(self):
-        measurement_id = self.env['tailoring.customer.measurement'].search([('order_id', '=', self.id)])
+        measurement_id = self.env['tailoring.customer.measurement'].search([('order_id', '=', self.order_id.id)])
+        print('**********8',measurement_id)
         return {
             'type': 'ir.actions.act_window',
             'name': 'Measurement',

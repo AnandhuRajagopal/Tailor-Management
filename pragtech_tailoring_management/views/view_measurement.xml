@@ -13,7 +13,8 @@
             <field name="model">tailoring.measurement</field>
             <field name="arch" type="xml">
                 <tree>
-                    <field name="name"  />
+                    <field name="sequence_no"/>
+                    <field name="name"/>
                 </tree>
             </field>
         </record>
@@ -26,9 +27,9 @@
                 <form>
                     <sheet>
                         <group>
-                        <group>
-                            <field name="name" required="1"/>
-                        </group>
+                            <group>
+                                <field name="name" required="1"/>
+                            </group>
                         </group>
                     </sheet>
                 </form>

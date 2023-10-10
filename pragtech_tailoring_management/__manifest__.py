@@ -21,7 +21,7 @@
 
     # any module necessary for this one to work correctly
 
-    'depends': ['base', 'product', 'sale', 'hr', 'mail', 'contacts', 'website', 'website_sale', 'stock'],
+    'depends': ['base', 'product', 'sale', 'hr', 'mail', 'contacts', 'website', 'website_sale', 'stock', 'purchase'],
 
     # always loaded
     'data': [
@@ -43,6 +43,7 @@
         'views/inherit_sale_order.xml',
         'views/inherit_product_page.xml',
         'views/inherit_employee.xml',
+        'views/inherit_res_partner.xml',
 
         'webpage/webpage_home.xml',
         'webpage/webpage_feedback.xml',

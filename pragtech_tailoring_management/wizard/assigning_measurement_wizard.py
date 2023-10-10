@@ -22,8 +22,7 @@ class assigningMeasurementWizard(models.TransientModel):
             from_cloth_table = self.env['tailoring.cloth_type'].browse(cloth_category_id)
             for rec in from_cloth_table.measurement_ids:
                 vals = {
-                    'measurement_id': rec.id
-
+                    'measurement_id': rec.measurement_id.id
                 }
                 list_measurement.append((0, 0, vals))
 

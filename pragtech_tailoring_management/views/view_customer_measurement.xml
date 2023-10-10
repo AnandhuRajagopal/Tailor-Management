@@ -15,7 +15,6 @@
                 <tree>
                     <field name="order_id" />
                     <field name="cloth_type" />
-                    
                 </tree>
             </field>
         </record>

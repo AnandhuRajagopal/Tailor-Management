@@ -106,9 +106,11 @@
                 <xpath expr="/form/sheet/notebook/page/field[@name='order_line']/tree/field[@name='price_subtotal']" position="after">
                     <field name="done" invisible="1"/>
                 </xpath>
+
                 <xpath expr="/form/sheet/notebook/page/field[@name='order_line']/tree/field[@name='done']" position="attributes">
                     <attribute name="attrs">{'invisible': [('done', '=', True)]}</attribute>
                 </xpath>
+
                 <xpath expr="/form/sheet/notebook/page/field[@name='order_line']/tree/field[@name='done']" position="after">
                     <button name="wizard_value_pass" string="Add Measurement" type="object" class="oe_highlight" attrs="{'invisible': [('done', '=', True)]}"/>
                 </xpath>
@@ -128,6 +130,10 @@
                 <xpath expr="//sheet/div" position="after">
                     <widget name="web_ribbon" title="Tailor Assigned" bg_color="bg-success"
                             attrs="{'invisible':[('state','!=','tailor assigned')]}"/>
+                </xpath>
+
+                <xpath expr="//field[@name='partner_id']" position="attributes">
+                    <attribute name="domain">[('function', 'not in', ['Admin', 'Driver', 'Tailor'])]</attribute>
                 </xpath>
             </field>
         </record>
