@@ -15,6 +15,8 @@
                 <tree>
                     <field name="order_id" />
                     <field name="cloth_type" />
+                    <field name="state" widget="badge" decoration-primary="state == 'draft'" decoration-success="state == 'confirmed'"/>
+
                 </tree>
             </field>
         </record>
@@ -25,6 +27,9 @@
             <field name="model">tailoring.customer.measurement</field>
             <field name="arch" type="xml">
                 <form>
+                    <header>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,confirmed"/>
+                    </header>
                       <group>
                         <field name="order_id" readonly="1"/>
                         <field name="cloth_type" readonly="1"/>
