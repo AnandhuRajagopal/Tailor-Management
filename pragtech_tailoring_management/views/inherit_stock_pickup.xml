@@ -41,13 +41,16 @@
 
                 <!-- Added Deliverd button inside the header -->
                 <xpath expr="//header" position="inside">
-                    <button name="delivered" type="object" string="DELIVERED" class="btn btn-primary" icon="fa-truck fa-2px" attrs="{'invisible':[('state','!=','done')]}"/>
+                    <button name="delivered" type="object" string="DELIVERED" class="btn btn-primary" icon="fa-truck fa-2px" attrs="{'invisible':['|','|','|','|','|',('state','=','draft'),('state','=','waiting'),('state','=','ready'),('state','=','delivered'),('state','=','cancel'),('is_delivery','=', False)]}"/>
                 </xpath>
 
                 <!-- Added driver_id,product_image fields after the origin field -->
                 <xpath expr="//field[@name='origin']" position="after">
-                    <field name="driver_id" domain="[('function', '=', 'Driver')]" required="1" options="{'no_create': True,'no_create_edit': True}"/>
-                    <field name="product_image" states="done,delivered"/>
+                    <field name='is_delivery' invisible='1'/>
+                    <field name='photo_req' invisible='1'/>
+
+                    <field name="driver_id" domain="[('job_title', '=', 'Driver')]" options="{'no_create': True,'no_create_edit': True}" attrs="{'invisible':[('is_delivery','=', False)],'required':[('is_delivery','=', True)]}"/>
+                    <field name="product_image" attrs="{'invisible':[('photo_req','=', False)]}"/>
                 </xpath>
 
                 <!-- Added Statusbar -->
