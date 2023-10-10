@@ -80,19 +80,25 @@
             <field name="arch" type="xml">
                 <form string="tailor">
                     <header>
-                        <field name="state" widget="statusbar"
-                            statusbar_visible="pending,in_progress,finished" />
+                        <field name="state" widget="statusbar" statusbar_visible="pending,in_progress,finished"/>
+                        <button name="start" type="object" string="START" class="btn-primary"
+                            attrs="{'invisible' :['|',('state','=','in_progress'),('state','=','finished')] }"/>
+                        <button name="finish" type="object" string="FINISH" class="btn-success"
+                            attrs="{'invisible' :['|',('state','!=','in_progress'),('state','==','finished')] }"/>
                     </header>
                     <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="current_measurement_record" type="object" class="oe_stat_button" icon="fa-sort-numeric-asc">
+                                <div class="o_stat_info">
+                                    <span class="o_stat_text">Measurement</span>
+                                </div>
+                            </button>
+                        </div>
                         <group>
                             <group>
                                 <field name="order_id"/>
                                 <field name="name"/>
                                 <field name="assigned_date"/>
-                                <button name="start" type="object" string="START" class="btn-primary"
-                                    attrs="{'invisible' :['|',('state','=','in_progress'),('state','=','finished')] }" />
-                                <button name="finish" type="object" string="FINISH" class="btn-success"
-                                    attrs="{'invisible' :['|',('state','!=','in_progress'),('state','==','finished')] }" />
                             </group>
                             <group>
                                 <field name="started_date"/>

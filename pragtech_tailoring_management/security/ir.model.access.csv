@@ -1,19 +1,16 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 
 access_cloth_type_admin,tailoring.cloth_type,model_tailoring_cloth_type,group_admin,1,1,1,1
-access_cloth_type_tailor,tailoring.cloth_type,model_tailoring_cloth_type,group_tailor,1,1,1,1
 access_cloth_type_driver,tailoring.cloth_type,model_tailoring_cloth_type,group_driver,1,1,1,1
 
 access_measurement_admin,tailoring.measurement,model_tailoring_measurement,group_admin,1,1,1,1
-access_measurement_tailor,tailoring.measurement,model_tailoring_measurement,group_tailor,1,1,1,1
+access_measurement_tailor,tailoring.measurement,model_tailoring_measurement,group_tailor,1,0,0,0
 access_measurement_driver,tailoring.measurement,model_tailoring_measurement,group_driver,1,1,1,1
 
 access_measurement_relative_admin,tailoring.tailoring.measurement_relative,model_tailoring_measurement_relative,group_admin,1,1,1,1
-access_measurement_relative_tailor,tailoring.tailoring.measurement_relative,model_tailoring_measurement_relative,group_tailor,1,1,1,1
 access_measurement_relative_driver,tailoring.tailoring.measurement_relative,model_tailoring_measurement_relative,group_driver,1,1,1,1
 
 access_fabric_admin,tailoring.fabric,model_tailoring_fabric,group_admin,1,1,1,1
-access_fabric_tailor,tailoring.fabric,model_tailoring_fabric,group_tailor,1,1,1,1
 access_fabric_driver,tailoring.fabric,model_tailoring_fabric,group_driver,1,1,1,1
 
 access_tailor_admin,tailoring.tailoring.tailor,model_tailoring_tailor,group_admin,1,1,1,1
@@ -21,45 +18,47 @@ access_tailor_tailor,tailoring.tailoring.tailor,model_tailoring_tailor,group_tai
 access_tailor_driver,tailoring.tailoring.tailor,model_tailoring_tailor,group_driver,1,1,1,1
 
 access_feedback_admin,tailoring.feedback.tailor,model_tailoring_feedback,group_admin,1,1,1,1
-access_feedback_tailor,tailoring.feedback.tailor,model_tailoring_feedback,group_tailor,1,1,1,1
 access_feedback_driver,tailoring.feedback.tailor,model_tailoring_feedback,group_driver,1,1,1,1
 
 access_customer_measurement_admin,tailoring.customer.measurement,model_tailoring_customer_measurement,group_admin,1,1,1,1
-access_customer_measurement_tailor,tailoring.customer.measurement,model_tailoring_customer_measurement,group_tailor,1,1,1,1
+access_customer_measurement_admin,tailoring.customer.measurement,model_tailoring_customer_measurement,group_tailor,1,0,0,0
 access_customer_measurement_driver,tailoring.customer.measurement,model_tailoring_customer_measurement,group_driver,1,1,1,1
 
+access_customer_measurement_inverse_admin,tailoring.customer.measurement.inverse,model_tailoring_customer_measurement_inverse,group_admin,1,1,1,1
+access_customer_measurement_inverse_driver,tailoring.customer.measurement.inverse,model_tailoring_customer_measurement_inverse,group_driver,1,1,1,1
+
 access_measurement_wizard_admin,measurement.wizard,model_measurement_wizard,group_admin,1,1,1,1
-access_measurement_wizard_tailor,measurement.wizard,model_measurement_wizard,group_tailor,1,1,1,1
 access_measurement_wizard_driver,measurement.wizard,model_measurement_wizard,group_driver,1,1,1,1
 
 access_measurement_inverse_wizard_admin,measurement.wizard.line,model_measurement_wizard_line,group_admin,1,1,1,1
-access_measurement_inverse_wizard_tailor,measurement.wizard.line,model_measurement_wizard_line,group_tailor,1,1,1,1
 access_measurement_inverse_wizard_driver,measurement.wizard.line,model_measurement_wizard_line,group_driver,1,1,1,1
 
 access_sale_order_admin,tailoring.sale_order,model_sale_order,group_admin,1,1,1,1
-access_sale_order_tailor,tailoring.sale_order,model_sale_order,group_tailor,1,1,1,1
 access_sale_order_driver,tailoring.sale_order,model_sale_order,group_driver,1,1,1,1
 
 access_sale_order_line_admin,tailoring.sale_order_line,model_sale_order_line,group_admin,1,1,1,1
-access_sale_order_line_tailor,tailoring.sale_order_line,model_sale_order_line,group_tailor,1,1,1,1
 access_sale_order_line_driver,tailoring.sale_order_line,model_sale_order_line,group_driver,1,1,1,1
 
 access_hr_employee_admin,tailoring.hr_employee,model_hr_employee,group_admin,1,1,1,1
-access_hr_employee_tailor,tailoring.hr_employee,model_hr_employee,group_tailor,1,1,1,1
 access_hr_employee_driver,tailoring.hr_employee,model_hr_employee,group_driver,1,1,1,1
 
 access_tailoring_job_admin,tailoring.job,model_tailoring_job,group_admin,1,1,1,1
-access_tailoring_job_tailor,tailoring.job,model_tailoring_job,group_tailor,1,1,1,1
 access_tailoring_job_driver,tailoring.job,model_tailoring_job,group_driver,1,1,1,1
 
 access_measurement_wizard_admin,measurement.wizard,model_measurement_wizard,group_admin,1,1,1,1
-access_measurement_wizard_tailor,measurement.wizard,model_measurement_wizard,group_tailor,1,1,1,1
 access_measurement_wizard_driver,measurement.wizard,model_measurement_wizard,group_driver,1,1,1,1
 
 access_tailoring_wizard_admin,tailoring.assign.tailors,model_tailoring_assign_tailors,group_admin,1,1,1,1
-access_tailoring_wizard_tailor,tailoring.assign.tailors,model_tailoring_assign_tailors,group_tailor,1,1,1,1
 access_tailoring_wizard_driver,tailoring.assign.tailors,model_tailoring_assign_tailors,group_driver,1,1,1,1
 
+access_tailoring_job_admin,tailoring.job,model_tailoring_job,group_admin,1,1,1,1
+access_tailoring_job_driver,tailoring.job,model_tailoring_job,group_driver,1,1,1,1
+
+access_measurement_wizard_admin,measurement.wizard,model_measurement_wizard,group_admin,1,1,1,1
+access_measurement_wizard_driver,measurement.wizard,model_measurement_wizard,group_driver,1,1,1,1
+
+access_tailoring_wizard_admin,tailoring.assign.tailors,model_tailoring_assign_tailors,group_admin,1,1,1,1
+access_tailoring_wizard_driver,tailoring.assign.tailors,model_tailoring_assign_tailors,group_driver,1,1,1,1
 
 
 

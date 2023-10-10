@@ -29,8 +29,13 @@
                 </xpath>
 
                 <!-- Added state field in form view after the invoice_status field -->
-                <xpath expr="//field[@name='invoice_status']" position="after">
-                    <field name="state" widget="badge"></field>
+                <xpath expr="//field[@name='state']" position="replace">
+                    <field name="state" widget="badge" 
+                            decoration-danger="state == 'cancel'" 
+                            decoration-success="state == 'delivered'" 
+                            decoration-warning="state == 'ready to deliver'" 
+                            decoration-info="state == 'shipped'">
+                    </field>
                 </xpath>
             </field>
         </record>
@@ -41,12 +46,14 @@
             <field name="model">sale.order</field>
             <field name="inherit_id" ref="sale.view_order_form"/>
             <field name="arch" type="xml">
+                 <xpath expr="//button[@name='action_confirm'][2]" position="attributes">
+                    <attribute name="attrs">{'invisible': [('done', '=', False)]}</attribute>
+                </xpath>
                 <xpath expr="//header" position="inside">
                     <!-- Adding a Delivery mail button -->
                     <button name="action_delivery_mail" type="object" string="Delivery Ready Mail"
                             attrs="{'invisible' :[('state','!=','ready to deliver')] }" icon="fa-envelope"
                             class="btn-info"/>
-
                     <!-- Adding an Assign Tailor wizard button -->
                     <button name="%(action_view_tailoring_wizard_form)d" type="action" string="Assign Tailor"
                             attrs="{'invisible': [('state', '!=', 'sale')]}" icon="fa-scissors"
@@ -60,7 +67,7 @@
 
                 <xpath expr="//sheet/div/button" position="before">
                     <!-- Adding Measurement smart button -->
-                    <button name="current_tailor_record" type="object" class="oe_stat_button" icon="fa-sort-numeric-asc">
+                    <button name="current_measurement_record" type="object" class="oe_stat_button" icon="fa-sort-numeric-asc">
                         <div class="o_stat_info">
                             <span class="o_stat_text">Measurement</span>
                         </div>
@@ -75,6 +82,10 @@
                         </div>
                     </button>
                 </xpath>
+                <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="done" invisible="1"/>
+                </xpath>
+
 
                 <!-- Delivery Button visible only in ready to deliver state -->
                 <xpath expr="//button[@name='action_view_delivery']" position="attributes">
@@ -82,13 +93,9 @@
                 </xpath>
 
                 <!-- Added cloth_type_id,description fields in form view after the order_line page's product_template_id field -->
-
                 <xpath expr="/form/sheet/notebook/page/field[@name='order_line']/tree/field[@name='product_template_id']" position="after">
                     <field name="cloth_type_id"/>
                     <field name="description"/>
-                </xpath>
-                <xpath expr="/form/sheet/notebook/page/field[@name='order_line']/tree/field[@name='name']" position="attributes">
-                    <attribute name="invisible">1</attribute>
                 </xpath>
 
                 <!-- Invisibled order_line page's name field in form view -->
@@ -103,8 +110,15 @@
 
                 <!-- Added the 'Add Measurement' button in form view after the order_line page's price_subtotal field -->
                 <xpath expr="/form/sheet/notebook/page/field[@name='order_line']/tree/field[@name='price_subtotal']" position="after">
-                    <button name="wizard_value_pass" string="Add Measurement" type="object" class="oe_highlight"/>
+                    <field name="done" invisible="1"/>
                 </xpath>
+                <xpath expr="/form/sheet/notebook/page/field[@name='order_line']/tree/field[@name='done']" position="attributes">
+                    <attribute name="attrs">{'invisible': [('done', '=', True)]}</attribute>
+                </xpath>
+                <xpath expr="/form/sheet/notebook/page/field[@name='order_line']/tree/field[@name='done']" position="after">
+                    <button name="wizard_value_pass" string="Add Measurement" type="object" class="oe_highlight" attrs="{'invisible': [('done', '=', True)]}"/>
+                </xpath>
+
 
                 <!-- Inherit and visible customer preview smart button only in sale,pickup,material collected,tailor assigned,ready to deliver,finished states -->
                 <xpath expr="//button[@name='action_preview_sale_order']" position="attributes">

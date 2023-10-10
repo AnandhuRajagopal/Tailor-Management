@@ -6,12 +6,14 @@ class MyEmployee(models.Model):
 
     jobdata = fields.Many2one('tailoring.job',string='Job Positions')
     password = fields.Char('Password')
+    done = fields.Boolean('Done')
 
     def create_user_from_employee(self):
         for employee in self:
             user = self.env['res.users']
             if employee.job_title == 'Driver':
                 driver_login_group = [
+                    self.env.ref('sales_team.group_sale_salesman').id,
                     self.env.ref('base.group_user').id,
                     self.env.ref('pragtech_tailoring_management.group_driver').id,]
                 user = user.create({
@@ -22,8 +24,10 @@ class MyEmployee(models.Model):
                     'groups_id': [(6,0,driver_login_group)],
 
                 })
+
             elif employee.job_title == 'Tailor':
                 tailor_login_group = [
+                    self.env.ref('sales_team.group_sale_salesman').id,
                     self.env.ref('base.group_user').id,
                     self.env.ref('pragtech_tailoring_management.group_tailor').id,]
                 user = user.create({
@@ -35,7 +39,8 @@ class MyEmployee(models.Model):
 
                 })
             elif employee.job_title == 'Admin':
-                tailor_login_group = [
+                admin_login_group = [
+                    self.env.ref('sales_team.group_sale_salesman').id,
                     self.env.ref('base.group_user').id,
                     self.env.ref('pragtech_tailoring_management.group_admin').id,]
                 user = user.create({
@@ -43,7 +48,8 @@ class MyEmployee(models.Model):
                     'login': employee.work_email,
                     'email': employee.work_email,
                     'password': employee.password,
-                    'groups_id': [(6,0,tailor_login_group.id)]
+                    'groups_id': [(6,0,admin_login_group)]
                 })
+            employee.done = True
             return user
 

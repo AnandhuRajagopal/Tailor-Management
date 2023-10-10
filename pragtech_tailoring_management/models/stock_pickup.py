@@ -13,13 +13,14 @@ class StockPickup(models.Model):
         if any(move.quantity_done <= 0 for move in self.move_ids):
             raise MissingError("Done Quantities Cannot be Zero")
 
-        super(StockPickup, self).button_validate()
+        pic = super(StockPickup, self).button_validate()
 
         if self.state == 'done':
             sale_orders = self.env['sale.order'].search([('picking_ids', 'in', self.ids)])
             for sale_order in sale_orders:
                 if sale_order.state != 'shipped':
                     sale_order.write({'state': 'shipped'})
+        return pic
 
     # ...........................................Product Deliverd Button..........................................
     def delivered(self):
@@ -30,7 +31,5 @@ class StockPickup(models.Model):
             sale_orders = self.env['sale.order'].search([('picking_ids', 'in', self.ids)])
             for sale_order in sale_orders:
                 if sale_order.state != 'delivered':
-                    sale_order.write({'state': 'delivered'})  
-            self.write({
-                'state' : 'delivered'
-            })                  
+                    sale_order.state = 'delivered'  
+            self.state = 'delivered'               
