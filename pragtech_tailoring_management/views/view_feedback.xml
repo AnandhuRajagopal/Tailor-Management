@@ -3,7 +3,7 @@
     <data>
         <!-- ********************************* Action ********************************************* -->
         <record id="feedback_action" model="ir.actions.act_window">
-            <field name="name">feedback.action</field>
+            <field name="name">Feedback</field>
             <field name="res_model">tailoring.feedback</field>
             <field name="view_mode">tree,form</field>
         </record>

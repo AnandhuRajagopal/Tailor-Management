@@ -6,6 +6,7 @@ class SaleOrderLine(models.Model):
 
     cloth_type_id = fields.Many2one(related='product_template_id.cloth_type', string="Cloth Type")
     description = fields.Char(string="Description", compute='_compute_description', store=True)
+    done = fields.Boolean('done')
 
     # ...........................................Compute Description..........................................
     @api.depends('product_template_id.description')
@@ -16,6 +17,7 @@ class SaleOrderLine(models.Model):
 
 
     def wizard_value_pass(self):
+
         return {
             'type': 'ir.actions.act_window',
             'name': 'Measurement',
@@ -26,7 +28,6 @@ class SaleOrderLine(models.Model):
             'context': {
                 'default_cloth_category_id': self.cloth_type_id.id,
                 'default_order_id': self.order_id.id,
-
             },
         }
 
@@ -52,6 +53,17 @@ class SaleOrder(models.Model):
             'view_id': self.env.ref('pragtech_tailoring_management.tailor_form_view').id
         }
 
+    def current_measurement_record(self):
+        measurement_id = self.env['tailoring.customer.measurement'].search([('order_id', '=', self.id)])
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Measurement',
+            'res_id': measurement_id.id,
+            'res_model': 'tailoring.customer.measurement',
+            'view_mode': 'form',
+            'target': 'current',
+            'view_id': self.env.ref('pragtech_tailoring_management.tailor_measurment_form').id
+        }
     # ...........................................Action send mail..........................................
     def action_delivery_mail(self):
         active_id = self.env.context.get('active_id')
