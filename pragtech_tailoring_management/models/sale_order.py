@@ -55,6 +55,7 @@ class SaleOrder(models.Model):
             'view_id': self.env.ref('pragtech_tailoring_management.tailor_form_view').id
         }
 
+    # ...........................................Specific Measrement Record Form View..........................................
     def current_measurement_record(self):
         measurement_id = self.env['tailoring.customer.measurement'].search([('order_id', '=', self.id)])
         return {
