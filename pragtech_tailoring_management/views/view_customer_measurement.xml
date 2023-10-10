@@ -13,6 +13,7 @@
             <field name="model">tailoring.customer.measurement</field>
             <field name="arch" type="xml">
                 <tree>
+                    <field name="customer_id" readonly="1"/>
                     <field name="order_id" />
                     <field name="cloth_type" />
                     <field name="state" widget="badge" decoration-primary="state == 'draft'" decoration-success="state == 'confirmed'"/>

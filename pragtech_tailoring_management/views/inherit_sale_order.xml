@@ -47,6 +47,7 @@
             <field name="model">sale.order</field>
             <field name="inherit_id" ref="sale.view_order_form"/>
             <field name="arch" type="xml">
+              
                  <xpath expr="//button[@name='action_confirm'][2]" position="attributes">
                     <attribute name="attrs">{'invisible': [('done', '=', False)]}</attribute>
                 </xpath>
@@ -90,7 +91,7 @@
 
                 <!-- Delivery Button visible only in ready to deliver state -->
                 <xpath expr="//button[@name='action_view_delivery']" position="attributes">
-                    <attribute name="attrs">{'invisible': [('state', 'not in', ('ready to deliver'))]}</attribute>
+                    <attribute name="attrs">{'invisible': [('state', 'not in', ('ready to deliver','shipped'))]}</attribute>
                 </xpath>
 
                 <!-- Added cloth_type_id,description fields in form view after the order_line page's product_template_id field -->
