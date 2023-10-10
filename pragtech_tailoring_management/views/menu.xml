@@ -107,6 +107,7 @@
                         name="Cloth Type"
                         action="pragtech_tailoring_management.cloth_action"
                         parent="pragtech_tailoring_management.configuration_menu_root"
+        
                         sequence="1"/>
 
                 <menuitem

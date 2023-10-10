@@ -40,6 +40,9 @@ class SaleOrder(models.Model):
     state = fields.Selection(selection_add=[('tailor assigned', 'Tailor Assigned'),
                                             ('ready to deliver', 'Ready To Deliver'),
                                             ('shipped','Shipped'), ('delivered', 'Delivered')])
+    
+
+
 
 
     # ...........................................Specific Tailor Record Form View..........................................
@@ -82,4 +85,9 @@ class SaleOrder(models.Model):
     def action_confirm(self):
         res = super(SaleOrder, self).action_confirm()
         self.write({'done': False})
+        measurement_records = self.env['tailoring.customer.measurement'].search([
+            ('order_id', '=', self.id),
+            ('state', '=', 'draft')
+        ])
+        measurement_records.write({'state': 'confirmed'})
         return res
