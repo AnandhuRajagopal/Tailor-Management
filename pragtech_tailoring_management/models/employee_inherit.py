@@ -6,6 +6,8 @@ class MyEmployee(models.Model):
 
     jobdata = fields.Many2one('tailoring.job',string='Job Positions')
     password = fields.Char('Password')
+    done = fields.Boolean('Done')
+
 
     def create_user_from_employee(self):
         for employee in self:
@@ -50,5 +52,6 @@ class MyEmployee(models.Model):
                     'password': employee.password,
                     'groups_id': [(6,0,admin_login_group)]
                 })
+            employee.done = True
             return user
 

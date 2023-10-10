@@ -28,7 +28,6 @@
         'security/security.xml',
         'security/ir.model.access.csv',
 
-        'data/job_positions.xml',
 
         'wizard/assigning_tailor_wizard.xml',
         'wizard/assigning_measurement_wizard.xml',
