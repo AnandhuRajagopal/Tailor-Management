@@ -8,7 +8,6 @@ class MyEmployee(models.Model):
     password = fields.Char('Password')
     done = fields.Boolean('Done')
 
-
     def create_user_from_employee(self):
         for employee in self:
             user = self.env['res.users']
@@ -26,7 +25,6 @@ class MyEmployee(models.Model):
 
                 })
 
-                
             elif employee.job_title == 'Tailor':
                 tailor_login_group = [
                     self.env.ref('sales_team.group_sale_salesman').id,

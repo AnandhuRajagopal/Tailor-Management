@@ -35,6 +35,8 @@ class SaleOrderLine(models.Model):
 
 class SaleOrder(models.Model):
     _inherit = "sale.order"
+
+    done = fields.Boolean('done', default=False)
     state = fields.Selection(selection_add=[('tailor assigned', 'Tailor Assigned'),
                                             ('ready to deliver', 'Ready To Deliver'),
                                             ('shipped','Shipped'), ('delivered', 'Delivered')])
@@ -75,3 +77,8 @@ class SaleOrder(models.Model):
         }
         template = self.env.ref('pragtech_tailoring_management.mail_template_ready_to_delivery')
         template.send_mail(sale_order.id, force_send=True, email_values=email_values)
+
+    def action_confirm(self):
+        res = super(SaleOrder, self).action_confirm()
+        self.write({'done': False})
+        return res
