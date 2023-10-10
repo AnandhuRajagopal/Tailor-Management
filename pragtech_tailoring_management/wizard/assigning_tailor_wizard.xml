@@ -7,7 +7,7 @@
             <field name="arch" type="xml">
                 <form string="Assigning Tailor wizard">
                     <group>
-                        <field name="tailor_id" domain="[('job_title', '=', 'Tailor')]" options="{'no_create': True,'no_create_edit': True}"/>
+                        <field name="tailor_id" options="{'no_create': True,'no_create_edit': True}"/>
                         <field name="order_id" readonly="1"/>
                     </group>
                     <footer>

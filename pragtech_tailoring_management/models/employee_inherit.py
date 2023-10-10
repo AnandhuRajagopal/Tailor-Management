@@ -24,6 +24,7 @@ class MyEmployee(models.Model):
                     'groups_id': [(6,0,driver_login_group)],
 
                 })
+                user.partner_id.function = 'Driver'
 
             elif employee.job_title == 'Tailor':
                 tailor_login_group = [
@@ -38,6 +39,7 @@ class MyEmployee(models.Model):
                     'groups_id': [(6,0,tailor_login_group)]
 
                 })
+                user.partner_id.function = 'Tailor'
             elif employee.job_title == 'Admin':
                 admin_login_group = [
                     self.env.ref('sales_team.group_sale_salesman').id,
@@ -50,6 +52,8 @@ class MyEmployee(models.Model):
                     'password': employee.password,
                     'groups_id': [(6,0,admin_login_group)]
                 })
+                user.partner_id.function = 'Admin'
+                
             employee.done = True
             return user
 
