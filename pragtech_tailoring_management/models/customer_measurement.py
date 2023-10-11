@@ -1,19 +1,21 @@
 from odoo import models, fields,api
 
 
-class CustomerMeasurments(models.Model):
+class CustomerMeasurmets(models.Model):
     _name = "tailoring.customer.measurement"
     _description = "tailoring_customermeasurement"
+    _rec_name = 'order_id'
 
-    customer_id = fields.Many2one('res.users',string="Customer")
-    order_id = fields.Many2one('sale.order',string="Order_id")
-    cloth_type = fields.Many2one('tailoring.cloth_type')
+    customer_id = fields.Many2one(related='order_id.partner_id',string="Customer")
+    order_id = fields.Many2one('sale.order',string="Order ID")
+    cloth_type = fields.Many2one('tailoring.cloth_type',string="Cloth type")
     measurement_ids = fields.One2many('tailoring.customer.measurement.inverse','measurement_id',string="Measurement")
     state = fields.Selection([('draft','DRAFT'),('confirmed','CONFIRMED')])
 
+
 class CustomerMeasurmentsInverse(models.Model):
     _name = "tailoring.customer.measurement.inverse"
-    _description = "tailoring_customermeasurement"
+    _description = "tailoring_customer_measurement"
 
     measurement_id = fields.Many2one('tailoring.customer.measurement')
     name = fields.Char(string="Name")
