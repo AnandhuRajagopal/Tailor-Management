@@ -5,6 +5,7 @@ class CustomerMeasurments(models.Model):
     _name = "tailoring.customer.measurement"
     _description = "tailoring_customermeasurement"
 
+    line_id = fields.Many2one("sale.order.line", string="Cart Line")
     customer_id = fields.Many2one('res.users',string="Customer")
     order_id = fields.Many2one('sale.order',string="Order_id")
     cloth_type = fields.Many2one('tailoring.cloth_type')
