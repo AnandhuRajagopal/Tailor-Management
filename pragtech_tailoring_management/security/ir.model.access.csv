@@ -11,10 +11,10 @@ access_measurement_tailor,tailoring.measurement,model_tailoring_measurement,grou
 access_measurement_relative_admin,tailoring.tailoring.measurement_relative,model_tailoring_measurement_relative,group_admin,1,1,1,1
 
 access_fabric_admin,tailoring.fabric,model_tailoring_fabric,group_admin,1,1,1,1
-access_fabric_admin,tailoring.fabric,model_tailoring_fabric,group_tailor,1,1,1,1
+access_fabric_tailor,tailoring.fabric,model_tailoring_fabric,group_tailor,1,1,1,1
 
-access_tailor_admin,tailoring.tailoring.tailor,model_tailoring_tailor,group_admin,1,1,1,1
-access_tailor_tailor,tailoring.tailoring.tailor,model_tailoring_tailor,group_tailor,1,1,1,1
+access_tailor_admin,tailoring.tailor,model_tailoring_tailor,group_admin,1,1,1,1
+access_tailor_tailor,tailoring.tailor,model_tailoring_tailor,group_tailor,1,1,1,1
 
 access_feedback_admin,tailoring.feedback.tailor,model_tailoring_feedback,group_admin,1,1,1,1
 
