@@ -1,13 +1,14 @@
 <odoo>
-    <template id="template_inherit" inherit_id="website_sale.product">
-        <xpath expr="//div[@id='product_details']" position="inside">
-            <div class="product-details">
-                <button type="button" name="open_measurement_popup" class="btn btn-primary"
-                    id="open_measurement_button" data-toggle="modal"
-                    data-target="#measurement_popup" onclick="openMeasurementPopup()">
-                    Add Measurement
-                </button>
-            </div>
+
+    <template id="website_sale_stock_cart_lines" inherit_id="website_sale.cart_lines"
+        name="Shopping Cart Lines">
+        <xpath expr="//td[@class='td-action']/a[contains(@class, 'js_delete_product')]
+        " position="before">
+            <button type="button" name="open_measurement_popup" class="btn btn-primary"
+                id="open_measurement_button" data-toggle="modal"
+                data-target="#measurement_popup" onclick="openMeasurementPopup()">
+                Add Measurement
+            </button>
             <div class="modal fade" id="measurement_popup" tabindex="-1" role="dialog"
                 aria-labelledby="measurement_popup_label" aria-hidden="true">
                 <div class="modal-dialog" role="document">
@@ -20,33 +21,64 @@
                             </button>
                         </div>
                         <form method="post" name="measurement_form" action="/store_measurements">
-                            <input type="hidden" name="product_id" t-att-value="product.id" />
-                            <input type="hidden" name="cloth_type" t-att-value="product.cloth_type.id" />
+                            <input type="hidden" name="product_id" t-att-value="line.product_id.id" />
+                            <input type="hidden" name="cloth_type"
+                                t-att-value="line.product_id.cloth_type.id" />
                             <div class="modal-body">
-                                <div class="form-group row align-items-center">
-                                    <t t-foreach="product.cloth_type.measurement_ids" t-as="measurement">
-                                        <label class="col-sm-3 col-form-label" style="margin-top:20px">
+                                <div class="form-group row">
+                                    <t t-foreach="line.product_id.cloth_type.measurement_ids"
+                                        t-as="measurement">
+                                        <label class="col-sm-6 col-form-label"
+                                            style="margin-top:20px">
                                             <t t-esc="measurement.measurement_id.name" />
-                                            <input type="hidden" t-att-name="'label_' + measurement.measurement_id.name" t-att-value="measurement.measurement_id.name" />
+                                            <input type="hidden"
+                                                t-att-name="'label_' + measurement.measurement_id.name"
+                                                t-att-value="measurement.measurement_id.name" />
                                         </label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" t-att-name="'measurement_' + measurement.measurement_id.name" style="margin-top:20px" />
+                                        <div class="col-sm-6" style="margin-top:20px">
+                                            <input type="number" class="form-control"
+                                                t-att-name="'measurement_' + measurement.measurement_id.name"
+                                                required="1" />
                                         </div>
                                     </t>
                                 </div>
+
                             </div>
-                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
-                            <input type="hidden" id="product_id" t-att-value="product.id" />
+
+                            <input type="hidden" name="csrf_token"
+                                t-att-value="request.csrf_token()" />
+                            <input type="hidden" id="product_id" t-att-value="line.product_id.id" />
 
                             <div class="modal-footer">
                                 <button type="submit" class="btn btn-primary">Submit</button>
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal"
-                                onclick="closeMeasurementPopup()">Close</button>
+                                    onclick="closeMeasurementPopup()">Close</button>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
+        </xpath>
+        <xpath expr="//input[@class='js_quantity form-control quantity']
+        " position="attributes">
+            <attribute name="readonly">1</attribute>
+        </xpath>
+    </template>
+
+    <template id="product_quantity_inherit" inherit_id="website_sale.product_quantity">
+        <xpath expr="//div[contains(@t-attf-class,'css_quantity')]" position="replace">
+        </xpath>
+    </template>
+
+    <template id="product_quantity_inherit_2" inherit_id="website_sale.cart_lines">
+        <xpath
+            expr="//a[contains(@class, 'js_add_cart_json')]"
+            position="replace">
+        </xpath>
+
+        <xpath
+            expr="//a[@t-else='' and contains(@class, 'js_add_cart_json')]"
+            position="replace">
         </xpath>
     </template>
 </odoo>

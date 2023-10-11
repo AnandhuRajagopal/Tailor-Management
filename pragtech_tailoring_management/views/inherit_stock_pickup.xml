@@ -20,7 +20,7 @@
 
                 <!-- Added driver_id,product_image fields after the origin field -->
                 <xpath expr="//field[@name='origin']" position="after">
-                    <field name="driver_id"></field>
+                    <field name="driver_id"/>
                 </xpath>
 
             </field>
@@ -41,7 +41,7 @@
 
                 <!-- Added Deliverd button inside the header -->
                 <xpath expr="//header" position="inside">
-                    <button name="delivered" type="object" string="DELIVERED" class="btn btn-primary" icon="fa-truck fa-2px" attrs="{'invisible':['|','|','|','|','|',('state','=','draft'),('state','=','waiting'),('state','=','ready'),('state','=','delivered'),('state','=','cancel'),('is_delivery','=', False)]}"/>
+                    <button name="delivered" type="object" string="DELIVERED" icon="fa-truck fa-flip-horizontal fa-2px" class="btn btn-primary" attrs="{'invisible':['|','|','|','|','|',('state','=','draft'),('state','=','waiting'),('state','=','ready'),('state','=','delivered'),('state','=','cancel'),('is_delivery','=', False)]}"/>
                 </xpath>
 
                 <!-- Added driver_id,product_image fields after the origin field -->
@@ -57,6 +57,11 @@
                 <field name="state" position="attributes">
                     <attribute name= 'statusbar_visible'>draft,confirmed,assigned,done,delivered</attribute>
                 </field>
+
+                <!-- <field name="state" position="attributes" >
+                    <attribute name= 'statusbar_visible'>draft,confirmed,assigned,done</attribute>
+                    <attribute name= 'statusbar_visible' attrs="{'invisible':[('is_delivery','=', False)]}">delivered</attribute>
+                </field> -->
             </field>
         </record>
     </data>
