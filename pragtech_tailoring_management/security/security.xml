@@ -37,9 +37,21 @@
     <!-- Record rule for Tailor -->
     <record id="access_rule_tailor" model="ir.rule">
         <field name="name">tailor rule</field>
-        <field name="model_id" ref="model_tailoring_tailor" />
+        <field name="model_id" ref="model_tailoring_tailor"/>
         <field name="domain_force">[('name','=', user.id)]</field>
-        <field name="groups" eval="[(4, ref('pragtech_tailoring_management.group_tailor'))]" />
+        <field name="groups" eval="[(4, ref('pragtech_tailoring_management.group_tailor'))]"/>
+    </record>
+
+    <record id="access_rule_sale_order_tailor" model="ir.rule">
+        <field name="name">Sale Order Access for Tailors</field>
+        <field name="model_id" ref="model_sale_order"/>
+        <field name="groups" eval="[(4, ref('pragtech_tailoring_management.group_tailor'))]"/>
+    </record>
+    
+    <record id="access_rule_sale_order_line_tailor" model="ir.rule">
+        <field name="name">Sale Order Line Access for Tailors</field>
+        <field name="model_id" ref="model_sale_order_line"/>
+        <field name="groups" eval="[(4, ref('pragtech_tailoring_management.group_tailor'))]"/>
     </record>
 
     <!-- Record rule for Driver -->
