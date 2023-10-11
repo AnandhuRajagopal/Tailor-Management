@@ -8,6 +8,7 @@ class Measurments(models.Model):
     name = fields.Char(string="Name", required=True)
 
 
+
 class MeasurementRelative(models.Model):
     _name = "tailoring.measurement_relative"
     _description = "tailoring_measurement_relative"

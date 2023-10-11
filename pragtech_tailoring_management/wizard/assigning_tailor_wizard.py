@@ -4,7 +4,7 @@ class assigningTailorWizard(models.TransientModel):
     _name = 'tailoring.assign.tailors'
     _description = 'tailoring_assign_tailors'
 
-    tailor_id = fields.Many2one('hr.employee', string='Select Tailor', required=True)
+    tailor_id = fields.Many2one('res.users',domain=lambda self:[("groups_id", "=", self.env.ref("pragtech_tailoring_management.group_tailor").id)], string='Select Tailor', required=True)
     order_id = fields.Many2one('sale.order', string="Order Number",default=lambda self: self.get_active_id())
     assigned_date = fields.Datetime(string="Assigned Date",related='order_id.date_order')
 
@@ -24,7 +24,7 @@ class assigningTailorWizard(models.TransientModel):
     
         if re or (sale_order and sale_order.state != 'tailor assigned'):
             self.env['tailoring.tailor'].create({
-                'name':self.tailor_id.name,
+                'name':self.tailor_id.id,
                 'order_id':self.order_id.id,
                 'product' : sale_order,
                 'assigned_date' : self.assigned_date,
