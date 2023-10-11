@@ -60,15 +60,13 @@ class SaleOrder(models.Model):
 
     # ...........................................Specific Measrement Record Form View..........................................
     def current_measurement_record(self):
-        measurement_id = self.env['tailoring.customer.measurement'].search([('order_id', '=', self.id)])
         return {
             'type': 'ir.actions.act_window',
             'name': 'Measurement',
-            'res_id': measurement_id.id,
+            'domain': [('order_id', '=', self.id)],
             'res_model': 'tailoring.customer.measurement',
-            'view_mode': 'form',
+            'view_mode': 'tree,form',
             'target': 'current',
-            'view_id': self.env.ref('pragtech_tailoring_management.tailor_measurment_form').id
         }
     # ...........................................Action send mail..........................................
     def action_delivery_mail(self):
@@ -77,7 +75,7 @@ class SaleOrder(models.Model):
         email_values = {
             'email_from': self.company_id.email,
             'email_to': self.partner_id.email,
-            'subject': 'Assigned Product Details'
+            'subject': 'Product Delivery'
         }
         template = self.env.ref('pragtech_tailoring_management.mail_template_ready_to_delivery')
         template.send_mail(sale_order.id, force_send=True, email_values=email_values)

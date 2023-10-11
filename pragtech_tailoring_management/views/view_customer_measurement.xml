@@ -22,28 +22,41 @@
         </record>
 
         <!-- ********************************* Form View ************************************************* -->
-        <record id="tailor_measurment_form" model="ir.ui.view">
-            <field name="name">Tailor_Customer_Measurments.form</field>
-            <field name="model">tailoring.customer.measurement</field>
-            <field name="arch" type="xml">
-                <form>
-                    <header>
-                        <field name="state" widget="statusbar" statusbar_visible="draft,confirmed"/>
-                    </header>
-                      <group>
-                        <field name="line_id" />
+       <record id="tailor_measurment_form" model="ir.ui.view">
+    <field name="name">Tailor_Customer_Measurments.form</field>
+    <field name="model">tailoring.customer.measurement</field>
+    <field name="arch" type="xml">
+        <form>
+            <header>
+
+                <field name="state" widget="statusbar" statusbar_visible="draft,confirmed"/>
+            </header>
+            <sheet>
+
+             <group>
+                        <field name="order_id" invisible="1"/>
                         <field name="order_id" readonly="1"/>
                         <field name="cloth_type" readonly="1"/>
-                        <field name="measurement_ids">
-                            <tree editable="top">
-                                <field name="name"/>
-                                <field name="measures"/>
-                                <field name="uom_id"/>
-                            </tree>
-                        </field>
                     </group>
-                </form>
-            </field>
-        </record>
+            <notebook>
+                <!-- First Page for Other Fields -->
+
+
+
+                <!-- Second Page for Measurement -->
+                <page string="Measurements">
+                    <field name="measurement_ids">
+                        <tree editable="top">
+                            <field name="name"/>
+                            <field name="measures"/>
+                            <field name="uom_id"/>
+                        </tree>
+                    </field>
+                </page>
+            </notebook></sheet>
+        </form>
+    </field>
+</record>
+
     </data>
 </odoo>

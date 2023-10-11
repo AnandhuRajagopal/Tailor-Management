@@ -5,7 +5,6 @@ class assigningMeasurementWizard(models.TransientModel):
     _name = 'measurement.wizard'
     _description = 'measurement_wizard'
 
-    
     order_id = fields.Many2one("sale.order")
     measurment_name_id = fields.Many2one('tailoring.measurement')
     cloth_category_id = fields.Many2one('tailoring.cloth_type')
