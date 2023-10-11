@@ -77,7 +77,7 @@ class SaleOrder(models.Model):
         email_values = {
             'email_from': self.company_id.email,
             'email_to': self.partner_id.email,
-            'subject': 'Assigned Product Details'
+            'subject': 'Product Delivery'
         }
         template = self.env.ref('pragtech_tailoring_management.mail_template_ready_to_delivery')
         template.send_mail(sale_order.id, force_send=True, email_values=email_values)

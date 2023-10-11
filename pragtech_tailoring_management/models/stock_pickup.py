@@ -33,7 +33,7 @@ class StockPickup(models.Model):
             sale_orders = self.env['sale.order'].search([('picking_ids', 'in', self.ids)])
             for sale_order in sale_orders:
                 if sale_order.state != 'delivered':
-                    sale_order.state = 'delivered'  
+                    sale_order.state = 'delivered' 
             self.state = 'delivered'    
 
 
