@@ -43,7 +43,7 @@ class StockPickup(models.Model):
             self.is_delivery = True
         elif self.picking_type_id.code == 'incoming':
             self.is_delivery = False
-
+            
     @api.depends('photo_req')
     def photo_req_funct(self):
         if self.state == 'done' and self.picking_type_id.code == 'outgoing':
