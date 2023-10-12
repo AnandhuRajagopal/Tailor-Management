@@ -1,5 +1,5 @@
 from odoo import models, fields, api
-
+from odoo.exceptions import ValidationError
 
 class assigningMeasurementWizard(models.TransientModel):
     _name = 'measurement.wizard'
@@ -43,6 +43,8 @@ class assigningMeasurementWizard(models.TransientModel):
 
         # Iterate through the measurement lines and create CustomerMeasurement records
         for line in self.measurement_lines_ids:
+            if not line.measure:
+                raise ValidationError("Measure field must not be empty.")
             measurement_values = {
                 'name': line.measurement_id.name,
                 'measures': line.measure,
