@@ -33,8 +33,8 @@ class Tailor(models.Model):
             'state' : 'finished'
         })
         if self.state == 'finished' or self.order_id.state == 'sale':
-
             self.order_id.state = 'ready to deliver'
+        
 
     # ...........................................Specific Measrement Record Form View..........................................
     def current_measurement_record(self):
