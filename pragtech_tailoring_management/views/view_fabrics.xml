@@ -36,7 +36,7 @@
         </record>
 
         <!-- ********************************* Search View ************************************************* -->
-        <record id="fabric_search_view" model="ir.ui.view">
+        <record id="fabric_search" model="ir.ui.view">
             <field name="name">Fabric Search View</field>
             <field name="model">tailoring.fabric</field>
             <field name="arch" type="xml">
