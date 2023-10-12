@@ -50,6 +50,7 @@
         'webpage/measurement_popup.xml',
 
         'views/template_delivery_email.xml',
+        'views/template_shipped_mail.xml',
         
         'views/menu.xml',
 

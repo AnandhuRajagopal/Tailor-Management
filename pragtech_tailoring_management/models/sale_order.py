@@ -70,7 +70,6 @@ class SaleOrder(models.Model):
         }
     # ...........................................Action send mail..........................................
     def action_delivery_mail(self):
-        active_id = self.env.context.get('active_id')
         sale_order = self.env['sale.order'].browse(self.id)
         email_values = {
             'email_from': self.company_id.email,
