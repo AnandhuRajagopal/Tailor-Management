@@ -1,10 +1,12 @@
 
 /* Header Styles */
 .products_header {
-    background-color: #232f3e;
-    color: #ffffff;
+    background-color: #e4e4e4;
+    color: rgb(255, 255, 255);
     padding: 20px;
 }
+
+
 
 .products_header h4 {
     font-size: 24px;
@@ -89,6 +91,8 @@ p[groups="sales_team.group_sale_manager"] {
     color: #28a745;
     font-style: italic;
 }
+
+
 
 
 
