@@ -86,7 +86,7 @@
 
         <menuitem
                 id="tailor_menu_root"
-                name="Tailors"
+                name="Assigned Works"
                 action="pragtech_tailoring_management.tailor_action"
                 parent="pragtech_tailoring_management.pragtech_tailoring_menu_root"
                 sequence="4"/>
@@ -130,20 +130,12 @@
                 groups="pragtech_tailoring_management.group_admin"
                 sequence="7"/>
 
-        <menuitem
-                id="purchase_menu_root"
-                name="Purchase"
-                action="purchase.purchase_rfq"
-                parent="pragtech_tailoring_management.pragtech_tailoring_menu_root"
-                groups="pragtech_tailoring_management.group_admin"
-                sequence="8"/>
-
                 <!-- .......configuration_menu_root start......... -->
         <menuitem
                 id="configuration_menu_root"
                 name="Configuration"
                 parent="pragtech_tailoring_management.pragtech_tailoring_menu_root"
-                sequence="9"/>
+                sequence="8"/>
 
                 <menuitem
                         id="cloth_type_menu"

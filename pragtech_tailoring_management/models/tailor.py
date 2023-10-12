@@ -11,7 +11,7 @@ class Tailor(models.Model):
 
     order_id = fields.Many2one('sale.order',string='Order Number', readonly=1, tracking=True)
     product = fields.Char()
-    name = fields.Many2one("res.users",readonly=1,tracking=True)
+    name = fields.Many2one("res.users",readonly=1,tracking=True,string='Tailor')
     assigned_date = fields.Datetime(string="Assigned Date",related='order_id.date_order',readonly=1)
     started_date = fields.Datetime(string="Started Date",readonly=1)
     finished_date = fields.Datetime(string="Finished Date",readonly=1)
