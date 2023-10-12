@@ -62,6 +62,7 @@
     'assets': {
         'web.assets_frontend': [
             'pragtech_tailoring_management/static/src/css/home.css',
+            'pragtech_tailoring_management/static/src/css/shop.css',
             'pragtech_tailoring_management/static/src/js/measurement.js',
         ]
     },

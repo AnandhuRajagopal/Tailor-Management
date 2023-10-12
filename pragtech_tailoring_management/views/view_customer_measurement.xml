@@ -34,7 +34,7 @@
             <sheet>
 
              <group>
-                        <field name="order_id" invisible="1"/>
+                        <field name="line_id" invisible="1"/>
                         <field name="order_id" readonly="1"/>
                         <field name="cloth_type" readonly="1"/>
                     </group>

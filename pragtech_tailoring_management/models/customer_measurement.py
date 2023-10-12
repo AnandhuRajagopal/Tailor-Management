@@ -7,7 +7,7 @@ class CustomerMeasurmets(models.Model):
     _rec_name = 'order_id'
 
     line_id = fields.Many2one("sale.order.line", string="Cart Line")
-    customer_id = fields.Many2one(related='order_id.partner_id',string="Customer")
+    customer_id = fields.Many2one('res.users',string="Customer")
     order_id = fields.Many2one('sale.order',string="Order ID")
     cloth_type = fields.Many2one('tailoring.cloth_type',string="Cloth type")
     measurement_ids = fields.One2many('tailoring.customer.measurement.inverse','measurement_id',string="Measurement")
