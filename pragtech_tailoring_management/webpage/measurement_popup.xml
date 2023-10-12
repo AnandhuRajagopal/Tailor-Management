@@ -3,39 +3,51 @@
     <template id="website_sale_stock_cart_lines" inherit_id="website_sale.cart_lines"
         name="Shopping Cart Lines">
         <xpath expr="//td[@class='td-action']/a[contains(@class, 'js_delete_product')]
-        " position="before">
-            <button type="button" name="open_measurement_popup" class="btn btn-primary"
-                id="open_measurement_button" data-toggle="modal"
-                data-target="#measurement_popup" onclick="openMeasurementPopup()">
-                Add Measurement
-            </button>
-            <div class="modal fade" id="measurement_popup" tabindex="-1" role="dialog"
+        "
+            position="before">
+            <t t-if="line.done">
+                <button type="button" name="open_measurement_popup" class="btn btn-primary"
+                    id="open_measurement_button" data-toggle="modal"
+                    t-att-data-target="'#measurement_popup_%s' % line.id"
+                    t-att-data-line-id="line.id">
+                    Edit Measurement
+                </button>
+            </t>
+            <t t-else="">
+                <button type="button" name="open_measurement_popup" class="btn btn-primary"
+                    id="open_measurement_button" data-toggle="modal"
+                    t-att-data-target="'#measurement_popup_%s' % line.id"
+                    t-att-data-line-id="line.id">
+                    Add Measurement
+                </button>
+            </t>
+
+            <div class="modal fade" t-att-id="'measurement_popup_%s' % line.id" tabindex="-1"
+                role="dialog"
                 aria-labelledby="measurement_popup_label" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="measurement_popup_label">Enter Measurements</h5>
-                            <button type="button" class="close" data-dismiss="modal"
-                                onclick="closeMeasurementPopup()">
-                                <span aria-hidden="true"></span>
-                            </button>
                         </div>
                         <form method="post" name="measurement_form" action="/store_measurements">
                             <input type="hidden" name="product_id" t-att-value="line.product_id.id" />
+                            <input type="hidden" name="line" t-att-value="line" />
+                            <input type="hidden" name="line_id" id="line_id" t-att-value="line.id" />
                             <input type="hidden" name="cloth_type"
                                 t-att-value="line.product_id.cloth_type.id" />
                             <div class="modal-body">
                                 <div class="form-group row">
                                     <t t-foreach="line.product_id.cloth_type.measurement_ids"
                                         t-as="measurement">
-                                        <label class="col-sm-6 col-form-label"
+                                        <label class="col-sm-3 col-form-label"
                                             style="margin-top:20px">
                                             <t t-esc="measurement.measurement_id.name" />
                                             <input type="hidden"
                                                 t-att-name="'label_' + measurement.measurement_id.name"
                                                 t-att-value="measurement.measurement_id.name" />
                                         </label>
-                                        <div class="col-sm-6" style="margin-top:20px">
+                                        <div class="col-sm-3" style="margin-top:20px">
                                             <input type="number" class="form-control"
                                                 t-att-name="'measurement_' + measurement.measurement_id.name"
                                                 required="1" />
@@ -52,7 +64,9 @@
                             <div class="modal-footer">
                                 <button type="submit" class="btn btn-primary">Submit</button>
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal"
-                                    onclick="closeMeasurementPopup()">Close</button>
+                                    name='close_measurement_popup'
+                                    t-att-data-target="'#close_measurement_popup_%s' % line.id"
+                                    t-att-data-line-id="line.id">Close</button>
                             </div>
                         </form>
                     </div>
@@ -60,7 +74,8 @@
             </div>
         </xpath>
         <xpath expr="//input[@class='js_quantity form-control quantity']
-        " position="attributes">
+        "
+            position="attributes">
             <attribute name="readonly">1</attribute>
         </xpath>
     </template>
@@ -81,4 +96,6 @@
             position="replace">
         </xpath>
     </template>
+
+
 </odoo>
