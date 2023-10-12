@@ -30,11 +30,20 @@ class Tailor(models.Model):
     def finish(self):
         self.finished_date = fields.Datetime.now()
         self.write({
-            'state' : 'finished'
+            'state': 'finished'
         })
-        if self.state == 'finished' or self.order_id.state == 'sale':
+    # ........................................... send delivery mail..........................................
 
+        if self.state == 'finished' or self.order_id.state == 'sale':
             self.order_id.state = 'ready to deliver'
+            email_values = {
+            'email_from': self.order_id.company_id.email,
+            'email_to': self.order_id.partner_id.email,
+            'subject': 'Product Delivery'
+        }
+        template = self.env.ref('pragtech_tailoring_management.mail_template_ready_to_delivery')
+        template.send_mail(self.id, force_send=True, email_values=email_values)
+        
 
     # ...........................................Specific Measrement Record Form View..........................................
     def current_measurement_record(self):

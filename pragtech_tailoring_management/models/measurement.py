@@ -6,6 +6,8 @@ class Measurments(models.Model):
     _description = "tailoring.measurement"
 
     name = fields.Char(string="Name", required=True)
+    uom_id = fields.Many2one('uom.uom', string='Unit of Measure',default=lambda self: self.env.ref('uom.product_uom_cm').id)
+
 
 
 
@@ -15,6 +17,7 @@ class MeasurementRelative(models.Model):
 
     cloth_id = fields.Many2one('tailoring.cloth_type')
     measurement_id = fields.Many2one('tailoring.measurement', string="Name")
+    uom_id = fields.Many2one(related="measurement_id.uom_id", string="Name")
 
     def _default_cloth_id(self):
         product = self.env['product.product'].browse(self.env.context.get('product_id'))

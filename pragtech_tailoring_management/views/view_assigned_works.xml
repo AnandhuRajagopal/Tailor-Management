@@ -78,7 +78,7 @@
             <field name="name">Tailor Form View</field>
             <field name="model">tailoring.tailor</field>
             <field name="arch" type="xml">
-                <form string="tailor">
+                <form string="Tailor">
                     <header>
                         <field name="state" widget="statusbar" statusbar_visible="pending,in_progress,finished"/>
                         <button name="start" type="object" string="START" class="btn-primary"
@@ -112,12 +112,13 @@
 
         <!-- ********************************* Search View ************************************************* -->
         <record id="tailor_search_view" model="ir.ui.view">
-            <field name="name">tailor.search</field>
+            <field name="name">Tailor Search View</field>
             <field name="model">tailoring.tailor</field>
             <field name="arch" type="xml">
-                <search string="tailor">
-                    <field name="name" />
-                    <field name="order_id" />
+                <search string="Tailor">
+                    <field name="name"/>
+                    <field name="order_id"/>
+                    <field name="state"/>
                 </search>
             </field>
         </record>
