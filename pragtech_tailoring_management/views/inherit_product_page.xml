@@ -23,12 +23,12 @@
             <field name="arch" type="xml">
                 <!-- Added a group of fields after the name field in form view -->
                 <xpath expr="//field[@name='detailed_type']" position="before">
-                    <group style="font-size:15px;font-weight:none">
                         <field name="cloth_type" />
-                        <field name="description" />
                         <field name="fabric" />
-                    </group>
                 </xpath>
+                 <xpath expr="//field[@name='product_tag_ids']" position="after">
+                        <field name="description" />
+                 </xpath>
             </field>
         </record>
     </data>

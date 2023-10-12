@@ -60,7 +60,6 @@ class MeasurementController(http.Controller):
                     sale_order_line_id = request.env['sale.order.line'].sudo().browse(line_id)
                     sale_order_line_id.done = True
                     
-            
 
                 return request.redirect(request.httprequest.referrer or '/')
             else:
