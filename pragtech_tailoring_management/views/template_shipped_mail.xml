@@ -1,24 +1,23 @@
 <odoo>
     <data>
         <!-- ****************************Delivery mail Template**************************** -->
-        <record id="mail_template_ready_to_delivery" model="mail.template">
-            <field name="name">Ready To Delivery Product</field>
-            <field name="model_id" ref="model_sale_order" />
-            <field name="subject">Delivery</field>
+        <record id="mail_template_ready_to_shipped" model="mail.template">
+            <field name="name">Ready To shipped Product</field>
+            <field name="model_id" ref="model_stock_picking" />
+            <field name="subject">Shipped</field>
             <field name="email_from">{{(object.company_id and object.company_id.email) or ''}}</field>
             <field name="email_to">{{object.partner_id.email}}</field>
             <field name="auto_delete" eval="False" />
             <field name="body_html" type="html">
-                <h6>Delivery Status:</h6>
+                <h6>Shipped Status:</h6>
                 <ul>
                     <h3>Dear <t t-out="object.partner_id.name" /> ,</h3>
                     <br/>
-                    <h3>Your <t t-out="', '.join(product.name for product in object.order_line)" /> with Order ID: <t t-out="object.name" /> is ready to be
-                        delivered</h3>
+                    <h3>Your <t t-out="object.scheduled_date"/> date to shipped</h3>
                     <br/>
-                    <h3>Your product will be reaching you shortly.</h3>
+                    <h3>Your Product will be reaching you shortly.</h3>
                 </ul>
-                <p>Thank you for choosing us! 😊</p>
+                <p>Thank you for choosing us!</p>
             </field>
         </record>
     </data>

@@ -6,6 +6,7 @@ class StockPickup(models.Model):
 
     driver_id = fields.Many2one('res.users', string="Driver")
     product_image = fields.Binary(string="Product Image")
+    image_filename = fields.Char(string="Image Filename")
     state = fields.Selection(selection_add=[('delivered', 'DELIVERED')])
     is_delivery = fields.Boolean(default = False, compute = 'is_delivery_funct')
     photo_req = fields.Boolean(default = False, compute = 'photo_req_funct')
@@ -20,6 +21,15 @@ class StockPickup(models.Model):
         pic = super(StockPickup, self).button_validate()
 
         if self.state == 'done':
+            sale_order = self.env['sale.order'].browse(self.sale_id.id)
+            print("2222222222222222222222222222222222222222222222222222222",self.sale_id)
+            email_values = {
+                'email_from': sale_order.company_id.email,
+                'email_to': sale_order.partner_id.email,
+                'subject': 'Shipped'
+            }
+            template = self.env.ref('pragtech_tailoring_management.mail_template_ready_to_shipped')
+            template.send_mail(sale_order.id, force_send=True, email_values=email_values)
             sale_orders = self.env['sale.order'].search([('picking_ids', 'in', self.ids)])
             for sale_order in sale_orders:
                 if sale_order.state != 'shipped':
@@ -49,7 +59,7 @@ class StockPickup(models.Model):
         elif self.picking_type_id.code == 'incoming':
             self.is_delivery = False
             
-    @api.depends('photo_req')
+    @api.depends('state', 'picking_type_id', 'photo_req')
     def photo_req_funct(self):
         if self.state == 'done' and self.picking_type_id.code == 'outgoing':
             self.photo_req = True
@@ -62,11 +72,10 @@ class StockPickup(models.Model):
         for rec in self.move_ids_without_package:
             product.append(rec.product_id.name)
         template = self.env.ref('pragtech_tailoring_management.mail_template_delivered_product')
-        email_values={
+        email_values = {
             'email_from': self.company_id.email,
             'email_to': self.partner_id.email,
             'subject': 'Product Delivery',
-
         }
         template.send_mail(stock_picking.id, force_send=True, email_values=email_values)
 

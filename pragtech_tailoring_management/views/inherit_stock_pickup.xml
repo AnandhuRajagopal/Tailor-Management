@@ -23,6 +23,8 @@
                     <field name="driver_id"/>
                 </xpath>
 
+
+
             </field>
         </record>
         <!-- ******************************** Inherit stock.picking Form View ********************************** -->
@@ -50,7 +52,7 @@
                     <field name='photo_req' invisible='1'/>
 
                     <field name="driver_id" domain="[('function', '=', 'Driver')]" options="{'no_create': True,'no_create_edit': True}" attrs="{'invisible':[('is_delivery','=', False)],'required':[('is_delivery','=', True)]}"/>
-                    <field name="product_image" attrs="{'invisible':[('photo_req','=', False)]}"/>
+                    <field name="product_image" widget="image" attrs="{'invisible':[('photo_req','=', False)]}" style="width:300ppx; height:300px;"/>
                 </xpath>
 
                 <!-- Added Statusbar -->
