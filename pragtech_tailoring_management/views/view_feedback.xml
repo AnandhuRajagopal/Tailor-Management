@@ -14,8 +14,8 @@
             <field name="model">tailoring.feedback</field>
             <field name="arch" type="xml">
                 <tree string="Feedback Tree">
-                    <field name="name" />
-                    <field name="email" />
+                    <field name="name"/>
+                    <field name="email"/>
                     <field name="feedback"/>
                 </tree>
             </field>
@@ -29,12 +29,24 @@
                 <form string="Feedback Form">
                     <sheet>
                         <group>
-                            <field name="name" />
-                            <field name="email" />
-                            <field name="feedback" widget="textarea" />
+                            <field name="name"/>
+                            <field name="email"/>
+                            <field name="feedback" widget="textarea"/>
                         </group>
                     </sheet>
                 </form>
+            </field>
+        </record>
+
+        <!-- ********************************* Search View ************************************************* -->
+        <record id="feedback_search" model="ir.ui.view">
+            <field name="name">feedback.search</field>
+            <field name="model">tailoring.feedback</field>
+            <field name="arch" type="xml">
+                <search string="Feedback Search">
+                    <field name="name"/>
+                    <field name="email"/>
+                </search>
             </field>
         </record>
     </data>

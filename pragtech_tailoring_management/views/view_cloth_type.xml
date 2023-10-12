@@ -57,7 +57,7 @@
             <field name="name">cloth.search</field>
             <field name="model">tailoring.cloth_type</field>
             <field name="arch" type="xml">
-                <search>
+                <search string='cloth'>
                     <field name='name'/>
                     <field name='fabric_id'/>
                 </search>
