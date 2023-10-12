@@ -9,6 +9,7 @@ access_measurement_tailor,tailoring.measurement,model_tailoring_measurement,grou
 
 
 access_measurement_relative_admin,tailoring.tailoring.measurement_relative,model_tailoring_measurement_relative,group_admin,1,1,1,1
+access_measurement_relative_tailor,tailoring.tailoring.measurement_relative,model_tailoring_measurement_relative,group_tailor,1,1,1,1
 
 access_fabric_admin,tailoring.fabric,model_tailoring_fabric,group_admin,1,1,1,1
 access_fabric_tailor,tailoring.fabric,model_tailoring_fabric,group_tailor,1,1,1,1
