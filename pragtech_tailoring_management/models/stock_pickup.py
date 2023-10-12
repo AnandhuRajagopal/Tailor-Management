@@ -6,6 +6,7 @@ class StockPickup(models.Model):
 
     driver_id = fields.Many2one('res.users', string="Driver")
     product_image = fields.Binary(string="Product Image")
+    image_filename = fields.Char(string="Image Filename")
     state = fields.Selection(selection_add=[('delivered', 'DELIVERED')])
     is_delivery = fields.Boolean(default = False, compute = 'is_delivery_funct')
     photo_req = fields.Boolean(default = False, compute = 'photo_req_funct')
