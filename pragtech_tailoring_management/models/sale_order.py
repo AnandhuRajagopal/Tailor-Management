@@ -80,6 +80,8 @@ class SaleOrder(models.Model):
         template = self.env.ref('pragtech_tailoring_management.mail_template_ready_to_delivery')
         template.send_mail(sale_order.id, force_send=True, email_values=email_values)
 
+        
+
     def action_confirm(self):
         res = super(SaleOrder, self).action_confirm()
         self.write({'done': False})
@@ -88,4 +90,15 @@ class SaleOrder(models.Model):
             ('state', '=', 'draft')
         ])
         measurement_records.write({'state': 'confirmed'})
+
+        active_id = self.env.context.get('active_id')
+        sale_order = self.env['sale.order'].browse(self.id)
+        email_values = {
+            'email_from': self.company_id.email,
+            'email_to': self.partner_id.email,  
+            'subject': 'Your Payment is Confirmed'
+        }
+        template = self.env.ref('pragtech_tailoring_management.mail_template_payment_confirm')
+        template.send_mail(sale_order.id, force_send=True, email_values=email_values)
+
         return res

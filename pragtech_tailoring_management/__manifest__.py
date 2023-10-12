@@ -35,7 +35,7 @@
         'views/view_fabrics.xml',
         'views/view_cloth_type.xml',
         'views/view_measurement.xml',
-        'views/view_tailor.xml',
+        'views/view_assigned_works.xml',
         'views/view_customer_measurement.xml',
         'views/view_feedback.xml',
 
@@ -50,6 +50,7 @@
         'webpage/measurement_popup.xml',
 
         'views/template_delivery_email.xml',
+        'views/template_payment_email.xml',
         
         'views/menu.xml',
 
