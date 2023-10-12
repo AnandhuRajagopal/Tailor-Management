@@ -61,11 +61,27 @@
 
                 <menuitem
                         id="product_variants_inherit_menu"
-                        name="Product Variants"
+                        name="Variants"
                         action="action_product_variants"
                         groups = "pragtech_tailoring_management.group_admin"
                         parent="pragtech_tailoring_management.products_menu_root"
                         sequence="2"/>
+
+                <menuitem
+                        id="product_category_inherit_menu"
+                        name="Categories"
+                        action="product.product_category_action_form"
+                        groups = "pragtech_tailoring_management.group_admin"
+                        parent="pragtech_tailoring_management.products_menu_root"
+                        sequence="3"/>
+
+                <menuitem
+                        id="product_attribute_inherit_menu"
+                        name="Attributes"
+                        action="product.attribute_action"
+                        groups = "pragtech_tailoring_management.group_admin"
+                        parent="pragtech_tailoring_management.products_menu_root"
+                        sequence="4"/>
                 <!-- .......products_menu_root end......... -->
 
         <menuitem
