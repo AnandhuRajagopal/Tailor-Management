@@ -23,6 +23,7 @@ class StockPickup(models.Model):
             for sale_order in sale_orders:
                 if sale_order.state != 'shipped':
                     sale_order.write({'state': 'shipped'})
+            print("1111111111111111111111111111111",sale_orders.state)
         return pic
 
     # ...........................................Product Deliverd Button..........................................
@@ -34,8 +35,9 @@ class StockPickup(models.Model):
             sale_orders = self.env['sale.order'].search([('picking_ids', 'in', self.ids)])
             for sale_order in sale_orders:
                 if sale_order.state != 'delivered':
-                    sale_order.state = 'delivered'  
-            self.state = 'delivered'    
+                    sale_order.state = 'delivered'
+            print("222222222222222222222222222222222222222222222", sale_orders.state)
+            self.state = 'delivered'
 
 
     @api.depends('is_delivery')
