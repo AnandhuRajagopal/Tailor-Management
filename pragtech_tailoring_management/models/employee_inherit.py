@@ -16,8 +16,9 @@ class MyEmployee(models.Model):
             user = self.env['res.users']
             if employee.job_title == 'Driver':
                 driver_login_group = [
-                    self.env.ref('sales_team.group_sale_salesman').id,
+                    self.env.ref('sales_team.group_sale_salesman_all_leads').id,
                     self.env.ref('base.group_user').id,
+                    self.env.ref('stock.group_stock_user').id,
                     self.env.ref('pragtech_tailoring_management.group_driver').id,]
                 user = user.create({
                     'name': employee.name,
