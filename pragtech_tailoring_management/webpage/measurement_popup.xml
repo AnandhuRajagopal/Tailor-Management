@@ -22,6 +22,7 @@
                 </button>
             </t>
 
+
             <div class="modal fade" t-att-id="'measurement_popup_%s' % line.id" tabindex="-1"
                 role="dialog"
                 aria-labelledby="measurement_popup_label" aria-hidden="true">
@@ -96,6 +97,15 @@
             position="replace">
         </xpath>
     </template>
+
+    <template id="template_reference_inherit" inherit_id="website_sale.product">
+        <xpath expr="//h1[@t-field='product.name']" position="after">
+        <div style="font-size:22px;color:grey;margin-top:10px">
+        <p t-field="product.description"/>
+        </div>
+        </xpath>
+        
+        </template>
 
 
 </odoo>

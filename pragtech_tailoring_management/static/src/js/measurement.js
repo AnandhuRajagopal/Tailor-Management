@@ -19,3 +19,5 @@ $(document).on('click', 'button[name="close_measurement_popup"]', function() {
     var lineId = $(this).data('line-id');
     closeMeasurementPopup(lineId);
 });
+
+

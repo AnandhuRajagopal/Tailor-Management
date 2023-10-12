@@ -57,11 +57,6 @@
                 <field name="state" position="attributes">
                     <attribute name= 'statusbar_visible'>draft,confirmed,assigned,done,delivered</attribute>
                 </field>
-
-                <!-- <field name="state" position="attributes" >
-                    <attribute name= 'statusbar_visible'>draft,confirmed,assigned,done</attribute>
-                    <attribute name= 'statusbar_visible' attrs="{'invisible':[('is_delivery','=', False)]}">delivered</attribute>
-                </field> -->
             </field>
         </record>
     </data>

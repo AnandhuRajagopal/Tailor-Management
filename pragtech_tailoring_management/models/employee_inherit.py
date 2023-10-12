@@ -1,4 +1,7 @@
 from odoo import models, fields,api
+from odoo.exceptions import ValidationError
+import re
+
 
 
 class MyEmployee(models.Model):
@@ -8,6 +11,7 @@ class MyEmployee(models.Model):
     password = fields.Char('Password')
     done = fields.Boolean('Done')
 
+    # Creating users from employee menu...................................................................................
     def create_user_from_employee(self):
         for employee in self:
             user = self.env['res.users']
@@ -59,4 +63,26 @@ class MyEmployee(models.Model):
                 
             employee.done = True
             return user
+        
+    # Email and Password validation.............................................................................
+    @api.constrains('work_email', 'password')
+    def _check_valid_email_password(self):
+        for employee in self:
+            if employee.work_email and not self._is_valid_email(employee.work_email):
+                raise ValidationError("Invalid email address. Please provide a valid email address. ⚠️")
+
+            if employee.password and not self._is_valid_password(employee.password):
+                raise ValidationError("Invalid password. Password must be at least 8 characters and contain at least one digit, one letter, and one special character. ⚠️")
+
+    def _is_valid_email(self, email):
+        import re
+        if re.match(r"[^@]+@[^@]+\.[^@]+", email):
+            return True
+        return False
+
+    def _is_valid_password(self, password):
+        # Password validation criteria: Must contain at least one digit, one letter, and one special character, and be at least 8 characters long
+        if re.match(r"^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*()_+[\]{}|;:'\",.<>?]).{8,}$", password):
+            return True
+        return False
 
