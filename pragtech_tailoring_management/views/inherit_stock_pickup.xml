@@ -41,7 +41,7 @@
 
                 <!-- Added Deliverd button inside the header -->
                 <xpath expr="//header" position="inside">
-                    <button name="delivered" type="object" string="DELIVERED" icon="fa-truck fa-flip-horizontal fa-2px" class="btn btn-primary" attrs="{'invisible':['|','|','|','|','|',('state','=','draft'),('state','=','waiting'),('state','=','ready'),('state','=','delivered'),('state','=','cancel'),('is_delivery','=', False)]}"/>
+                    <button name="delivered" type="object" string="DELIVERED" icon="fa-truck fa-flip-horizontal fa-2px" class="btn btn-primary" attrs="{'invisible':['|','|','|','|','|',('state','=','draft'),('state','=','waiting'),('state','=','assigned'),('state','=','delivered'),('state','=','cancel'),('is_delivery','=', False)]}"/>
                 </xpath>
 
                 <!-- Added driver_id,product_image fields after the origin field -->
