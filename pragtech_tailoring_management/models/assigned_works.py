@@ -36,16 +36,18 @@ class Tailor(models.Model):
 
         if self.state == 'finished' or self.order_id.state == 'sale':
             self.order_id.state = 'ready to deliver'
+            saleorders = self.env['sale.order'].browse(self.order_id.id)
+            print("============================================================SALE ORDERS=====================================================",saleorders)
             email_values = {
-            'email_from': self.order_id.company_id.email,
-            'email_to': self.order_id.partner_id.email,
-            'subject': 'Product Delivery'
+            'email_from': saleorders.company_id.email,
+            'email_to': saleorders.partner_id.email,
+            'subject': 'Product Ready For Delivery'
         }
         template = self.env.ref('pragtech_tailoring_management.mail_template_ready_to_delivery')
-        template.send_mail(self.id, force_send=True, email_values=email_values)
+        template.send_mail(saleorders.id, force_send=True, email_values=email_values)
         
 
-    # ...........................................Specific Measrement Record Form View..........................................
+    # ...........................................Specific Measurement Record Form View..........................................
     def current_measurement_record(self):
         return {
             'type': 'ir.actions.act_window',

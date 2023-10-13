@@ -13,8 +13,16 @@
                 <ul>
                     <h3>Dear <t t-out="object.partner_id.name" /> ,</h3>
                     <br/>
-                    <h3>Your <t t-out="', '.join(product.name for product in object.order_line)" /> with Order ID: <t t-out="object.name" /> is ready to be
-                        delivered</h3>
+                    <h3>Your Products:</h3>
+                    <ul>
+                        <t t-foreach="object.order_line" t-as="line">
+                            <li>
+                                <t t-out="line.product_id.name" />
+                            </li>
+                        </t>
+                    </ul>
+                    <br/>
+                    <h3>with Order ID: <t t-out="object.name" /> has been finished its stitching and is ready to be delivered</h3>
                     <br/>
                     <h3>Your product will be reaching you shortly.</h3>
                 </ul>
