@@ -5,17 +5,13 @@ class StockPickup(models.Model):
     _inherit = 'stock.picking'
 
     driver_id = fields.Many2one('res.users', string="Driver")
-    product_image = fields.Binary(string="Product Image")
     image_filename = fields.Char(string="Image Filename")
     state = fields.Selection(selection_add=[('delivered', 'DELIVERED')])
     is_delivery = fields.Boolean(default = False, compute = 'is_delivery_funct')
     photo_req = fields.Boolean(default = False, compute = 'photo_req_funct')
-<<<<<<< HEAD
     digital_signature = fields.Binary(string='Customer Signature')
-=======
     delivered_date = fields.Datetime(string="Delivered Date")
 
->>>>>>> 96d352de4980603547782ba7aa77354575d9b592
 
     # ...........................................Stock Validate Button..........................................
     def button_validate(self):
@@ -42,8 +38,8 @@ class StockPickup(models.Model):
 
     # ...........................................Product Deliverd Button..........................................
     def delivered(self):
-        if not self.product_image and self.is_delivery:
-            raise MissingError("Add the Product Image")
+        if not self.digital_signature and self.is_delivery:
+            raise MissingError("Add Signature of Customer")
 
         if self.state == 'done':
             sale_orders = self.env['sale.order'].search([('picking_ids', 'in', self.ids)])
