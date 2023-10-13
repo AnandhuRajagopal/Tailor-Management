@@ -84,7 +84,7 @@
                         <button name="start" type="object" string="START" class="btn-primary"
                             attrs="{'invisible' :['|',('state','=','in_progress'),('state','=','finished')] }"/>
                         <button name="finish" type="object" string="FINISH" class="btn-success"
-                                confirm="The record has been marked as finished" attrs="{'invisible' :['|',('state','!=','in_progress'),('state','==','finished')] }"/>
+                                confirm="Are you sure you want to finish the process" attrs="{'invisible' :['|',('state','!=','in_progress'),('state','==','finished')] }"/>
                     </header>
                     <sheet>
                         <div class="oe_button_box" name="button_box">

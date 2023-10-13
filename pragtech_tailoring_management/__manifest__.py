@@ -50,9 +50,10 @@
         'webpage/measurement_popup.xml',
 
         'views/template_delivery_email.xml',
+        'views/delivered_product_email.xml',
         'views/template_shipped_mail.xml',
         'views/template_payment_email.xml',
-        
+
         'views/menu.xml',
 
     ],

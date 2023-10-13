@@ -12,17 +12,25 @@ class FeedbackController(http.Controller):
 
     @http.route('/feedback/page/', type='http', auth="public", website=True)
     def feedback_page(self, **kw):
-        return request.render('pragtech_tailoring_management.feedback_page_template')
+        return request.render('pragtech_tailoring_management.feedback_page_template', {'email_exists': False})
 
     @http.route('/feedback/submit', type='http', auth="public", website=True)
     def submit_feedback(self, **post):
         Feedback = request.env['tailoring.feedback']
+
+        existing_feedback = Feedback.search([('email', '=', post.get('email'))])
+
+        if existing_feedback:
+            return request.render('pragtech_tailoring_management.feedback_page_template', {'email_exists': True})
+
         Feedback.create({
             'name': post.get('name'),
             'email': post.get('email'),
             'feedback': post.get('feedback')
         })
-        return request.render('pragtech_tailoring_management.feedback_page_template')
+
+        return request.render('pragtech_tailoring_management.feedback_page_template', {'email_exists': False})
+
     
 class TestimonialController(http.Controller):
 
