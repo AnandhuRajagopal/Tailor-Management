@@ -8,25 +8,25 @@
             <field name="sequence" type="int">20</field>
         </record>
 
-        <!-- Feedback template in Web page -->
         <template id="feedback_page_template" name="Feedback Page">
             <t t-call="website.layout">
                 <section class="feedback-section">
                     <div class="col-lg-6">
                         <div class="feedback-form">
                             <h3 class="form-title text-center">Share Your Feedback</h3>
-                            <div id="feedback-alert" class="alert alert-danger" style="display: none;">
-                                Feedback with this email already exists.
-                            </div>
                             <form action="/feedback/submit" method="POST">
                                 <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
                                 <div class="form-group">
-                                    <label for="name">Your Name</label>
-                                    <input type="text" class="form-control" id="name" name="name" required="1"/>
+                                    <label for="order_id">Select Order</label>
+                                    <select name="order_id" class="form-control" required="1" id="order_id">
+                                        <option value="" disabled="disabled">Select an Order</option>
+                                        <t t-foreach="orders" t-as="order">
+                                            <option t-att-value="order.id"><t t-esc="order.name"/></option>
+                                        </t>
+                                    </select>
                                 </div>
-                                <div class="form-group">
-                                    <label for="email">Your Email</label>
-                                    <input type="email" class="form-control" id="email" name="email" required="1"/>
+                                <div class="form-group" id="selected_product" readonly="readonly" style="font-weight:bold;">
+                                    <!-- Product name will be displayed here -->
                                 </div>
                                 <div class="form-group">
                                     <label for="feedback">Your Feedback</label>
@@ -36,16 +36,35 @@
                                     <button type="submit" class="btn btn-primary">Submit Feedback</button>
                                 </center>
                             </form>
+                            
                         </div>
                     </div>
+                    <script type="text/javascript">
+                        var orderProducts = {
+                            <t t-foreach="orders" t-as="order">
+                                "<t t-esc="order.id"/>": [
+                                    <t t-foreach="order.order_line" t-as="order_line">
+                                        "<t t-esc="order_line.product_template_id.name"/>",
+                                    </t>
+                                ],
+                            </t>
+                        };
+                    
+                        document.addEventListener("DOMContentLoaded", function () {
+                            var orderDropdown = document.getElementById("order_id");
+                            var selectedProduct = document.getElementById("selected_product");
+                    
+                            orderDropdown.addEventListener("change", function () {
+                                var selectedOrderId = this.value;
+                                var selectedProductText = selectedOrderId === "" ? "" : orderProducts[selectedOrderId].join(", ");
+                                selectedProduct.innerHTML = selectedProductText;
+                            });
+                        });
+                    </script>
                 </section>
-                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-                <script type="text/javascript">
-                        <t t-if="email_exists">
-                            $("#feedback-alert").show();
-                        </t>
-                </script>
             </t>
         </template>
+        
+        
     </data>
 </odoo>

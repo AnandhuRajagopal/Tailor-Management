@@ -70,7 +70,7 @@
                 <menuitem
                         id="product_category_inherit_menu"
                         name="Categories"
-                        action="product.product_category_action_form"
+                        action="action_product_public_category_inherit"
                         groups = "pragtech_tailoring_management.group_admin"
                         parent="pragtech_tailoring_management.products_menu_root"
                         sequence="3"/>
@@ -124,7 +124,7 @@
 
         <menuitem
                 id="customers_menu_root"
-                name="Customers"
+                name="Contacts"
                 action="action_customer"
                 parent="pragtech_tailoring_management.pragtech_tailoring_menu_root"
                 groups="pragtech_tailoring_management.group_admin"

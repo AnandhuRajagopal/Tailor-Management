@@ -14,6 +14,7 @@
             <field name="model">tailoring.feedback</field>
             <field name="arch" type="xml">
                 <tree string="Feedback Tree">
+                    <field name="order_id" readonly="1"/>
                     <field name="name"/>
                     <field name="email"/>
                     <field name="feedback"/>
@@ -29,6 +30,7 @@
                 <form string="Feedback Form">
                     <sheet>
                         <group>
+                            <field name="order_id" readonly="1"/>
                             <field name="name"/>
                             <field name="email"/>
                             <field name="feedback" widget="textarea"/>

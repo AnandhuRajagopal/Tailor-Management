@@ -7,3 +7,8 @@ class Feedback(models.Model):
     name = fields.Char(string='Name', required=True)
     email = fields.Char(string='Email', required=True)
     feedback = fields.Text(string='Feedback', required=True)
+    order_id = fields.Many2one('sale.order', string='Order')
+    product_name = fields.Char(string='Product')
+
+
+    

@@ -17,7 +17,7 @@
                         class="custom_cover bg-black-50 pt96 custom_colored_level custom_parallax_no_overflow_hidden pb40 custom_img_bg vh-60"
                         data-scroll-background-ratio="0" data-snippet="custom_cover"
                         data-name="Cover" style=" margin-top: 100px;">
-                        <div class="custom_allow_columns container" id="background_img_text">
+                        <div class="custom_allow_columns container2" id="background_img_text">
                             <h1 style="text-align: center;">
                                 <font style="font-size: 62px; font-weight: bold;">"Experience the
                                     convenience of personalized tailoring brought to your location"</font>
@@ -39,7 +39,7 @@
                     <section class="custom_text_image pt-5 pb-5 custom_colored_level"
                         data-snippet="custom_image_text" data-name="Image - Text"
                         style="margin-top: 200px;">
-                        <div class="container">
+                        <div class="container2">
                             <div class="row align-items-center">
                                 <div class="col-lg-6 pt-4 pb-4 custom_colored_level">
                                     <img
@@ -57,7 +57,7 @@
                                     <p class="custom_default_snippet_text text-dark">Explore a wide
                                         range of fabrics and designs tailored to your preferences.
                                         Elevate your wardrobe with precision and craftsmanship.</p>
-                                    <a href="/shop/category/men-1" class="btn btn-primary">Explore
+                                    <a t-attf-href="/shop/category/{{men}}" class="btn btn-primary">Explore
                                         Mens Tailoring</a>
                                 </div>
                             </div>
@@ -67,7 +67,7 @@
                     <!-- Womens Tailoring Section -->
                     <section class="custom_text_image pt-5 pb-5 custom_colored_level"
                         data-snippet="custom_text_image" data-name="Text - Image">
-                        <div class="container">
+                        <div class="container2">
                             <div class="row align-items-center">
                                 <div class="col-lg-6 pt-4 pb-4 custom_colored_level">
                                     <h2 class="text-dark">
@@ -79,7 +79,7 @@
                                     <p class="custom_default_snippet_text text-dark">Choose from a
                                         variety of fabrics and designs tailored to your preferences.
                                         Redefine your style with our attention to detail.</p>
-                                    <a href="/shop/category/women-2" class="btn btn-primary">Explore
+                                    <a t-attf-href="/shop/category/{{women}}" class="btn btn-primary">Explore
                                         Womens Tailoring</a>
                                 </div>
                                 <div class="col-lg-6 pt-4 pb-4 custom_colored_level">
@@ -95,7 +95,7 @@
                     <!-- Kids Tailoring Section -->
                     <section class="custom_text_image pt-5 pb-5 custom_colored_level"
                         data-snippet="custom_image_text" data-name="Image - Text">
-                        <div class="container">
+                        <div class="container2">
                             <div class="row align-items-center">
                                 <div class="col-lg-6 pt-4 pb-4 custom_colored_level">
                                     <img
@@ -117,7 +117,7 @@
                                         clothing needs. Quality craftsmanship and a perfect fit,
                                         every time.
                                     </p>
-                                    <a href="/shop/category/kids-3" class="btn btn-primary">Explore
+                                    <a t-attf-href="/shop/category/{{kids}}" class="btn btn-primary">Explore
                                         Kids Tailoring</a>
                                 </div>
                             </div>
@@ -129,7 +129,7 @@
                         class="custom_process_steps pt-5 pb-5 custom_colored_level undefined custom_cc custom_cc1"
                         data-snippet="custom_process_steps" data-name="Steps"
                         style="position: relative; margin-top: 200px;margin-bottom: 200px;">
-                        <div class="container">
+                        <div class="container2">
                             <div class="row no-gutters">
                                 <div
                                     class="col-lg-3 custom_process_step pt-4 pb-4 custom_colored_level">
@@ -190,7 +190,7 @@
 
                     <section class="custom_text_block pt-5 pb-5 custom_colored_level"
                         data-snippet="custom_text_block" data-name="Text">
-                        <div class="custom_allow_columns container">
+                        <div class="custom_allow_columns container2">
                             <div class="owl-carousel" id="testimonial-carousel">
                             </div>
                         </div>

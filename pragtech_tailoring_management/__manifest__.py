@@ -42,9 +42,11 @@
         'views/inherit_stock_pickup.xml',
         'views/inherit_sale_order.xml',
         'views/inherit_product_page.xml',
+        'views/inherit_product_category.xml',
         'views/inherit_employee.xml',
         'views/inherit_res_partner.xml',
-
+        'views/customer_portal_inherit.xml',
+        'views/customer_portal_invoice_inherit.xml',
         'webpage/webpage_home.xml',
         'webpage/webpage_feedback.xml',
         'webpage/measurement_popup.xml',
@@ -53,6 +55,8 @@
         'views/delivered_product_email.xml',
         'views/template_shipped_mail.xml',
         'views/template_payment_email.xml',
+
+        'data/categories.xml',
 
         'views/menu.xml',
 
