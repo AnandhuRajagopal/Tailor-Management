@@ -70,19 +70,6 @@ class SaleOrder(models.Model):
             'view_mode': 'tree,form',
             'target': 'current',
         }
-    # ...........................................Action send mail..........................................
-    def action_delivery_mail(self):
-        active_id = self.env.context.get('active_id')
-        sale_order = self.env['sale.order'].browse(self.id)
-        email_values = {
-            'email_from': self.company_id.email,
-            'email_to': self.partner_id.email,
-            'subject': 'Product Delivery'
-        }
-        template = self.env.ref('pragtech_tailoring_management.mail_template_ready_to_delivery')
-        template.send_mail(sale_order.id, force_send=True, email_values=email_values)
-
-        
 
     def action_confirm(self):
         res = super(SaleOrder, self).action_confirm()

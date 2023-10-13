@@ -15,6 +15,9 @@
                     <div class="col-lg-6">
                         <div class="feedback-form">
                             <h3 class="form-title text-center">Share Your Feedback</h3>
+                            <div id="feedback-alert" class="alert alert-danger" style="display: none;">
+                                Feedback with this email already exists.
+                            </div>
                             <form action="/feedback/submit" method="POST">
                                 <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
                                 <div class="form-group">
@@ -29,11 +32,19 @@
                                     <label for="feedback">Your Feedback</label>
                                     <textarea class="form-control" id="feedback" name="feedback" rows="4" required="1"></textarea>
                                 </div>
-                                <center><button type="submit" class="btn btn-primary">Submit Feedback</button></center>
+                                <center>
+                                    <button type="submit" class="btn btn-primary">Submit Feedback</button>
+                                </center>
                             </form>
                         </div>
                     </div>
                 </section>
+                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                <script type="text/javascript">
+                        <t t-if="email_exists">
+                            $("#feedback-alert").show();
+                        </t>
+                </script>
             </t>
         </template>
     </data>

@@ -57,8 +57,10 @@
     <!-- Record rule for Driver -->
     <record id="access_rule_driver" model="ir.rule">
         <field name="name">Driver Record Rule</field>
-        <field name="model_id" ref="model_stock_picking" />
+        <field name="model_id" ref="model_stock_picking"/>
         <field name="domain_force">[('driver_id.id','=', user.id)]</field>
-        <field name="groups" eval="[(4,ref('pragtech_tailoring_management.group_driver'))]" />
+        <field name="groups" eval="[(4,ref('pragtech_tailoring_management.group_driver'))]"/>
+        <field name="perm_write" eval="False"/>
     </record>
+
 </odoo>

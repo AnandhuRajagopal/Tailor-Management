@@ -40,7 +40,14 @@
                                 <div class="modal-body larger-modal">
                                     <div class="form-group row">
                                         <div class="col-sm-6" style="margin-top: 20px;">
-                                            <img src="https://m.media-amazon.com/images/I/710mqhd9mCL._AC_UY1100_.jpg" style="width: 100%; height: 100%;" alt="Image" />
+                                            <div class="d-flex justify-content-between">
+                                                <div style="width: 48%;">
+                                                    <img src="/pragtech_tailoring_management/static/description/Men Measurements.jpg" style="width: 100%;" alt="Men Measurements" />
+                                                </div>
+                                                <div style="width: 48%;">
+                                                    <img src="/pragtech_tailoring_management/static/description/Women Measurement.jpg" style="width: 100%;" alt="Women Measurements" />
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <t t-foreach="line.product_id.cloth_type.measurement_ids" t-as="measurement">
@@ -60,6 +67,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                
                             <input type="hidden" name="csrf_token"
                                 t-att-value="request.csrf_token()" />
                             <input type="hidden" id="product_id" t-att-value="line.product_id.id" />
