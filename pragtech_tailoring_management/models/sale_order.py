@@ -7,6 +7,7 @@ class SaleOrderLine(models.Model):
     cloth_type_id = fields.Many2one(related='product_template_id.cloth_type', string="Cloth Type")
     description = fields.Char(string="Description", compute='_compute_description', store=True)
     done = fields.Boolean('done')
+    
 
     # ...........................................Compute Description..........................................
     @api.depends('product_template_id.description')
@@ -40,6 +41,7 @@ class SaleOrder(models.Model):
     state = fields.Selection(selection_add=[('tailor assigned', 'Tailor Assigned'),
                                             ('ready to deliver', 'Ready To Deliver'),
                                             ('shipped','Shipped'), ('delivered', 'Delivered')])
+    
     
 
 

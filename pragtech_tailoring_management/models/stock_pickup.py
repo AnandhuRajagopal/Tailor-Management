@@ -10,6 +10,7 @@ class StockPickup(models.Model):
     state = fields.Selection(selection_add=[('delivered', 'DELIVERED')])
     is_delivery = fields.Boolean(default = False, compute = 'is_delivery_funct')
     photo_req = fields.Boolean(default = False, compute = 'photo_req_funct')
+    digital_signature = fields.Binary(string='Customer Signature')
 
     # ...........................................Stock Validate Button..........................................
     def button_validate(self):

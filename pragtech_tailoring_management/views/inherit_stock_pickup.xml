@@ -52,13 +52,18 @@
                     <field name='photo_req' invisible='1'/>
 
                     <field name="driver_id" domain="[('function', '=', 'Driver')]" options="{'no_create': True,'no_create_edit': True}" attrs="{'invisible':[('is_delivery','=', False)],'required':[('is_delivery','=', True)]}"/>
-                    <field name="product_image" widget="image" style="width:300px;height:300px"/>
+                    <!-- <field name="product_image" widget="image" style="width:300px;height:300px"/> -->
+                    <field name="digital_signature" widget="signature"/>
                 </xpath>
 
                 <!-- Added Statusbar -->
                 <field name="state" position="attributes">
                     <attribute name= 'statusbar_visible'>draft,confirmed,assigned,done,delivered</attribute>
                 </field>
+
+                <!-- <xpath expr="//widget[@name='signature']" position="attributes">
+                    <attribute name="attrs">{'invisible': [('state', 'not', 'done')]}</attribute>
+                </xpath> -->
             </field>
         </record>
     </data>
