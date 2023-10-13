@@ -17,14 +17,10 @@
                     <attribute name="invisible">True</attribute>
                 </xpath>
 
-
-                <!-- Added driver_id,product_image fields after the origin field -->
+                <!-- Added driver_id field after the origin field -->
                 <xpath expr="//field[@name='origin']" position="after">
                     <field name="driver_id"/>
                 </xpath>
-
-
-
             </field>
         </record>
         <!-- ******************************** Inherit stock.picking Form View ********************************** -->
@@ -46,13 +42,12 @@
                     <button name="delivered" type="object" string="DELIVERED" icon="fa-truck fa-flip-horizontal fa-2px" class="btn btn-primary" attrs="{'invisible':['|','|','|','|','|',('state','=','draft'),('state','=','waiting'),('state','=','assigned'),('state','=','delivered'),('state','=','cancel'),('is_delivery','=', False)]}"/>
                 </xpath>
 
-                <!-- Added driver_id,product_image fields after the origin field -->
                 <xpath expr="//field[@name='origin']" position="after">
                     <field name='is_delivery' invisible='1'/>
                     <field name='photo_req' invisible='1'/>
 
                     <field name="driver_id" domain="[('function', '=', 'Driver')]" options="{'no_create': True,'no_create_edit': True}" attrs="{'invisible':[('is_delivery','=', False)],'required':[('is_delivery','=', True)]}"/>
-                    <field name="product_image" widget="image" attrs="{'invisible': [('state', '!=', 'delivered'), ('photo_req', '=', False)]}" style="width:250px; height:200px;"/>
+                    <field name="digital_signature" widget="signature"/>
                 </xpath>
 
                 <!-- Added Statusbar -->
