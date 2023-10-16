@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     recognition.onend = function () {
         isListening = false;
-        voiceButton.innerText = "Start Recording";
+        voiceButton.innerText = "...";
     };
 
     orderDropdown.addEventListener("change", function () {
@@ -30,12 +30,12 @@ document.addEventListener("DOMContentLoaded", function () {
     voiceButton.addEventListener("click", function () {
         if (!isListening) {
             isListening = true;
-            voiceButton.innerText = "Listening...";
+            voiceButton.innerText = "...";
             feedbackTextarea.value = ""; 
             recognition.start();
         } else {
             isListening = false;
-            voiceButton.innerText = "Start Recording";
+            voiceButton.innerText = "";
             recognition.stop();
         }
     });
