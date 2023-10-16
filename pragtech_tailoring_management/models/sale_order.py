@@ -1,4 +1,6 @@
 from odoo import models, fields, api, _
+import random
+
 
 
 class SaleOrderLine(models.Model):
@@ -41,11 +43,7 @@ class SaleOrder(models.Model):
     state = fields.Selection(selection_add=[('tailor assigned', 'Tailor Assigned'),
                                             ('ready to deliver', 'Ready To Deliver'),
                                             ('shipped','Shipped'), ('delivered', 'Delivered')])
-    
-    
-
-
-
+    random_number = fields.Char(string='Random Number', readonly=True, store=True)
 
     # ...........................................Specific Tailor Record Form View..........................................
     def current_tailor_record(self):

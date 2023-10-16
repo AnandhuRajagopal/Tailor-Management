@@ -44,10 +44,9 @@
 
                 <xpath expr="//field[@name='origin']" position="after">
                     <field name='is_delivery' invisible='1'/>
-                    <field name='photo_req' invisible='1'/>
-
                     <field name="driver_id" domain="[('function', '=', 'Driver')]" options="{'no_create': True,'no_create_edit': True}" attrs="{'invisible':[('is_delivery','=', False)],'required':[('is_delivery','=', True)]}"/>
-                    <field name="digital_signature" widget="signature"/>
+                    <field name="otp" attrs="{'invisible': [('state', 'not in', ('done', 'delivered'))]}" />
+
                 </xpath>
 
                 <!-- Added Statusbar -->
