@@ -3,22 +3,23 @@ document.addEventListener("DOMContentLoaded", function () {
     var selectedProduct = document.getElementById("selected_product");
     var feedbackTextarea = document.getElementById("feedback");
     var voiceButton = document.getElementById("voice-button");
-    var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-    var recognition = new SpeechRecognition();
+    var stopButton = document.getElementById("stop-button");
+    var recognition = new webkitSpeechRecognition();
     var isListening = false;
-
-    recognition.lang = "en-US";
+    var currentTranscript = "";
 
     recognition.onresult = function (event) {
-        var transcript = event.results[0][0].transcript;
-        if (isListening) {
-            feedbackTextarea.value += transcript + ' ';
-        }
+        var spokenText = event.results[0][0].transcript;
+        currentTranscript += spokenText + ' '; 
+        feedbackTextarea.value = currentTranscript;
     };
 
     recognition.onend = function () {
         isListening = false;
-        voiceButton.innerText = "...";
+        voiceButton.innerText = "Start Recording";
+        feedbackTextarea.focus();
+        var cursorPosition = feedbackTextarea.value.length;
+        feedbackTextarea.setSelectionRange(cursorPosition, cursorPosition);
     };
 
     orderDropdown.addEventListener("change", function () {
@@ -31,12 +32,16 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!isListening) {
             isListening = true;
             voiceButton.innerText = "...";
-            feedbackTextarea.value = ""; 
             recognition.start();
         } else {
             isListening = false;
-            voiceButton.innerText = "";
             recognition.stop();
         }
     });
+    stopButton.addEventListener("click", function () {
+        currentTranscript = "";
+        feedbackTextarea.value = "";
+    });
+
+    
 });

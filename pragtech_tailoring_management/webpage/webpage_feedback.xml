@@ -30,7 +30,9 @@
                                         <label for="feedback">Your Feedback</label>
                                         <div class="voice-input">
                                             <textarea class="form-control" id="feedback" name="feedback" rows="4" required="1"></textarea>
-                                            <button type="button" class="voice-button" id="voice-button"><i class="fa fa-microphone fa-2x"/></button>
+                                            <button type="button" class="voice-button" id="voice-button"><i class="fa fa-microphone"/></button>
+                                            <button type="button" class="voice-button" id="stop-button"><i class="fa fa-stop stop-icon"/></button>
+                                            
                                         </div>
                                     </div>
                                     <center>
