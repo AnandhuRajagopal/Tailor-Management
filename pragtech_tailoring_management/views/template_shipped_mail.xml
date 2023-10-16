@@ -13,7 +13,7 @@
                 <ul>
                     <h3>Dear <t t-out="object.partner_id.name" /> ,</h3>
                     <br/>
-                    <h3>Your Order <t t-out="object.scheduled_date"/> date to shipped</h3>
+                    <h3>Your Order <t t-out="object.origin"/>,is shipped and scheduled on , <t t-out="object.scheduled_date"/>,</h3>
                     <br/>
                     <h3>Your Product will be reaching you shortly.</h3>
                 </ul>
