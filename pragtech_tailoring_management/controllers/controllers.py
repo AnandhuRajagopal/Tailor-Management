@@ -12,7 +12,7 @@ class TailoringController(http.Controller):
         vals ={
             'men' : men,
             'women' : women,
-            'men' : men,
+            'kids' : kids,
         }
         return request.render('pragtech_tailoring_management.home_page_template',vals)
 
