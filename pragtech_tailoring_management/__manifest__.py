@@ -32,6 +32,12 @@
         'wizard/assigning_tailor_wizard.xml',
         'wizard/assigning_measurement_wizard.xml',
 
+
+        'views/template_delivery_email.xml',
+        'views/delivered_product_email.xml',
+        'views/template_shipped_mail.xml',
+        'views/template_payment_email.xml',
+
         'views/view_fabrics.xml',
         'views/view_cloth_type.xml',
         'views/view_measurement.xml',
@@ -51,10 +57,7 @@
         'webpage/webpage_feedback.xml',
         'webpage/measurement_popup.xml',
 
-        'views/template_delivery_email.xml',
-        'views/delivered_product_email.xml',
-        'views/template_shipped_mail.xml',
-        'views/template_payment_email.xml',
+
 
         'data/categories.xml',
 

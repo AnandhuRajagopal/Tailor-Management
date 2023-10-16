@@ -1,5 +1,6 @@
 from odoo import fields,models,api,_
 from datetime import date
+import random
 
 
 
@@ -29,22 +30,23 @@ class Tailor(models.Model):
     # ...........................................Tailor Work Finished Datetime..........................................
     def finish(self):
         self.finished_date = fields.Datetime.now()
-        self.write({
-            'state': 'finished'
-        })
-    # ........................................... send delivery mail..........................................
+        self.write({'state': 'finished'})
 
         if self.state == 'finished' or self.order_id.state == 'sale':
             self.order_id.state = 'ready to deliver'
             saleorders = self.env['sale.order'].browse(self.order_id.id)
-            print("============================================================SALE ORDERS=====================================================",saleorders)
+            random_num = random.randint(10000, 99999)  # Generate a random 5-digit number
+            self.order_id.random_number = random_num
+            print("11111111111111111111111111111",random_num)
+
             email_values = {
-            'email_from': saleorders.company_id.email,
-            'email_to': saleorders.partner_id.email,
-            'subject': 'Product Ready For Delivery'
-        }
-        template = self.env.ref('pragtech_tailoring_management.mail_template_ready_to_delivery')
-        template.send_mail(saleorders.id, force_send=True, email_values=email_values)
+                'email_from': saleorders.company_id.email,
+                'email_to': saleorders.partner_id.email,
+                'subject': 'Product Ready For Delivery',
+            }
+            template = self.env.ref('pragtech_tailoring_management.mail_template_ready_to_delivery')
+            template.send_mail(saleorders.id, force_send=True, email_values=email_values)
+        return True
         
 
     # ...........................................Specific Measurement Record Form View..........................................
