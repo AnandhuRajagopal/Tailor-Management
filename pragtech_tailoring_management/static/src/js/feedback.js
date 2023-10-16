@@ -34,7 +34,6 @@ $.ajax({
                 dots: true,
                 nav: false
             });
-
             $("a").on('click', function (event) {
                 if (this.hash !== "") {
                     event.preventDefault();

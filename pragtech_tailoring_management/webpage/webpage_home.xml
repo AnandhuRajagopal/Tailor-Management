@@ -3,15 +3,11 @@
         <!-- Home page template in Web page -->
         <template id="home_page_template" name="home Page">
             <t t-call="website.layout">
-                <link rel="stylesheet"
-                    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
-                <link rel="stylesheet"
-                    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" />
-                    <script
-                        src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" />
-                <script
-                    src="pragtech_tailoring_management/static/src/js/feedback.js" />
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"/>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+                    <script src="/pragtech_tailoring_management/static/src/js/feedback.js"></script>                    
                 <div id="wrap" class="custom_structure custom_empty">
                     <section id="background_img"
                         class="custom_cover bg-black-50 pt96 custom_colored_level custom_parallax_no_overflow_hidden pb40 custom_img_bg vh-60"

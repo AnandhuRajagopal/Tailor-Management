@@ -1,6 +1,5 @@
 <odoo>
     <data>
-        <!-- Feedback menu in Web page -->
         <record id="feedback_page" model="website.menu">
             <field name="name">feedback</field>
             <field name="url">/feedback/page/</field>
@@ -11,32 +10,34 @@
         <template id="feedback_page_template" name="Feedback Page">
             <t t-call="website.layout">
                 <section class="feedback-section">
-                    <div class="col-lg-6">
-                        <div class="feedback-form">
-                            <h3 class="form-title text-center">Share Your Feedback</h3>
-                            <form action="/feedback/submit" method="POST">
-                                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
-                                <div class="form-group">
-                                    <label for="order_id">Select Order</label>
-                                    <select name="order_id" class="form-control" required="1" id="order_id">
-                                        <option value="" disabled="disabled">Select an Order</option>
-                                        <t t-foreach="orders" t-as="order">
-                                            <option t-att-value="order.id"><t t-esc="order.name"/></option>
-                                        </t>
-                                    </select>
-                                </div>
-                                <div class="form-group" id="selected_product" readonly="readonly" style="font-weight:bold;">
-                                    <!-- Product name will be displayed here -->
-                                </div>
-                                <div class="form-group">
-                                    <label for="feedback">Your Feedback</label>
-                                    <textarea class="form-control" id="feedback" name="feedback" rows="4" required="1"></textarea>
-                                </div>
-                                <center>
-                                    <button type="submit" class="btn btn-primary">Submit Feedback</button>
-                                </center>
-                            </form>
-                            
+                    <div class="container">
+                        <div class="col-lg-6 mx-auto">
+                            <div class="feedback-form">
+                                <h3 class="form-title text-center">Share Your Feedback</h3>
+                                <form action="/feedback/submit" method="POST">
+                                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                    <div class="form-group">
+                                        <select name="order_id" class="form-control" required="1" id="order_id">
+                                            <option value="" disabled="disabled" selected="selected">Select an Order</option>
+                                            <t t-foreach="orders" t-as="order">
+                                                <option t-att-value="order.id"><t t-esc="order.name"/></option>
+                                            </t>
+                                        </select>
+                                    </div>
+                                    <div class="form-group" id="selected_product" style="font-weight: bold; margin-top: 10px; font-size: 16px;">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="feedback">Your Feedback</label>
+                                        <div class="voice-input">
+                                            <textarea class="form-control" id="feedback" name="feedback" rows="4" required="1"></textarea>
+                                            <button type="button" class="voice-button" id="voice-button">Start Recording</button>
+                                        </div>
+                                    </div>
+                                    <center>
+                                        <button type="submit" class="btn btn-primary">Submit Feedback</button>
+                                    </center>
+                                </form>
+                            </div>
                         </div>
                     </div>
                     <script type="text/javascript">
@@ -49,21 +50,14 @@
                                 ],
                             </t>
                         };
-                    
-                        document.addEventListener("DOMContentLoaded", function () {
-                            var orderDropdown = document.getElementById("order_id");
-                            var selectedProduct = document.getElementById("selected_product");
-                    
-                            orderDropdown.addEventListener("change", function () {
-                                var selectedOrderId = this.value;
-                                var selectedProductText = selectedOrderId === "" ? "" : orderProducts[selectedOrderId].join(", ");
-                                selectedProduct.innerHTML = selectedProductText;
-                            });
-                        });
                     </script>
+                <link rel="stylesheet" href="/pragtech_tailoring_management/static/src/css/feedback_webpage.css"/>
+                <script type="text/javascript" src="/pragtech_tailoring_management/static/src/js/feedback_webpage.js"/>
                 </section>
             </t>
         </template>
+        
+        
         
         
     </data>
