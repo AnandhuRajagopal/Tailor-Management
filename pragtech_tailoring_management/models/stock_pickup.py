@@ -24,25 +24,20 @@ class StockPickup(models.Model):
                 raise ValidationError("The OTP is not correct, please try again later")
 
     def button_validate(self):
-        if any(move.quantity_done <= 0 for move in self.move_ids):
-            raise MissingError("Done Quantities Cannot be Zero")
+            pic = super(StockPickup, self).button_validate()
 
-        pic = super(StockPickup, self).button_validate()
+            if self.state == 'done':
+                sale_order = self.env['sale.order'].browse(self.group_id.sale_id.id)
+                email_values = {
+                    'email_from': sale_order.company_id.email,
+                    'email_to': sale_order.partner_id.email,
+                    'subject': 'Shipped'
+                }
+                template = self.env.ref('pragtech_tailoring_management.mail_template_ready_to_shipped')
+                template.send_mail(sale_order.id, force_send=True, email_values=email_values)
+                self.group_id.sale_id.write({'state': 'shipped'})
 
-        if self.state == 'done':
-            sale_order = self.env['sale.order'].browse(self.sale_id.id)
-            email_values = {
-                'email_from': sale_order.company_id.email,
-                'email_to': sale_order.partner_id.email,
-                'subject': 'Shipped'
-            }
-            template = self.env.ref('pragtech_tailoring_management.mail_template_ready_to_shipped')
-            template.send_mail(sale_order.id, force_send=True, email_values=email_values)
-            sale_orders = self.env['sale.order'].search([('picking_ids', 'in', self.ids)])
-            for sale_order in sale_orders:
-                if sale_order.state != 'shipped':
-                    sale_order.write({'state': 'shipped'})
-        return pic
+            return pic
 
     # ...........................................Product Deliverd Button..........................................
     def delivered(self):
