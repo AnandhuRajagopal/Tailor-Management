@@ -5,6 +5,7 @@
         <xpath expr="//td[@class='td-action']/a[contains(@class, 'js_delete_product')]
         "
             position="before">
+            <t t-if="not website.is_public_user()">
             <t t-if="line.done">
                 <button type="button" name="open_measurement_popup" class="btn btn-primary"
                     id="open_measurement_button" data-toggle="modal"
@@ -20,6 +21,7 @@
                     t-att-data-line-id="line.id">
                     Add Measurement
                 </button>
+            </t>
             </t>
 
 
