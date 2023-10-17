@@ -31,7 +31,7 @@ class StockPickup(models.Model):
             if sale_order:
                 sale_order.write({'state': 'shipped'})
 
-        stock_picking = self.env['stock.picking'].browse(self.id)
+        stock_picking = self.browse(self.id)
         template = self.env.ref('pragtech_tailoring_management.mail_template_ready_to_shipped')
         email_values = {
             'email_from': self.company_id.email,
