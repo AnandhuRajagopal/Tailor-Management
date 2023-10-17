@@ -26,17 +26,17 @@ class StockPickup(models.Model):
     def button_validate(self):
             pic = super(StockPickup, self).button_validate()
 
-            if self.state == 'done':
-                sale_order = self.env['sale.order'].browse(self.group_id.sale_id.id)
+            if self.state == 'done' or self.sale_id.state == 'ready to deliver':
+                self.sale_id.state = 'shipped'
+                saleorders = self.env['sale.order'].browse(self.sale_id.id)
+
                 email_values = {
-                    'email_from': sale_order.company_id.email,
-                    'email_to': sale_order.partner_id.email,
-                    'subject': 'Shipped'
+                    'email_from': saleorders.company_id.email,
+                    'email_to': saleorders.partner_id.email,
+                    'subject': 'Shipped',
                 }
                 template = self.env.ref('pragtech_tailoring_management.mail_template_ready_to_shipped')
-                template.send_mail(sale_order.id, force_send=True, email_values=email_values)
-                self.group_id.sale_id.write({'state': 'shipped'})
-
+                template.send_mail(saleorders.id, force_send=True, email_values=email_values)
             return pic
 
     # ...........................................Product Deliverd Button..........................................
