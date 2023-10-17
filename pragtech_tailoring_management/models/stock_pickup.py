@@ -24,20 +24,23 @@ class StockPickup(models.Model):
                 raise ValidationError("The OTP is not correct, please try again later")
 
     def button_validate(self):
-            pic = super(StockPickup, self).button_validate()
+        pic = super(StockPickup, self).button_validate()
 
-            if self.state == 'done' or self.sale_id.state == 'ready to deliver':
-                self.sale_id.state = 'shipped'
-                saleorders = self.env['sale.order'].browse(self.sale_id.id)
+        if self.state == 'done':
+            sale_order = self.sale_id 
+            if sale_order:
+                sale_order.write({'state': 'shipped'})
 
-                email_values = {
-                    'email_from': saleorders.company_id.email,
-                    'email_to': saleorders.partner_id.email,
-                    'subject': 'Shipped',
-                }
-                template = self.env.ref('pragtech_tailoring_management.mail_template_ready_to_shipped')
-                template.send_mail(saleorders.id, force_send=True, email_values=email_values)
-            return pic
+        stock_picking = self.env['stock.picking'].browse(self.id)
+        template = self.env.ref('pragtech_tailoring_management.mail_template_ready_to_shipped')
+        email_values = {
+            'email_from': self.company_id.email,
+            'email_to': self.partner_id.email,
+            'subject': 'Shipped',
+        }
+        template.send_mail(stock_picking.id, force_send=True, email_values=email_values)
+        
+        return pic
 
     # ...........................................Product Deliverd Button..........................................
     def delivered(self):
