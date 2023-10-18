@@ -17,7 +17,6 @@ class MeasurementController(http.Controller):
             user = request.env.user
 
             sale_order = request.website.sale_get_order()
-            print(sale_order)
             if not sale_order:
                 raise UserError(_("No active sale order found."))
 

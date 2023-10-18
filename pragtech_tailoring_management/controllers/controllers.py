@@ -21,10 +21,18 @@ class FeedbackController(http.Controller):
 
     @http.route('/feedback/page/', type='http', auth="public", website=True)
     def feedback_page(self, **kw):
-        user = request.env.user
-        orders = request.env['sale.order'].search([('partner_id', '=', user.partner_id.id)])
-        return request.render('pragtech_tailoring_management.feedback_page_template', {'user': user, 'orders': orders,})
-    
+        if not request.website.is_public_user():
+            user = request.env.user
+            orders = request.env['sale.order'].search([('partner_id', '=', user.partner_id.id)])
+            return request.render('pragtech_tailoring_management.feedback_page_template', {'user': user, 'orders': orders})
+        else:
+            alert_message = "To provide feedback, please log in or create an account."
+            return """
+                <script>
+                    alert('%s');
+                    window.location.href = '/web/login';
+                </script>
+            """ % alert_message
 
 
     
